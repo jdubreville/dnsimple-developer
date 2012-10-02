@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>DNSimple API - DNSimple API</title>
+    <title>Applied Templates - DNSimple API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -43,13 +43,29 @@
     <div class="container">
       <div class="row">
         <div class="span9">
-          <h1 id="the-dnsimple-api">The DNSimple API</h1>
+          <h1 id="applied-template-api">Applied Template API</h1>
 
-<p>Welcome to the official <a href="https://dnsimple.com/">DNSimple</a> API documentation.</p>
+<ul id="markdown-toc">
+<li><a href="#apply-a-template">Apply a template</a></li>
+</ul><h2 id="apply-a-template">Apply a template</h2>
 
-<p>DNSimple provides DNS hosting and domain registration that is simple and friendly. We provide a full API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort.</p>
+<p>Apply the specific template to the domain.</p>
 
-<p>The following documentation describes the DNSimple REST API.</p>
+<pre><code>POST /domains/:domain/templates/:id/apply
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      https://dnsimple.com/domains/:domain/templates/:id/apply
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
         </div>
         <div class="span3">
           <h4>Introduction</h4>

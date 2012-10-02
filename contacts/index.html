@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Contacts - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="contact-api">Contact API</h1>
+
+<p>Contacts are used for domain registrant information when a domain is registered
+with DNSimple or transferred into DNSimple from another registrar.</p>
+
+<ul id="markdown-toc">
+<li><a href="#list-contacts">List contacts</a></li>
+  <li><a href="#get-a-contact">Get a contact</a></li>
+  <li><a href="#create-a-contact">Create a contact</a></li>
+  <li><a href="#update-a-contact">Update a contact</a></li>
+  <li><a href="#delete-a-contact">Delete a contact</a></li>
+</ul><h2 id="list-contacts">List contacts</h2>
+
+<pre><code>GET /contacts
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/contacts
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"contact"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"Miami"</span><span class="p">,</span>
+      <span class="s2">"address1"</span><span class="o">:</span> <span class="s2">"2834 SW 88th Ave"</span><span class="p">,</span>
+      <span class="s2">"state_province"</span><span class="o">:</span> <span class="s2">"FL"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-08-24T01:58:22Z"</span><span class="p">,</span>
+      <span class="s2">"address2"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"job_title"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-08-24T01:58:22Z"</span><span class="p">,</span>
+      <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"33546"</span><span class="p">,</span>
+      <span class="s2">"organization_name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"phone_ext"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">"+13051123333"</span><span class="p">,</span>
+      <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Doe"</span><span class="p">,</span>
+      <span class="s2">"fax"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"email_address"</span><span class="o">:</span> <span class="s2">"jane.doe@gmail.com"</span><span class="p">,</span>
+      <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"Jane"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"contact"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"Miami"</span><span class="p">,</span>
+      <span class="s2">"address1"</span><span class="o">:</span> <span class="s2">"1000 SW 1st Street"</span><span class="p">,</span>
+      <span class="s2">"state_province"</span><span class="o">:</span> <span class="s2">"FL"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-09-03T20:11:51Z"</span><span class="p">,</span>
+      <span class="s2">"address2"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"job_title"</span><span class="o">:</span> <span class="s2">"President"</span><span class="p">,</span>
+      <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-09-03T20:11:51Z"</span><span class="p">,</span>
+      <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"33143"</span><span class="p">,</span>
+      <span class="s2">"organization_name"</span><span class="o">:</span> <span class="s2">"Little Co Inc."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"phone_ext"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">"505 111 2222"</span><span class="p">,</span>
+      <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Smith"</span><span class="p">,</span>
+      <span class="s2">"fax"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"email_address"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span><span class="p">,</span>
+      <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"John"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+<h2 id="get-a-contact">Get a contact</h2>
+
+<pre><code>GET /contacts/:id
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/contacts/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"contact"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"Miami"</span><span class="p">,</span>
+    <span class="s2">"address1"</span><span class="o">:</span> <span class="s2">"1000 SW 1st Street"</span><span class="p">,</span>
+    <span class="s2">"state_province"</span><span class="o">:</span> <span class="s2">"FL"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-09-03T20:11:51Z"</span><span class="p">,</span>
+    <span class="s2">"address2"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"job_title"</span><span class="o">:</span> <span class="s2">"President"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-09-03T20:11:51Z"</span><span class="p">,</span>
+    <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"33143"</span><span class="p">,</span>
+    <span class="s2">"organization_name"</span><span class="o">:</span> <span class="s2">"Little Co Inc."</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"phone_ext"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">"505 111 2222"</span><span class="p">,</span>
+    <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Smith"</span><span class="p">,</span>
+    <span class="s2">"fax"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"email_address"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span><span class="p">,</span>
+    <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"John"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="create-a-contact">Create a contact</h2>
+
+<pre><code>POST /contacts
+</code></pre>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/contacts
+</code></pre>
+
+<h3 id="input">Input</h3>
+
+<p>The following fields are required:</p>
+
+<ul>
+<li><code>contact[first_name]</code></li>
+  <li><code>contact[last_name]</code></li>
+  <li><code>contact[address1]</code></li>
+  <li><code>contact[city]</code></li>
+  <li><code>contact[state_province]</code></li>
+  <li><code>contact[postal_code]</code></li>
+  <li><code>contact[country]</code></li>
+  <li><code>contact[email_address]</code></li>
+  <li><code>contact[phone]</code></li>
+</ul><p>The following fields are optional:</p>
+
+<ul>
+<li><code>contact[organization_name]</code></li>
+  <li><code>contact[job_title]</code></li>
+  <li><code>contact[fax]</code></li>
+  <li><code>contact[phone_ext]</code></li>
+  <li><code>contact[label]</code></li>
+</ul><p>If the <code>contact[organization_name]</code> is specified then you must also include <code>contact[job_title]</code>.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"contact"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Doe"</span><span class="p">,</span>
+    <span class="s2">"address1"</span><span class="o">:</span> <span class="s2">"1 SW 1st Street"</span><span class="p">,</span>
+    <span class="s2">"city"</span><span class="o">:</span> <span class="s2">"Miami"</span><span class="p">,</span>
+    <span class="s2">"state_province"</span><span class="o">:</span> <span class="s2">"FL"</span><span class="p">,</span>
+    <span class="s2">"postal_code"</span><span class="o">:</span> <span class="s2">"33143"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="o">:</span> <span class="s2">"US"</span><span class="p">,</span>
+    <span class="s2">"email_address"</span><span class="o">:</span> <span class="s2">"john.doe@gmail.com"</span><span class="p">,</span>
+    <span class="s2">"phone"</span><span class="o">:</span> <span class="s2">"+15551122323"</span><span class="p">,</span>
+    <span class="s2">"label"</span><span class="o">:</span> <span class="s2">"Home"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-2">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="update-a-contact">Update a contact</h2>
+
+<pre><code>PUT /contacts/:id
+</code></pre>
+
+<h3 id="example-3">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X PUT \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/contacts/:id
+</code></pre>
+
+<h3 id="input-1">Input</h3>
+
+<p>See “Create a contact”.</p>
+
+<h3 id="response-3">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="delete-a-contact">Delete a contact</h2>
+
+<pre><code>DELETE /contacts/:id
+</code></pre>
+
+<h3 id="example-4">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/contacts/:id
+</code></pre>
+
+<h3 id="response-4">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>

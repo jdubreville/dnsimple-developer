@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Statements - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="statement-api">Statement API</h1>
+
+<p>API for listing account history as statements.</p>
+
+<h2 id="list-statements">List statements</h2>
+
+<pre><code>GET /statements
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/statements
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"statement"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"basic_html_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
+      <span class="s2">"closed_at"</span><span class="o">:</span> <span class="s2">"2012-09-09T15:45:10Z"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-11T10:46:20Z"</span><span class="p">,</span>
+      <span class="s2">"html_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">38265</span><span class="p">,</span>
+      <span class="s2">"opened_at"</span><span class="o">:</span> <span class="s2">"2012-08-09T15:43:32Z"</span><span class="p">,</span>
+      <span class="s2">"settled_at"</span><span class="o">:</span> <span class="s2">"2012-09-09T15:45:10Z"</span><span class="p">,</span>
+      <span class="s2">"statement_identifier"</span><span class="o">:</span> <span class="s2">"12382497"</span><span class="p">,</span>
+      <span class="s2">"subscription_id"</span><span class="o">:</span> <span class="mi">3817</span><span class="p">,</span>
+      <span class="s2">"text_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-09-11T10:46:20Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"statement"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"basic_html_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
+      <span class="s2">"closed_at"</span><span class="o">:</span> <span class="s2">"2012-08-09T15:43:31Z"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-08-11T10:18:51Z"</span><span class="p">,</span>
+      <span class="s2">"html_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">34113</span><span class="p">,</span>
+      <span class="s2">"opened_at"</span><span class="o">:</span> <span class="s2">"2012-07-09T15:42:23Z"</span><span class="p">,</span>
+      <span class="s2">"settled_at"</span><span class="o">:</span> <span class="s2">"2012-08-09T15:43:31Z"</span><span class="p">,</span>
+      <span class="s2">"statement_identifier"</span><span class="o">:</span> <span class="s2">"11484661"</span><span class="p">,</span>
+      <span class="s2">"subscription_id"</span><span class="o">:</span> <span class="mi">3817</span><span class="p">,</span>
+      <span class="s2">"text_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-08-26T10:14:56Z"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>

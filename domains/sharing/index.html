@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>DNSimple API - DNSimple API</title>
+    <title>Domain Sharing - DNSimple API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -43,13 +43,80 @@
     <div class="container">
       <div class="row">
         <div class="span9">
-          <h1 id="the-dnsimple-api">The DNSimple API</h1>
+          <h1 id="domain-sharing-api">Domain sharing API</h1>
 
-<p>Welcome to the official <a href="https://dnsimple.com/">DNSimple</a> API documentation.</p>
+<ul id="markdown-toc">
+<li><a href="#list-memberships">List memberships</a></li>
+  <li><a href="#add-a-membership">Add a membership</a></li>
+  <li><a href="#delete-a-membership">Delete a membership</a></li>
+</ul><h2 id="list-memberships">List memberships</h2>
 
-<p>DNSimple provides DNS hosting and domain registration that is simple and friendly. We provide a full API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort.</p>
+<pre><code>GET /domains/:domain/memberships
+</code></pre>
 
-<p>The following documentation describes the DNSimple REST API.</p>
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/:domain/memberships
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="add-a-membership">Add a membership</h2>
+
+<pre><code>POST /domains/:domain/memberships
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/:domain/memberships
+</code></pre>
+
+<h3 id="input">Input</h3>
+
+<p>The following fields are required:</p>
+
+<ul>
+<li><code>membership[email]</code></li>
+</ul><p><code>email</code> is the address for the person to add.
+If the person already exists in DNSimple as a customer then he will immediately be added to the domain’s membership list.
+If the person does not yet have a DNSimple account then he will receive an invitation to join via email.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"membership"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="delete-a-membership">Delete a membership</h2>
+
+<pre><code>DELETE /domains/:domain/memberships/:email
+</code></pre>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/:domain/memberships/:email
+</code></pre>
+
+<h3 id="response-2">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
         </div>
         <div class="span3">
           <h4>Introduction</h4>

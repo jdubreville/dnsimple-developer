@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WHOIS Privacy Protection - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="whois-privacy-protection-api">WHOIS Privacy Protection API</h1>
+
+<p>WHOIS Privacy Protection replaces a domain’s WHOIS data with a proxy service to protect a customer’s address, phone number and email address. The service is a paid service and must be renewed on a yearly basis.</p>
+
+<ul id="markdown-toc">
+<li><a href="#enable-privacy-protection">Enable privacy protection</a></li>
+  <li><a href="#disable-privacy-protection">Disable privacy protection</a></li>
+</ul><h2 id="enable-privacy-protection">Enable privacy protection</h2>
+
+<pre><code>POST /domains/:domain/whois_privacy
+</code></pre>
+
+<p>If WHOIS Privacy Protection has not yet been purchased then invoking this will purchase the service and enable it.
+If the privacy protection is currently disabled then it will be enabled.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      https://dnsimple.com/domains/:domain/whois_privacy
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"whois_privacy"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"autorenew"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-07-23T20:42:48Z"</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">"enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-07-23"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-07-23T20:42:48Z"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="disable-privacy-protection">Disable privacy protection</h2>
+
+<pre><code>DELETE /domains/:domain/whois_privacy
+</code></pre>
+
+<p>If the privacy protection has not expired it can always be turned back on with no additional charge.</p>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/:domain/whois_privacy
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>

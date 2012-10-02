@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>DNSimple API - DNSimple API</title>
+    <title>Domain Auto-renewal - DNSimple API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -43,13 +43,48 @@
     <div class="container">
       <div class="row">
         <div class="span9">
-          <h1 id="the-dnsimple-api">The DNSimple API</h1>
+          <h1 id="domain-auto-renewal-api">Domain Auto-renewal API</h1>
 
-<p>Welcome to the official <a href="https://dnsimple.com/">DNSimple</a> API documentation.</p>
+<ul id="markdown-toc">
+<li><a href="#enable-domain-auto-renewal">Enable domain auto-renewal</a></li>
+  <li><a href="#disable-domain-auto-renewal">Disable domain auto-renewal</a></li>
+</ul><h2 id="enable-domain-auto-renewal">Enable domain auto-renewal</h2>
 
-<p>DNSimple provides DNS hosting and domain registration that is simple and friendly. We provide a full API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort.</p>
+<pre><code>POST /domains/:domain/auto_renewal
+</code></pre>
 
-<p>The following documentation describes the DNSimple REST API.</p>
+<p>Some TLDs do not support auto-renewal and will respond with an error condition in that case.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      https://dnsimple.com/domains/:domain/auto_renewal
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="disable-domain-auto-renewal">Disable domain auto-renewal</h2>
+
+<pre><code>DELETE /domains/:domain/auto_renewal
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/:domain/auto_renewal
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
         </div>
         <div class="span3">
           <h4>Introduction</h4>

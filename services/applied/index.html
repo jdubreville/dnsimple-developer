@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Applied Services - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="applied-service-api">Applied Service API</h1>
+
+<ul id="markdown-toc">
+<li><a href="#list-applied-services">List applied services</a></li>
+  <li><a href="#list-available-services">List available services</a></li>
+  <li><a href="#apply-a-service">Apply a service</a></li>
+  <li><a href="#unapply-a-service">Unapply a service</a></li>
+</ul><h2 id="list-applied-services">List applied services</h2>
+
+<pre><code>GET /domains/:domain/applied_services
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/:domain/applied_services
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Add Google Apps for your domain."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Google Apps"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"googleapps"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Use Heroku as your web host."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Heroku"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"heroku"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+<h2 id="list-available-services">List available services</h2>
+
+<pre><code>GET /domains/:domain/available_services
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/:domain/available_services
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Forward {{domain}} to your Wordpress.com hosted blog."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"WordPress"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"wordpress"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Use posterious.com as your blog."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Posterous"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"posterous"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Use Blogger for your blog."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Blogger"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"blogger"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Use Tumblr for your blog."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Tumblr"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"tumblr"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Use Tender for your customer support."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Tender"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"tender"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+<h2 id="apply-a-service">Apply a service</h2>
+
+<pre><code>POST /domains/:domain/applied_services
+</code></pre>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/:domain/applied_services
+</code></pre>
+
+<h3 id="input">Input</h3>
+
+<p>The following fields are required:</p>
+
+<ul>
+<li><code>service[id]</code></li>
+</ul><h3 id="response-2">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="unapply-a-service">Unapply a service</h2>
+
+<pre><code>DELETE /domains/:domain/applied_services/:id
+</code></pre>
+
+<h3 id="example-3">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/:domain/applied_services/:id
+</code></pre>
+
+<h3 id="response-3">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>

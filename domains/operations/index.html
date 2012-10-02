@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Domain Operations - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="domain-operation-api">Domain Operation API</h1>
+
+<ul id="markdown-toc">
+<li><a href="#register-a-domain">Register a domain</a></li>
+  <li><a href="#transfer-a-domain">Transfer a domain</a></li>
+  <li><a href="#renew-a-domain">Renew a domain</a></li>
+</ul><h2 id="register-a-domain">Register a domain</h2>
+
+<p>Register a domain name with DNSimple and the appropriate domain registry.</p>
+
+<pre><code>POST /domain_registrations
+</code></pre>
+
+<p>Your account must already be active for this command to complete successfully.
+You will be automatically charged the 1 year registration fee upon successful registration,
+so please be careful with this command.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d &lt;data&gt; \
+      https://dnsimple.com/domain_registrations
+</code></pre>
+
+<h3 id="input">Input</h3>
+
+<p>The following fields are required:</p>
+
+<ul>
+<li><code>domain[name]</code></li>
+  <li><code>domain[registrant_id]</code></li>
+</ul><p><code>domain[registrant_id]</code> is the ID of an existing contact in your account.</p>
+
+<p>For TLDs that require <a href="/extended-attributes/">extended attributes</a>,
+you must also include <code>extended_attribute</code>:</p>
+
+<ul>
+<li><code>domain[extended_attribute][]</code></li>
+</ul><p>Example.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"newdomain.com"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<p>Example with extended attributes.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"newdomain.us"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"extended_attribute"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"us_nexus"</span><span class="o">:</span> <span class="s2">"C11"</span><span class="p">,</span>
+      <span class="s2">"us_purpose"</span><span class="o">:</span> <span class="s2">"P3"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response">Response</h3>
+
+<p>Upon successful creation of the domain the response code will be a 201
+and the response body will contain the domain details.</p>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="transfer-a-domain">Transfer a domain</h2>
+
+<p>Transfer a domain name from another domain registrar into DNSimple.</p>
+
+<pre><code>POST /domain_transfers
+</code></pre>
+
+<p>Your account must already be active for this command to complete successfully.
+You will be automatically charged the 1 year transfer fee upon successful transfer of the domain,
+which may take anywhere from a few minutes up to 7 days.</p>
+
+<p>Only domains that do not require extended attributes may be transferred through the API at this time.
+For example, domains ending in <code>.com</code> and <code>.net</code> may be transferred through the API,
+however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d &lt;data&gt; \
+      https://dnsimple.com/domain_transfers
+</code></pre>
+
+<h3 id="input-1">Input</h3>
+
+<p>The following fields are required:</p>
+
+<ul>
+<li><code>domain[name]</code></li>
+  <li><code>domain[registrant_id]</code></li>
+</ul><p>For top-level domains that require an authorization code,
+you must include the following:</p>
+
+<ul>
+<li><code>transfer_order[authinfo]</code></li>
+</ul><pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"transferdomain.com"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="s2">"transfer_order"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"authinfo"</span><span class="o">:</span> <span class="s2">"xjfjfjvhc293"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<p>Upon successful issuance of the transfer order the response code will be a 201
+and the response body will contain the transfer order details.</p>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="renew-a-domain">Renew a domain</h2>
+
+<p>Renew a domain name in your account.</p>
+
+<pre><code>POST /domain_renewal
+</code></pre>
+
+<p>Domains will always be renewed for their minimum renewal period,
+which is 1 year for most domains but for some domains may be more.</p>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d &lt;data&gt; \
+      https://dnsimple.com/domain_renewal
+</code></pre>
+
+<h3 id="input-2">Input</h3>
+
+<p>The following fields are required:</p>
+
+<ul>
+<li><code>domain[name]</code></li>
+</ul><p>The following fields are optional:</p>
+
+<ul>
+<li><code>domain[renew_whois_privacy]</code></li>
+</ul><pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"renewable.com"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-2">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>

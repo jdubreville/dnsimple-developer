@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>DNSimple API - DNSimple API</title>
+    <title>Email Forwards - DNSimple API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -43,13 +43,58 @@
     <div class="container">
       <div class="row">
         <div class="span9">
-          <h1 id="the-dnsimple-api">The DNSimple API</h1>
+          <h1 id="email-forwarding-api">Email Forwarding API</h1>
 
-<p>Welcome to the official <a href="https://dnsimple.com/">DNSimple</a> API documentation.</p>
+<p>Set up <a href="http://support.dnsimple.com/questions/22536-How-do-I-set-up-email-forwarding-with-DNSimple">email forwarding</a> from your domain to another email account.</p>
 
-<p>DNSimple provides DNS hosting and domain registration that is simple and friendly. We provide a full API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort.</p>
+<ul id="markdown-toc">
+<li><a href="#create-a-forward">Create a forward</a></li>
+  <li><a href="#delete-a-forward">Delete a forward</a></li>
+</ul><h2 id="create-a-forward">Create a forward</h2>
 
-<p>The following documentation describes the DNSimple REST API.</p>
+<pre><code>POST /domains/:domain/email_forwards
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/:domain/email_forwards
+</code></pre>
+
+<h3 id="input">Input</h3>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@example.com"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="delete-a-forward">Delete a forward</h2>
+
+<pre><code>DELETE /domains/:domain/email_forwards/:id
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/:domain/email_forwards/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
         </div>
         <div class="span3">
           <h4>Introduction</h4>

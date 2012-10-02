@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Domain Records - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="domain-record-api">Domain Record API</h1>
+
+<ul id="markdown-toc">
+<li><a href="#list-domain-records">List domain records</a></li>
+  <li><a href="#get-a-domain-record">Get a domain record</a></li>
+  <li><a href="#create-a-domain-record">Create a domain record</a></li>
+  <li><a href="#update-a-domain-record">Update a domain record</a></li>
+  <li><a href="#delete-a-domain-record">Delete a domain record</a></li>
+</ul><h2 id="list-domain-records">List domain records</h2>
+
+<pre><code>GET /domain/:domain/records
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domain/:domain/records
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<dl>
+<dt>name</dt>
+  <dd>
+<em>String</em> name to search. Example: <code>www</code>
+</dd>
+  <dt>type</dt>
+  <dd>
+<em>String</em> record type. Example: <code>CNAME</code>
+</dd>
+</dl><h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-04T04:41:31Z"</span><span class="p">,</span>
+      <span class="s2">"special_type"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
+      <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"1.2.3.4"</span><span class="p">,</span>
+      <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"A"</span><span class="p">,</span>
+      <span class="s2">"prio"</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
+      <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-01T08:01:18Z"</span><span class="p">,</span>
+      <span class="s2">"special_type"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+      <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"CNAME"</span><span class="p">,</span>
+      <span class="s2">"prio"</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+      <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-04T04:42:11Z"</span><span class="p">,</span>
+      <span class="s2">"special_type"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
+      <span class="s2">"pdns_identifier"</span><span class="o">:</span> <span class="s2">"40"</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">32</span><span class="p">,</span>
+      <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"mail.somesite.com"</span><span class="p">,</span>
+      <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"MX"</span><span class="p">,</span>
+      <span class="s2">"prio"</span><span class="o">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+
+<h2 id="get-a-domain-record">Get a domain record</h2>
+
+<pre><code>GET /domains/:domain/records/:id
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/:domain/records/:id
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
+    <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-01T08:01:18Z"</span><span class="p">,</span>
+    <span class="s2">"special_type"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"CNAME"</span><span class="p">,</span>
+    <span class="s2">"prio"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="create-a-domain-record">Create a domain record</h2>
+
+<pre><code>POST /domains/:domain/records
+</code></pre>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/:domain/records
+</code></pre>
+
+<h3 id="input">Input</h3>
+
+<p>The following fields are required:</p>
+
+<ul>
+<li><code>record[name]</code></li>
+  <li><code>record[record_type]</code></li>
+  <li><code>record[content]</code></li>
+</ul><p>The following fields are optional:</p>
+
+<ul>
+<li><code>record[ttl]</code></li>
+  <li><code>record[prio]</code></li>
+</ul><pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"MX"</span><span class="p">,</span>
+    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"mail1.mailservers.com"</span><span class="p">,</span>
+    <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s2">"prio"</span><span class="o">:</span> <span class="mi">10</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-2">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="update-a-domain-record">Update a domain record</h2>
+
+<pre><code>PUT /domains/:domain/records/:id
+</code></pre>
+
+<h3 id="example-3">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X PUT
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/:domain/records/:id
+</code></pre>
+
+<h3 id="input-1">Input</h3>
+
+<p>The following fields are updateable:</p>
+
+<ul>
+<li><code>record[name]</code></li>
+  <li><code>record[content]</code></li>
+  <li><code>record[ttl]</code></li>
+  <li><code>record[prio]</code></li>
+</ul><pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"1.2.3.4"</span><span class="p">,</span>
+    <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">600</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-3">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="delete-a-domain-record">Delete a domain record</h2>
+
+<pre><code>DELETE /domains/:domain/records/:id
+</code></pre>
+
+<h3 id="example-4">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/:domain/records/:id
+</code></pre>
+
+<h3 id="response-4">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>

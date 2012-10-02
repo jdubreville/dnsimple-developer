@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Extended Attributes - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="extended-attribute-api">Extended Attribute API</h1>
+
+<p>Some TLDs require extended attributes when registering or transferring a domain.
+This API interface provides information on the extended attributes for any particular TLD.</p>
+
+<h2 id="list-extended-attributes-for-a-tld">List extended attributes for a TLD</h2>
+
+<pre><code>GET /extended_attributes/:tld
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/extended_attributes/:tld
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"uk_legal_type"</span><span class="p">,</span>
+    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Legal type of registrant contact"</span><span class="p">,</span>
+    <span class="s2">"required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"options"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Individual"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"IND"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Individual (our default value)"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Non-UK Individual (representing self)"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"FIND"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Non-UK Individual (representing self)"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Limited Company"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"LTD"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Limited Company"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Public Limited Company"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"PLC"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Public Limited Company"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Partnership"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"PTNR"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Partnership"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK LLP"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"LLP"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Limited Liability Partnership"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Sole Trader"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"STRA"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Sole Trader"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Registered Charity"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"RCHAR"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Registered Charity"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Industrial/Provident Registered Company"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"IP"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Industrial/Provident Registered Company"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK School"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"SCH"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK School"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Other Foreign"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"FOTHER"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Other foreign organizations"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Government Body"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"GOV"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Government Body"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Corporation by Royal Charter"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"CRC"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Corporation by Royal Charter"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Statutory Body"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"STAT"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Statutory Body"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"UK Entity (other)"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"OTHER"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"UK Entity (other)"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Non-UK Corporation"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"FCORP"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Non-UK Corporation"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Non-UK Organization (other)"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"FOTHER"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Non-UK Organization"</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"uk_reg_co_no"</span><span class="p">,</span>
+    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Company identification number"</span><span class="p">,</span>
+    <span class="s2">"required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"options"</span><span class="o">:</span> <span class="p">[</span>
+
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"registered_for"</span><span class="p">,</span>
+    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Company or person domain is registered for (this must be accurate and CANNOT BE CHANGED)"</span><span class="p">,</span>
+    <span class="s2">"required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"options"</span><span class="o">:</span> <span class="p">[</span>
+
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"uk_reg_opt_out"</span><span class="p">,</span>
+    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Hide registrant data in Nominet WHOIS"</span><span class="p">,</span>
+    <span class="s2">"required"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"options"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"No"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"n"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Do not hide the registrant contact information in Nominet&amp;#39;s WHOIS."</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Yes"</span><span class="p">,</span>
+        <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"y"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Hide the registrant contact information in Nominet&amp;#39;s WHOIS (only available to individuals)."</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>

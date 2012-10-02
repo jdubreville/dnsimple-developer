@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Name Servers - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="name-server-api">Name Server API</h1>
+
+<p>Vanity name servers are used to hide the use of DNSimple’s name servers and instead use our name servers with different names.</p>
+
+<ul id="markdown-toc">
+<li><a href="#change-the-name-servers">Change the name servers</a></li>
+  <li><a href="#register-a-name-server-in-the-registry">Register a name server in the registry</a></li>
+  <li><a href="#de-register-a-name-server-in-the-registry">De-register a name server in the registry</a></li>
+</ul><h2 id="change-the-name-servers">Change the name servers</h2>
+
+<p>Change the name servers either to external name servers or back to DNSimple’s name servers.</p>
+
+<pre><code>POST /domains/:domain/name_servers
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/:domain/name_servers
+</code></pre>
+
+<h3 id="input">Input</h3>
+
+<p>This API accepts up to 6 name servers.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"name_servers"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"ns1"</span><span class="o">:</span> <span class="s2">"ns1.example.com"</span><span class="p">,</span>
+    <span class="s2">"ns2"</span><span class="o">:</span> <span class="s2">"ns2.example.com"</span><span class="p">,</span>
+    <span class="s2">"ns3"</span><span class="o">:</span> <span class="s2">"ns3.example.com"</span><span class="p">,</span>
+    <span class="s2">"ns4"</span><span class="o">:</span> <span class="s2">"ns4.example.com"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<p>To change the name servers back to DNSimple’s name servers, send the following body:</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"name_servers"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"ns1"</span><span class="o">:</span> <span class="s2">"ns1.dnsimple.com"</span><span class="p">,</span>
+    <span class="s2">"ns2"</span><span class="o">:</span> <span class="s2">"ns2.dnsimple.com"</span><span class="p">,</span>
+    <span class="s2">"ns3"</span><span class="o">:</span> <span class="s2">"ns3.dnsimple.com"</span><span class="p">,</span>
+    <span class="s2">"ns4"</span><span class="o">:</span> <span class="s2">"ns4.dnsimple.com"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="register-a-name-server-in-the-registry">Register a name server in the registry</h2>
+
+<pre><code>POST /domains/:domain/registry_name_servers
+</code></pre>
+
+<p>The domain must be registered with DNSimple in order for this command to work.</p>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/:domain/registry_name_servers
+</code></pre>
+
+<h3 id="input-1">Input</h3>
+
+<p>This API accepts up to 6 name servers.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"name_server"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"ns1.example.com"</span><span class="p">,</span>
+    <span class="s2">"ip"</span><span class="o">:</span> <span class="s2">"1.2.3.4"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
+<h2 id="de-register-a-name-server-in-the-registry">De-register a name server in the registry</h2>
+
+<pre><code>DELETE /domains/:domain/registry_name_servers/:name
+</code></pre>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/:domain/registry_name_servers/:name
+</code></pre>
+
+<h3 id="response-2">Response</h3>
+
+<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>

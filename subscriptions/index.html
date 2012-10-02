@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Subscriptions - DNSimple API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="/assets/bootstrap/js/bootstrap.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">DNSimple API</a>
+          <ul class="nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <h1 id="subscription-api">Subscription API</h1>
+
+<p>API for creating and managing account subscriptions.</p>
+
+<h2 id="get-the-subscription">Get the subscription</h2>
+
+<p>View the current subscription details.</p>
+
+<pre><code>GET /subscription
+</code></pre>
+
+<h3 id="example">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/subscription
+</code></pre>
+
+<h3 id="response">Response</h3>
+
+<p>Responds with HTTP 200 on success.
+Responds with HTTP 402 if the current user has no subscription.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"chargify_subscription"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"allocated_quantity"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-05-09T15:35:57Z"</span><span class="p">,</span>
+    <span class="s2">"domain_limit"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"failure_reason"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3817</span><span class="p">,</span>
+    <span class="s2">"plan_name"</span><span class="o">:</span> <span class="s2">"Silver"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"subscribed"</span><span class="p">,</span>
+    <span class="s2">"statements_refreshed_at"</span><span class="o">:</span> <span class="s2">"2012-09-26T10:55:21Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-09-26T10:55:21Z"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">4321</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="create-the-subscription">Create the subscription</h2>
+
+<p>Create a subscription for the currently authenticated user.</p>
+
+<pre><code>POST /subscription
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/subscription
+</code></pre>
+
+<h3 id="input">Input</h3>
+
+<dl>
+<dt>subscription.plan</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>subscription.credit_card.number</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>subscription.credit_card.first_name</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>subscription.credit_card.last_name</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>subscription.credit_card.billing_address</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>subscription.credit_card.billing_zip</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>subscription.credit_card.month</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>subscription.credit_card.year</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>subscription.credit_card.cvv</dt>
+  <dd>Required <em>string</em>
+</dd>
+</dl><pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"subscription"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"plan"</span><span class="o">:</span> <span class="s2">"Silver"</span><span class="p">,</span>
+    <span class="s2">"credit_card"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"number"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
+      <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"John"</span><span class="p">,</span>
+      <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Smith"</span><span class="p">,</span>
+      <span class="s2">"billing_address"</span><span class="o">:</span> <span class="s2">"111 SW 1st Street"</span><span class="p">,</span>
+      <span class="s2">"billing_zip"</span><span class="o">:</span> <span class="s2">"12345"</span><span class="p">,</span>
+      <span class="s2">"month"</span><span class="o">:</span> <span class="s2">"02"</span><span class="p">,</span>
+      <span class="s2">"year"</span><span class="o">:</span> <span class="s2">"2015"</span><span class="p">,</span>
+      <span class="s2">"cvv"</span><span class="o">:</span> <span class="s2">"111"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<p>Responds with HTTP 201 on success.
+Responds with HTTP 400 if the validation fails.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"chargify_subscription"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"allocated_quantity"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-30T17:40:42Z"</span><span class="p">,</span>
+    <span class="s2">"domain_limit"</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s2">"failure_reason"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"plan_name"</span><span class="o">:</span> <span class="s2">"Unknown"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"subscribing"</span><span class="p">,</span>
+    <span class="s2">"statements_refreshed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-09-30T17:40:42Z"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+        </div>
+        <div class="span3">
+          <h4>Introduction</h4>
+<ul class="nav nav-list">
+  <li><a href="/overview/">Overview</a></li>
+  <li><a href="/libraries/">Libraries</a></li>
+  <li><a href="/tools/">Tools</a></li>
+</ul>
+
+<h4>Resources</h4>
+<ul class="nav nav-list">
+  <li><a href="/domains/">Domains</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/domains/operations/">Operations</a></li>
+  <li><a href="/domains/autorenewal/">Autorenewal</a></li>
+  <li><a href="/domains/sharing/">Sharing</a></li>
+  <li><a href="/domains/records/">Records</a></li>
+  <li><a href="/domains/nameservers/">Name Servers</a></li>
+  <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/certificates/">SSL Certificates</a></li>
+  <li><a href="/domains/forwards/">Email Forwards</a></li>
+  </ul></li>
+  <li><a href="/contacts/">Contacts</a></li>
+  <li><a href="/services/">Services</a></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/services/applied/">Applications</a></li>
+  </ul></li>
+  <li><ul class="nav nav-list">
+  <li><a href="/templates/">Templates</a></li>
+  <li><a href="/templates/records/">Records</a></li>
+  <li><a href="/templates/applied/">Applications</a></li>
+  </ul></li>
+  <li><a href="/extended-attributes/">Extended Attributes</a></li>
+  <li><a href="/users/">Users</a></li>
+  <li><a href="/subscriptions/">Subscriptions</a></li>
+  <li><a href="/statements/">Statements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="container">
+      Copyright © 2012 Aetrion LLC.
+    </footer>
+
+  </body>
+</html>
