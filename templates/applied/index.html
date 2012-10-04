@@ -1,49 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Applied Templates - DNSimple API</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="utf-8">
+  <title>Applied Templates - DNSimple API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
 
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-    </style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <script src="/assets/bootstrap/js/bootstrap.js"></script>
+</head>
 
-    <script src="/assets/bootstrap/js/bootstrap.js"></script>
-  </head>
+<body>
 
-  <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/">DNSimple API</a>
-          <ul class="nav">
-            <!-- <li class="active"><a href="/">Home</a></li> -->
-          </ul>
-        </div>
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/" title="DNSimple API">
+          <img src="/assets/images/dnsimple-logo.png" alt="DNSimple API" />
+        </a>
+        <!-- <ul class="nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="#">Link</a></li>
+        </ul> -->
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="span9">
-          <h1 id="applied-template-api">Applied Template API</h1>
+  <div class="container">
+    <div class="row">
+      <div id="main" class="span9">
+        <h1 id="applied-template-api">Applied Template API</h1>
 
 <ul id="markdown-toc">
 <li><a href="#apply-a-template">Apply a template</a></li>
@@ -66,9 +59,9 @@
 <h3 id="response">Response</h3>
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
-        </div>
-        <div class="span3">
-          <h4>Introduction</h4>
+      </div>
+      <div id="sidebar" class="span3">
+        <h4>Introduction</h4>
 <ul class="nav nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><a href="/libraries/">Libraries</a></li>
@@ -106,13 +99,20 @@
   <li><a href="/statements/">Statements</a></li>
 </ul>
 
-        </div>
       </div>
     </div>
+  </div>
 
-    <footer class="container">
-      Copyright © 2012 Aetrion LLC.
-    </footer>
+  <footer>
+    <div class="container">
+      <p>Copyright © 2012 Aetrion LLC.</p>
+      <p>
+        <a href="https://dnsimple.com/">DNSimple</a> &bull;
+        <a href="https://dnsimple.com/about">About</a> &bull;
+        <a href="http://support.dnsimple.com/">Support</a>
+      </p>
+    </div>
+  </footer>
 
-  </body>
+</body>
 </html>
