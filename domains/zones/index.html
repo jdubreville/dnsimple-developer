@@ -67,6 +67,16 @@
       /domains/example.com/zone_imports
 </code></pre>
 
+<p>Import zone for domain with ID <code>123</code>:</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      /domains/123/zone_imports
+</code></pre>
+
 <h3 id="input">Input</h3>
 
 <dl>

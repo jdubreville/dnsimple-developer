@@ -51,39 +51,60 @@
 <p>Set up <a href="http://support.dnsimple.com/questions/22536-How-do-I-set-up-email-forwarding-with-DNSimple">email forwarding</a> from your domain to another email account.</p>
 
 <ul id="markdown-toc">
-<li><a href="#create-a-forward">Create a forward</a></li>
+<li><a href="#list-forwards">List forwards</a></li>
+  <li><a href="#create-a-forward">Create a forward</a></li>
   <li><a href="#delete-a-forward">Delete a forward</a></li>
-</ul><h2 id="create-a-forward">Create a forward</h2>
+</ul><h2 id="list-forwards">List forwards</h2>
 
-<pre><code>POST /domains/:domain/email_forwards
+<pre><code>GET /domains/:domain/email_forwards
 </code></pre>
 
 <h3 id="example">Example</h3>
 
+<p>List email forwards for domain <code>example.com</code>:</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      -H 'Content-Type: application/json' \
-      -X POST \
-      -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/:domain/email_forwards
+      https://dnsimple.com/domains/example.com/email_forwards
 </code></pre>
 
-<h3 id="input">Input</h3>
+<p>List email forwards for domain with ID <code>123</code>:</p>
 
-<pre><code class="language-js"><span class="p">{</span>
-  <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john"</span><span class="p">,</span>
-    <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@example.com"</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/123/email_forwards
+</code></pre>
 
 <h3 id="response">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john@example.com"</span><span class="p">,</span>
+      <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@somedomain.com"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:54:17Z"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:54:17Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"bob@example.com"</span><span class="p">,</span>
+      <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@somedomain.com"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:54:17Z"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:54:17Z"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
 
-<h2 id="delete-a-forward">Delete a forward</h2>
+<h2 id="create-a-forward">Create a forward</h2>
 
-<pre><code>DELETE /domains/:domain/email_forwards/:id
+<p>Create an email forward for domain <code>example.com</code>:</p>
+
+<pre><code>POST /domains/:domain/email_forwards
 </code></pre>
 
 <h3 id="example-1">Example</h3>
@@ -91,13 +112,62 @@
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
-      -X DELETE \
-      https://dnsimple.com/domains/:domain/email_forwards/:id
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/example.com/email_forwards
 </code></pre>
+
+<h3 id="input">Input</h3>
+
+<dl>
+<dt>email_forward.from</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>email_forward.to</dt>
+  <dd>Required <em>string</em>
+</dd>
+</dl><pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@example.com"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
 <h3 id="response-1">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 201 on success.
+Responds with HTTP 400 if the validation fails.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john@example.com"</span><span class="p">,</span>
+    <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@somedomain.com"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:51:07Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:51:07Z"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="delete-a-forward">Delete a forward</h2>
+
+<p>Delete the email forward <code>2</code> for domain <code>example.com</code>:</p>
+
+<pre><code>DELETE /domains/:domain/email_forwards/:id
+</code></pre>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/example.com/email_forwards/2
+</code></pre>
+
+<h3 id="response-2">Response</h3>
+
+<p>Responds with HTTP 204 on success.</p>
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
