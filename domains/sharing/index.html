@@ -59,14 +59,44 @@
 
 <h3 id="example">Example</h3>
 
+<p>List memberships for domain <code>example.com</code>:</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/:domain/memberships
+      https://dnsimple.com/domains/example.com/memberships
+</code></pre>
+
+<p>List memberships for domain with ID <code>123</code>:</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/123/memberships
 </code></pre>
 
 <h3 id="response">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"membership"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">712</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+      <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1560</span><span class="p">,</span>
+      <span class="s2">"permission"</span><span class="o">:</span> <span class="s2">"manage"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-18T11:38:20Z"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-10-18T11:38:20Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"membership"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">715</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+      <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1120</span><span class="p">,</span>
+      <span class="s2">"permission"</span><span class="o">:</span> <span class="s2">"manage"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-18T11:41:41Z"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-10-18T11:41:41Z"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
 
 <h2 id="add-a-membership">Add a membership</h2>
 
@@ -75,25 +105,26 @@
 
 <h3 id="example-1">Example</h3>
 
+<p>Add a membership for domain <code>example.com</code>:</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
-      -X POST
+      -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/:domain/memberships
+      https://dnsimple.com/domains/example.com/memberships
 </code></pre>
 
 <h3 id="input">Input</h3>
 
 <p>The following fields are required:</p>
 
-<ul>
-<li><code>membership[email]</code></li>
-</ul><p><code>email</code> is the address for the person to add.
+<dl>
+<dt>membership.email</dt>
+  <dd>Required <em>string</em> address for the person to add.
 If the person already exists in DNSimple as a customer then he will immediately be added to the domain’s membership list.
-If the person does not yet have a DNSimple account then he will receive an invitation to join via email.</p>
-
-<pre><code class="language-js"><span class="p">{</span>
+If the person does not yet have a DNSimple account then he will receive an invitation to join via email.</dd>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"membership"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span>
   <span class="p">}</span>
@@ -101,25 +132,48 @@ If the person does not yet have a DNSimple account then he will receive an invit
 
 <h3 id="response-1">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 201 on success.
+Responds with HTTP 400 if the validation fails.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"membership"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">712</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1560</span><span class="p">,</span>
+    <span class="s2">"permission"</span><span class="o">:</span> <span class="s2">"manage"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-18T11:38:20Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-10-18T11:38:20Z"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="delete-a-membership">Delete a membership</h2>
 
-<pre><code>DELETE /domains/:domain/memberships/:email
+<pre><code>DELETE /domains/:domain/memberships/:membership
 </code></pre>
 
 <h3 id="example-2">Example</h3>
+
+<p>Delete the membership with ID <code>712</code> for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/:domain/memberships/:email
+      https://dnsimple.com/domains/example.com/memberships/712
+</code></pre>
+
+<p>Delete the membership with email <code>member@example.com</code> for domain <code>example.com</code>:</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/example.com/memberships/member@example.com
 </code></pre>
 
 <h3 id="response-2">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 204 on success.</p>
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>

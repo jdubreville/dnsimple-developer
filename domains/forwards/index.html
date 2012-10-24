@@ -81,7 +81,7 @@
   <span class="p">{</span>
     <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
       <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john@example.com"</span><span class="p">,</span>
       <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@somedomain.com"</span><span class="p">,</span>
       <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:54:17Z"</span><span class="p">,</span>
@@ -91,7 +91,7 @@
   <span class="p">{</span>
     <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
       <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"bob@example.com"</span><span class="p">,</span>
       <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@somedomain.com"</span><span class="p">,</span>
       <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:54:17Z"</span><span class="p">,</span>
@@ -102,12 +102,12 @@
 
 <h2 id="create-a-forward">Create a forward</h2>
 
-<p>Create an email forward for domain <code>example.com</code>:</p>
-
 <pre><code>POST /domains/:domain/email_forwards
 </code></pre>
 
 <h3 id="example-1">Example</h3>
+
+<p>Create an email forward for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -141,7 +141,7 @@ Responds with HTTP 400 if the validation fails.</p>
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john@example.com"</span><span class="p">,</span>
     <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@somedomain.com"</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-10-09T14:51:07Z"</span><span class="p">,</span>
@@ -151,12 +151,12 @@ Responds with HTTP 400 if the validation fails.</p>
 
 <h2 id="delete-a-forward">Delete a forward</h2>
 
-<p>Delete the email forward <code>2</code> for domain <code>example.com</code>:</p>
-
 <pre><code>DELETE /domains/:domain/email_forwards/:id
 </code></pre>
 
 <h3 id="example-2">Example</h3>
+
+<p>Delete the email forward with ID <code>2</code> for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
