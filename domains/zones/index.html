@@ -50,6 +50,7 @@
 
 <ul id="markdown-toc">
 <li><a href="#import-domain-zone">Import Domain Zone</a></li>
+  <li><a href="#export-domain-zone">Export Domain Zone</a></li>
 </ul><h2 id="import-domain-zone">Import Domain Zone</h2>
 
 <pre><code>POST /domains/:domain/zone_imports
@@ -64,7 +65,7 @@
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      /domains/example.com/zone_imports
+      https://dnsimple.com/domains/example.com/zone_imports
 </code></pre>
 
 <p>Import zone for domain with ID <code>123</code>:</p>
@@ -74,7 +75,7 @@
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      /domains/123/zone_imports
+      https://dnsimple.com/domains/123/zone_imports
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -138,6 +139,36 @@ Responds with HTTP 400 if the validation fails.</p>
     <span class="s2">"not_imported_records_count"</span><span class="o">:</span> <span class="mi">1</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
+<h2 id="export-domain-zone">Export Domain Zone</h2>
+
+<pre><code>GET /domains/:domain/zone.txt
+</code></pre>
+
+<h3 id="example-1">Example</h3>
+
+<p>Export zone for domain <code>example.com</code>:</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      https://dnsimple.com/domains/example.com/zone.txt
+</code></pre>
+
+<p>Export zone for domain with ID <code>123</code>:</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      https://dnsimple.com/domains/123/zone.txt
+</code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre><code>$ORIGIN example.com.
+$TTL 1h
+example.com. IN SOA ns1.dnsimple.com admin.dnsimple.com 2012112401 86400 7200 604800 300
+example.com. IN NS  ns1.dnsimple.com.
+example.com. IN NS  ns2.dnsimple.com.
+example.com. IN NS  ns3.dnsimple.com.
+example.com. IN NS  ns4.dnsimple.com.
+</code></pre>
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
