@@ -128,15 +128,25 @@
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-21T21:15:19Z"</span><span class="p">,</span>
     <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"3/18/2012 4:07:00 PM"</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-10-03T11:38:04Z"</span><span class="p">,</span>
-    <span class="s2">"registration_status"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-28T10:00:17Z"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"active"</span><span class="p">,</span>
+    <span class="s2">"parsed_expiration_date"</span><span class="o">:</span> <span class="s2">"2012-03-18T04:07:00Z"</span><span class="p">,</span>
     <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
     <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"active"</span>
+    <span class="s2">"uses_external_name_servers"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
@@ -247,7 +257,7 @@ that was checked along with a status string.</p>
 
 <p>Push a domain from the current DNSimple account to another.</p>
 
-<pre><code>POST /domains/:id/push
+<pre><code>POST /domains/:domain/push
 </code></pre>
 
 <p>Once a domain is pushed you will no longer be able to access it through your account.
@@ -255,25 +265,34 @@ You will need to acces it using the new account’s credentials.</p>
 
 <h3 id="example-6">Example</h3>
 
+<p>Move domain <code>example.com</code>:</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
-      https://dnsimple.com/domains/:id/push
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/example.com/push
+</code></pre>
+
+<p>Move domain with ID <code>123</code>:</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/123/push
 </code></pre>
 
 <h3 id="input-1">Input</h3>
 
-<p>The following fields are required:</p>
-
-<ul>
-<li><code>push[new_user_email]</code></li>
-  <li><code>push[contact_id]</code></li>
-</ul><p><code>push[new_user_email]</code> must match the new account’s email address exactly.</p>
-
-<p><code>push[contact_id]</code> must exist in the new account.</p>
-
-<pre><code class="language-js"><span class="p">{</span>
+<dl>
+<dt>push.new_user_email</dt>
+  <dd>Required <em>string</em> email of the new account’s email address.</dd>
+  <dt>push.contact_id</dt>
+  <dd>Required <em>integer</em> corresponding to the new account’s registrant.</dd>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"push"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"new_user_email"</span><span class="o">:</span> <span class="s2">"john@example.com"</span><span class="p">,</span>
     <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">1234</span>
@@ -282,7 +301,33 @@ You will need to acces it using the new account’s credentials.</p>
 
 <h3 id="response-6">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 200 on success.
+Responds with HTTP 400 if bad request.
+Responds with HTTP 400 if the validation fails.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-21T21:15:19Z"</span><span class="p">,</span>
+    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"3/18/2012 4:07:00 PM"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"active"</span><span class="p">,</span>
+    <span class="s2">"parsed_expiration_date"</span><span class="o">:</span> <span class="s2">"2012-03-18T04:07:00Z"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1234</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s2">"uses_external_name_servers"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
