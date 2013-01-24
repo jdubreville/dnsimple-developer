@@ -58,6 +58,8 @@
   <li><a href="#move-domain-to-another-account">Move domain to another account</a></li>
 </ul><h2 id="list-domains">List domains</h2>
 
+<p>List all domains.</p>
+
 <pre><code>GET /domains
 </code></pre>
 
@@ -71,57 +73,65 @@
 <h3 id="response">Response</h3>
 
 <pre><code class="language-js"><span class="p">[</span>
-  <span class="p">{</span>
-    <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example1.com"</span><span class="p">,</span>
-      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"3/18/2012 4:07:00 PM"</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-10-03T11:38:04Z"</span><span class="p">,</span>
-      <span class="s2">"registration_status"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-28T10:00:17Z"</span><span class="p">,</span>
-      <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"active"</span>
-     <span class="p">}</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"unknown"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA"</span><span class="p">,</span>
+    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
   <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example2.com"</span><span class="p">,</span>
-      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"8/17/2013 8:57:00 PM"</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-05T02:43:40Z"</span><span class="p">,</span>
-      <span class="s2">"registration_status"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T16:10:26Z"</span><span class="p">,</span>
-      <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"active"</span>
-     <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example3.com"</span><span class="p">,</span>
-      <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"7/10/2013 7:37:00 PM"</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-01T07:46:17Z"</span><span class="p">,</span>
-      <span class="s2">"registration_status"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
-      <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-      <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"active"</span>
-     <span class="p">}</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">124</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example2.com"</span><span class="p">,</span>
+    <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"unknown"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA"</span><span class="p">,</span>
+    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
 <h2 id="get-a-domain">Get a domain</h2>
 
-<pre><code>GET /domains/:id
+<pre><code>GET /domains/:domain
 </code></pre>
 
 <h3 id="example-1">Example</h3>
 
+<p>Get the domain with ID <code>123</code>.</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/:id
+      https://dnsimple.com/domains/123
+</code></pre>
+
+<p>Get the domain <code>example.com</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/example.com
 </code></pre>
 
 <h3 id="response-1">Response</h3>
@@ -129,21 +139,19 @@
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-21T21:15:19Z"</span><span class="p">,</span>
-    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"3/18/2012 4:07:00 PM"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"active"</span><span class="p">,</span>
-    <span class="s2">"parsed_expiration_date"</span><span class="o">:</span> <span class="s2">"2012-03-18T04:07:00Z"</span><span class="p">,</span>
-    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"unknown"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
-    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA"</span><span class="p">,</span>
     <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
     <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"uses_external_name_servers"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
@@ -167,25 +175,55 @@
 
 <h3 id="input">Input</h3>
 
-<p>The following fields are required:</p>
-
-<ul>
-<li><code>domain[name]</code></li>
-</ul><pre><code class="language-js"><span class="p">{</span>
+<dl>
+<dt>domain.name</dt>
+  <dd>Required <em>string</em>
+</dd>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"newdomain.com"</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="response-2">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 400 if bad request.</p>
+
+<p>Responds with HTTP 400 if the validation fails.</p>
+
+<p>Responds with HTTP 201 on success.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"unknown"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"hosted"</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA"</span><span class="p">,</span>
+    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="delete-a-domain">Delete a domain</h2>
 
+<div class="alert">
+  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain">planned changes</a> for this API method.
+</div>
+
 <p>Delete the given domain from your account.</p>
 
-<pre><code>DELETE /domains/:id
+<pre><code>DELETE /domains/:domain
 </code></pre>
 
 <p>Please note that for domains which are registered with DNSimple
@@ -193,16 +231,32 @@ this will not delete the domain from the registry.</p>
 
 <h3 id="example-3">Example</h3>
 
+<p>Delete the domain with ID <code>123</code>:</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/:id
+      https://dnsimple.com/domains/123
+</code></pre>
+
+<p>Delete the domain <code>example.com</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://dnsimple.com/domains/example.com
 </code></pre>
 
 <h3 id="response-3">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 201 on success.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"deleted"</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="check-domain-availability">Check domain availability</h2>
 
@@ -249,9 +303,12 @@ that was checked along with a status string.</p>
       https://dnsimple.com/domains/:id/transfer_outs
 </code></pre>
 
-<h3 id="response-5">Response</h3>
+<!-- TODO
+### Response
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+~~~ js
+~~~
+-->
 
 <h2 id="move-domain-to-another-account">Move domain to another account</h2>
 
@@ -299,7 +356,7 @@ You will need to acces it using the new account’s credentials.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="response-6">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <p>Responds with HTTP 400 if bad request.</p>
 
@@ -310,14 +367,13 @@ You will need to acces it using the new account’s credentials.</p>
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-21T21:15:19Z"</span><span class="p">,</span>
-    <span class="s2">"expires_at"</span><span class="o">:</span> <span class="s2">"3/18/2012 4:07:00 PM"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
     <span class="s2">"name_server_status"</span><span class="o">:</span> <span class="s2">"active"</span><span class="p">,</span>
-    <span class="s2">"parsed_expiration_date"</span><span class="o">:</span> <span class="s2">"2012-03-18T04:07:00Z"</span><span class="p">,</span>
     <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1234</span><span class="p">,</span>
     <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
     <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
