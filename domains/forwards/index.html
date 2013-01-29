@@ -141,7 +141,7 @@
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john@example.com"</span><span class="p">,</span>
     <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@somedomain.com"</span><span class="p">,</span>
@@ -157,13 +157,13 @@
 
 <h3 id="example-2">Example</h3>
 
-<p>Delete the email forward with ID <code>2</code> for domain <code>example.com</code>:</p>
+<p>Delete the email forward with ID <code>123</code> for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/example.com/email_forwards/2
+      https://dnsimple.com/domains/example.com/email_forwards/123
 </code></pre>
 
 <h3 id="response-2">Response</h3>

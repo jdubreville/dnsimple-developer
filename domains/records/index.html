@@ -85,7 +85,6 @@
       <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
       <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-04T04:41:31Z"</span><span class="p">,</span>
-      <span class="s2">"special_type"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
       <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
@@ -99,7 +98,6 @@
       <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
       <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
       <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-01T08:01:18Z"</span><span class="p">,</span>
-      <span class="s2">"special_type"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
       <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
@@ -113,12 +111,11 @@
       <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
       <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
       <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-04T04:42:11Z"</span><span class="p">,</span>
-      <span class="s2">"special_type"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
       <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
       <span class="s2">"pdns_identifier"</span><span class="o">:</span> <span class="s2">"40"</span><span class="p">,</span>
       <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="mi">32</span><span class="p">,</span>
-      <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"mail.somesite.com"</span><span class="p">,</span>
+      <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"mail.example.com"</span><span class="p">,</span>
       <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"MX"</span><span class="p">,</span>
       <span class="s2">"prio"</span><span class="o">:</span> <span class="mi">10</span>
     <span class="p">}</span>
@@ -132,9 +129,11 @@
 
 <h3 id="example-1">Example</h3>
 
+<p>Get the record <code>123</code> for domain <code>example.com</code>.</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/:domain/records/:id
+      https://dnsimple.com/domains/example.com/records/123
 </code></pre>
 
 <h3 id="response-1">Response</h3>
@@ -144,10 +143,9 @@
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
     <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
     <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-07-01T08:01:18Z"</span><span class="p">,</span>
-    <span class="s2">"special_type"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-10-21T15:47:47Z"</span><span class="p">,</span>
     <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
     <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
     <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"CNAME"</span><span class="p">,</span>
     <span class="s2">"prio"</span><span class="o">:</span> <span class="kc">null</span>
@@ -161,32 +159,39 @@
 
 <h3 id="example-2">Example</h3>
 
+<p>Create a record for domain <code>example.com</code>:</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/:domain/records
+      https://dnsimple.com/domains/example.com/records
 </code></pre>
 
 <h3 id="input">Input</h3>
 
-<p>The following fields are required:</p>
-
-<ul>
-<li><code>record[name]</code></li>
-  <li><code>record[record_type]</code></li>
-  <li><code>record[content]</code></li>
-</ul><p>The following fields are optional:</p>
-
-<ul>
-<li><code>record[ttl]</code></li>
-  <li><code>record[prio]</code></li>
-</ul><pre><code class="language-js"><span class="p">{</span>
+<dl>
+<dt>record.name</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>record.record_type</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>record.content</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>record.ttl</dt>
+  <dd>Optional <em>integer</em>
+</dd>
+  <dt>record.prio</dt>
+  <dd>Optional <em>integer</em>
+</dd>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
     <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"MX"</span><span class="p">,</span>
-    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"mail1.mailservers.com"</span><span class="p">,</span>
+    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"mail.example.com"</span><span class="p">,</span>
     <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
     <span class="s2">"prio"</span><span class="o">:</span> <span class="mi">10</span>
   <span class="p">}</span>
@@ -194,7 +199,25 @@
 
 <h3 id="response-2">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 400 if bad request.</p>
+
+<p>Responds with HTTP 400 if the validation fails.</p>
+
+<p>Responds with HTTP 201 on success.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"mail.example.com"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-29T14:25:38Z"</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">28</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">172</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"prio"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"MX"</span><span class="p">,</span>
+    <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-01-29T14:25:38Z"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="update-a-domain-record">Update a domain record</h2>
 
@@ -203,52 +226,85 @@
 
 <h3 id="example-3">Example</h3>
 
+<p>Create the record with ID <code>123</code> for domain <code>example.com</code>:</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X PUT
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/:domain/records/:id
+      https://dnsimple.com/domains/example/records/123
 </code></pre>
 
 <h3 id="input-1">Input</h3>
 
-<p>The following fields are updateable:</p>
+<p>The following fields are updateable.</p>
 
-<ul>
-<li><code>record[name]</code></li>
-  <li><code>record[content]</code></li>
-  <li><code>record[ttl]</code></li>
-  <li><code>record[prio]</code></li>
-</ul><pre><code class="language-js"><span class="p">{</span>
+<dl>
+<dt>record.name</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>record.content</dt>
+  <dd>Required <em>string</em>
+</dd>
+  <dt>record.ttl</dt>
+  <dd>Optional <em>integer</em>
+</dd>
+  <dt>record.prio</dt>
+  <dd>Optional <em>integer</em>
+</dd>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"1.2.3.4"</span><span class="p">,</span>
+    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"updated.example.com"</span><span class="p">,</span>
     <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">600</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="response-3">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 400 if bad request.</p>
+
+<p>Responds with HTTP 400 if the validation fails.</p>
+
+<p>Responds with HTTP 200 on success.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"updated.example.com"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-29T14:25:38Z"</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">28</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"prio"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"MX"</span><span class="p">,</span>
+    <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-01-29T14:25:38Z"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="delete-a-domain-record">Delete a domain record</h2>
+
+<div class="alert">
+  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a> for this API method.
+</div>
 
 <pre><code>DELETE /domains/:domain/records/:id
 </code></pre>
 
 <h3 id="example-4">Example</h3>
 
+<p>Delete the record with ID <code>123</code> for domain <code>example.com</code>:</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/:domain/records/:id
+      https://dnsimple.com/domains/example/records/123
 </code></pre>
 
 <h3 id="response-4">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 200 on success.</p>
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
