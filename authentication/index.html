@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Planned Changes - DNSimple API</title>
+  <title>Authentication - DNSimple API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="/assets/css/bootstrap.css" rel="stylesheet">
@@ -46,17 +46,64 @@
   <div class="container">
     <div class="row">
       <div id="main" class="span8">
-        <h1 id="planned-changes">Planned Changes</h1>
+        <h1 id="authentication">Authentication</h1>
 
-<h3 id="delete-domainsdomain">DELETE /domains/:domain</h3>
+<p>There are three ways to authenticate through DNSimple API. The <strong>Basic Authentication</strong> and the <strong>DNSimple API token</strong> grant access to all API methods, the <strong>DNSimple Domain token</strong> provides access to limited resources under the scope of a domain.</p>
+
+<ul id="markdown-toc">
+<li><a href="#http-basic-authentication">HTTP Basic Authentication</a></li>
+  <li><a href="#dnsimple-api-token">DNSimple API token</a></li>
+  <li><a href="#dnsimple-domain-token">DNSimple Domain token</a></li>
+</ul><h2 id="http-basic-authentication">HTTP Basic Authentication</h2>
+
+<p>HTTP Basic Authentication credentials are the same as your account: your email address and password.</p>
+
+<pre><code>curl  -u "&lt;email&gt;:&lt;password&gt;" \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/users/me
+</code></pre>
+
+<h2 id="dnsimple-api-token">DNSimple API token</h2>
+
+<p>The DNSimple API Token is a token that uniquely identifies a DNSimple account. You can create, reset or clear your API token by going to <a href="https://dnsimple.com/account">your account page</a>.</p>
+
+<p>The token must be sent in a header called <code>X-DNSimple-Token</code>. The <code>X-DNSimple-Token</code> header is your email address joined with your API token separated by a colon. </p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/users/me
+</code></pre>
+
+<p>For example, if your email is <code>example@example.com</code> and your token is <code>1234567890</code>, the request will be</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: example@example.com:1234567890' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/users/me
+</code></pre>
+
+<h2 id="dnsimple-domain-token">DNSimple Domain token</h2>
+
+<p>The DNSimple Domain Token is a token that uniquely identifies a domain in the DNSimple account. You can find the domain token in the domain page.</p>
+
+<p>The token must be sent in a header called <code>X-DNSimple-Domain-Token</code>. The <code>X-DNSimple-Domain-Token</code> header must contain the token only.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Domain-Token: &lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/:domain
+</code></pre>
+
+<p>For example, if the token for the domain <code>example.com</code> is <code>1234567890</code>, the request will be</p>
+
+<pre><code>curl  -H 'X-DNSimple-Domain-Token: 1234567890' \
+      -H 'Accept: application/json' \
+      https://dnsimple.com/domains/example.com
+</code></pre>
+
+<p>The domain token grants access only to certain methods of the corresponding domain. You can use the domain token to authenticate the following domain API calls:</p>
 
 <ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
-  <li>Response is expected to be empty instead of a JSON object.</li>
-</ul><h3 id="delete-domainsdomainrecordsid">DELETE /domains/:domain/records/:id</h3>
-
-<ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+<li><a href="/domains/#get-a-domain">Get a domain</a></li>
+  <li><a href="/domains/records/">Manage domain record</a></li>
 </ul>
       </div>
       <div id="sidebar" class="span4">
