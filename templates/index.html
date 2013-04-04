@@ -51,11 +51,13 @@
 <p>Templates provide a way to group common records together and apply them en masse to a domain.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-templates">List templates</a></li>
+  <li><a href="#list-templates">List templates</a></li>
   <li><a href="#get-a-template">Get a template</a></li>
   <li><a href="#create-a-template">Create a template</a></li>
   <li><a href="#delete-a-template">Delete a template</a></li>
-</ul><h2 id="list-templates">List templates</h2>
+</ul>
+
+<h2 id="list-templates">List templates</h2>
 
 <pre><code>GET /templates
 </code></pre>
@@ -129,13 +131,17 @@
 <p>The following fields are required:</p>
 
 <ul>
-<li><code>dns_template[name]</code></li>
+  <li><code>dns_template[name]</code></li>
   <li><code>dns_template[short_name]</code></li>
-</ul><p>The following fields are optional:</p>
+</ul>
+
+<p>The following fields are optional:</p>
 
 <ul>
-<li><code>dns_template[description]</code></li>
-</ul><pre><code class="language-js"><span class="p">{</span>
+  <li><code>dns_template[description]</code></li>
+</ul>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"dns_template"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"My Template"</span><span class="p">,</span>
     <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"my_template"</span> 
@@ -163,6 +169,7 @@
 <h3 id="response-3">Response</h3>
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
