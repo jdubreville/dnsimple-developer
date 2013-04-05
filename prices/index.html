@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Services - DNSimple API</title>
+  <title>Prices - DNSimple API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="/assets/css/bootstrap.css" rel="stylesheet">
@@ -46,77 +46,65 @@
   <div class="container">
     <div class="row">
       <div id="main" class="span8">
-        <h1 id="service-api">Service API</h1>
-
-<p>Services provide a way to apply many records to a domain at once.
-Additionally any changes made to a service will automatically be reflected in the domain’s records.</p>
+        <h1 id="prices-api">Prices API</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#list-services">List services</a></li>
-  <li><a href="#get-a-service">Get a service</a></li>
+  <li><a href="#list-prices">List Prices</a></li>
 </ul>
 
-<h2 id="list-services">List services</h2>
+<h2 id="list-prices">List Prices</h2>
 
-<pre><code>GET /services
+<p>List all prices.</p>
+
+<pre><code>GET /prices
 </code></pre>
 
 <h3 id="example">Example</h3>
 
-<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      -H 'Accept: application/json' \
-      https://dnsimple.com/services
+<pre><code>curl  -H 'Accept: application/json' \
+      https://dnsimple.com/prices
 </code></pre>
 
 <h3 id="response">Response</h3>
 
 <pre><code class="language-js"><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
-      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Add Google Apps for your domain."</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Google Apps"</span><span class="p">,</span>
-      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"googleapps"</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span> 
-    <span class="p">}</span> 
+    <span class="s2">"price"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"minimum_registration"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"registration_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"registration_price"</span><span class="o">:</span> <span class="s2">"14.00"</span><span class="p">,</span>
+        <span class="s2">"renewal_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"renewal_price"</span><span class="o">:</span> <span class="s2">"14.00"</span><span class="p">,</span>
+        <span class="s2">"tld"</span><span class="o">:</span> <span class="s2">"com"</span><span class="p">,</span>
+        <span class="s2">"transfer_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"transfer_price"</span><span class="o">:</span> <span class="s2">"14.00"</span>
+    <span class="p">}</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
-      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Use Heroku as your web host."</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Heroku"</span><span class="p">,</span>
-      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"heroku"</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span> 
-    <span class="p">}</span> 
+    <span class="s2">"price"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"minimum_registration"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"registration_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"registration_price"</span><span class="o">:</span> <span class="s2">"14.00"</span><span class="p">,</span>
+      <span class="s2">"renewal_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"renewal_price"</span><span class="o">:</span> <span class="s2">"14.00"</span><span class="p">,</span>
+      <span class="s2">"tld"</span><span class="o">:</span> <span class="s2">"net"</span><span class="p">,</span>
+      <span class="s2">"transfer_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"transfer_price"</span><span class="o">:</span> <span class="s2">"14.00"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"price"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"minimum_registration"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"registration_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"registration_price"</span><span class="o">:</span> <span class="s2">"14.00"</span><span class="p">,</span>
+      <span class="s2">"renewal_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"renewal_price"</span><span class="o">:</span> <span class="s2">"14.00"</span><span class="p">,</span>
+      <span class="s2">"tld"</span><span class="o">:</span> <span class="s2">"org"</span><span class="p">,</span>
+      <span class="s2">"transfer_enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"transfer_price"</span><span class="o">:</span> <span class="s2">"14.00"</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
-
-<h2 id="get-a-service">Get a service</h2>
-
-<pre><code>GET /services/:id
-</code></pre>
-
-<h3 id="example-1">Example</h3>
-
-<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      -H 'Accept: application/json' \
-      https://dnsimple.com/services/:id
-</code></pre>
-
-<h3 id="response-1">Response</h3>
-
-<pre><code class="language-js"><span class="p">{</span>
-  <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
-    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Add Google Apps for your domain."</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Google Apps"</span><span class="p">,</span>
-    <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"googleapps"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
 
       </div>
       <div id="sidebar" class="span4">
