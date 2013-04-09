@@ -49,14 +49,12 @@
         <h1 id="domain-record-api">Domain Record API</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#list-domain-records">List domain records</a></li>
+<li><a href="#list-domain-records">List domain records</a></li>
   <li><a href="#get-a-domain-record">Get a domain record</a></li>
   <li><a href="#create-a-domain-record">Create a domain record</a></li>
   <li><a href="#update-a-domain-record">Update a domain record</a></li>
   <li><a href="#delete-a-domain-record">Delete a domain record</a></li>
-</ul>
-
-<h2 id="list-domain-records">List domain records</h2>
+</ul><h2 id="list-domain-records">List domain records</h2>
 
 <pre><code>GET /domains/:domain/records
 </code></pre>
@@ -71,7 +69,7 @@
 <h3 id="parameters">Parameters</h3>
 
 <dl>
-  <dt>name</dt>
+<dt>name</dt>
   <dd>
 <em>String</em> name to search. Example: <code>www</code>
 </dd>
@@ -79,9 +77,7 @@
   <dd>
 <em>String</em> record type. Example: <code>CNAME</code>
 </dd>
-</dl>
-
-<h3 id="response">Response</h3>
+</dl><h3 id="response">Response</h3>
 
 <pre><code class="language-js"><span class="p">[</span>
   <span class="p">{</span>
@@ -176,7 +172,7 @@
 <h3 id="input">Input</h3>
 
 <dl>
-  <dt>record.name</dt>
+<dt>record.name</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>record.record_type</dt>
@@ -191,9 +187,7 @@
   <dt>record.prio</dt>
   <dd>Optional <em>integer</em>
 </dd>
-</dl>
-
-<pre><code class="language-js"><span class="p">{</span>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
     <span class="s2">"record_type"</span><span class="o">:</span> <span class="s2">"MX"</span><span class="p">,</span>
@@ -247,7 +241,7 @@
 <p>The following fields are updateable.</p>
 
 <dl>
-  <dt>record.name</dt>
+<dt>record.name</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>record.content</dt>
@@ -259,9 +253,7 @@
   <dt>record.prio</dt>
   <dd>Optional <em>integer</em>
 </dd>
-</dl>
-
-<pre><code class="language-js"><span class="p">{</span>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"content"</span><span class="o">:</span> <span class="s2">"updated.example.com"</span><span class="p">,</span>
     <span class="s2">"ttl"</span><span class="o">:</span> <span class="mi">600</span>
@@ -313,7 +305,6 @@
 <h3 id="response-4">Response</h3>
 
 <p>Responds with HTTP 200 on success.</p>
-
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -370,12 +361,14 @@
 
   <footer>
     <div class="container">
-      <p>Copyright &copy; 2013 Aetrion LLC.</p>
-      <p>
-        <a href="https://dnsimple.com/">DNSimple</a>
-        <a href="https://dnsimple.com/about">About</a>
-        <a href="http://support.dnsimple.com/">Support</a>
-      </p>
+      <div class="legal">
+        <ul>
+          <li><a href="https://dnsimple.com/">DNSimple</a></li>
+          <li><a href="https://dnsimple.com/about">About</a></li>
+          <li><a href="http://support.dnsimple.com/">Support</a></li>
+        </ul>
+        <p>Copyright &copy; 2013 Aetrion LLC.</p>
+      </div>
     </div>
   </footer>
 

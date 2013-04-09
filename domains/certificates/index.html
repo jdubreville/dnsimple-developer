@@ -51,13 +51,11 @@
 <p>Purchase and manage SSL certificates.</p>
 
 <ul id="markdown-toc">
-  <li><a href="#list-certificates-for-a-domain">List certificates for a domain</a></li>
+<li><a href="#list-certificates-for-a-domain">List certificates for a domain</a></li>
   <li><a href="#get-a-certificate">Get a certificate</a></li>
   <li><a href="#purchase-a-certificate">Purchase a certificate</a></li>
   <li><a href="#submit-a-certificate-for-signing">Submit a certificate for signing</a></li>
-</ul>
-
-<h2 id="list-certificates-for-a-domain">List certificates for a domain</h2>
+</ul><h2 id="list-certificates-for-a-domain">List certificates for a domain</h2>
 
 <pre><code>GET /domains/:domain/certificates
 </code></pre>
@@ -176,17 +174,13 @@
 <p>The following fields are required:</p>
 
 <ul>
-  <li><code>certificate[name]</code></li>
+<li><code>certificate[name]</code></li>
   <li><code>certificate[contact_id]</code></li>
-</ul>
-
-<p>The following fields are optional:</p>
+</ul><p>The following fields are optional:</p>
 
 <ul>
-  <li><code>certificate[csr]</code></li>
-</ul>
-
-<p><code>name</code> is the subdomain for the certificate. For example, if you have the domain mydomain.com and you want to register a certificate for www.mydomain.com then the name would be www. If you would like a certificate for the domain itself, such as mydomain.com, then leave name blank.</p>
+<li><code>certificate[csr]</code></li>
+</ul><p><code>name</code> is the subdomain for the certificate. For example, if you have the domain mydomain.com and you want to register a certificate for www.mydomain.com then the name would be www. If you would like a certificate for the domain itself, such as mydomain.com, then leave name blank.</p>
 
 <p><code>contact_id</code> is the ID of the contact that is responsible for the certificate. In case of wildcard domains, the contact information must match what is in the Certificate Signing Request. If you plan on submitting your own Certificate Signing Request then you must ensure these details match.</p>
 
@@ -222,7 +216,6 @@
 <h3 id="response-3">Response</h3>
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
-
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -279,12 +272,14 @@
 
   <footer>
     <div class="container">
-      <p>Copyright &copy; 2013 Aetrion LLC.</p>
-      <p>
-        <a href="https://dnsimple.com/">DNSimple</a>
-        <a href="https://dnsimple.com/about">About</a>
-        <a href="http://support.dnsimple.com/">Support</a>
-      </p>
+      <div class="legal">
+        <ul>
+          <li><a href="https://dnsimple.com/">DNSimple</a></li>
+          <li><a href="https://dnsimple.com/about">About</a></li>
+          <li><a href="http://support.dnsimple.com/">Support</a></li>
+        </ul>
+        <p>Copyright &copy; 2013 Aetrion LLC.</p>
+      </div>
     </div>
   </footer>
 

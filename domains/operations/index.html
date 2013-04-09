@@ -49,12 +49,10 @@
         <h1 id="domain-operation-api">Domain Operation API</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#register-a-domain">Register a domain</a></li>
+<li><a href="#register-a-domain">Register a domain</a></li>
   <li><a href="#transfer-a-domain">Transfer a domain</a></li>
   <li><a href="#renew-a-domain">Renew a domain</a></li>
-</ul>
-
-<h2 id="register-a-domain">Register a domain</h2>
+</ul><h2 id="register-a-domain">Register a domain</h2>
 
 <p>Register a domain name with DNSimple and the appropriate domain registry.</p>
 
@@ -80,20 +78,16 @@ so please be careful with this command.</p>
 <p>The following fields are required:</p>
 
 <ul>
-  <li><code>domain[name]</code></li>
+<li><code>domain[name]</code></li>
   <li><code>domain[registrant_id]</code></li>
-</ul>
-
-<p><code>domain[registrant_id]</code> is the ID of an existing contact in your account.</p>
+</ul><p><code>domain[registrant_id]</code> is the ID of an existing contact in your account.</p>
 
 <p>For TLDs that require <a href="/extended-attributes/">extended attributes</a>,
 you must also include <code>extended_attribute</code>:</p>
 
 <ul>
-  <li><code>domain[extended_attribute][]</code></li>
-</ul>
-
-<p>Example.</p>
+<li><code>domain[extended_attribute][]</code></li>
+</ul><p>Example.</p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
@@ -152,18 +146,14 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 <p>The following fields are required:</p>
 
 <ul>
-  <li><code>domain[name]</code></li>
+<li><code>domain[name]</code></li>
   <li><code>domain[registrant_id]</code></li>
-</ul>
-
-<p>For top-level domains that require an authorization code,
+</ul><p>For top-level domains that require an authorization code,
 you must include the following:</p>
 
 <ul>
-  <li><code>transfer_order[authinfo]</code></li>
-</ul>
-
-<pre><code class="language-js"><span class="p">{</span>
+<li><code>transfer_order[authinfo]</code></li>
+</ul><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"transferdomain.com"</span><span class="p">,</span>
     <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span>
@@ -205,16 +195,12 @@ which is 1 year for most domains but for some domains may be more.</p>
 <p>The following fields are required:</p>
 
 <ul>
-  <li><code>domain[name]</code></li>
-</ul>
-
-<p>The following fields are optional:</p>
+<li><code>domain[name]</code></li>
+</ul><p>The following fields are optional:</p>
 
 <ul>
-  <li><code>domain[renew_whois_privacy]</code></li>
-</ul>
-
-<pre><code class="language-js"><span class="p">{</span>
+<li><code>domain[renew_whois_privacy]</code></li>
+</ul><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"renewable.com"</span>
   <span class="p">}</span>
@@ -223,7 +209,6 @@ which is 1 year for most domains but for some domains may be more.</p>
 <h3 id="response-2">Response</h3>
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
-
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -280,12 +265,14 @@ which is 1 year for most domains but for some domains may be more.</p>
 
   <footer>
     <div class="container">
-      <p>Copyright &copy; 2013 Aetrion LLC.</p>
-      <p>
-        <a href="https://dnsimple.com/">DNSimple</a>
-        <a href="https://dnsimple.com/about">About</a>
-        <a href="http://support.dnsimple.com/">Support</a>
-      </p>
+      <div class="legal">
+        <ul>
+          <li><a href="https://dnsimple.com/">DNSimple</a></li>
+          <li><a href="https://dnsimple.com/about">About</a></li>
+          <li><a href="http://support.dnsimple.com/">Support</a></li>
+        </ul>
+        <p>Copyright &copy; 2013 Aetrion LLC.</p>
+      </div>
     </div>
   </footer>
 
