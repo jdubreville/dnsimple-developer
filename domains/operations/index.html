@@ -51,6 +51,7 @@
 <ul id="markdown-toc">
 <li><a href="#register-a-domain">Register a domain</a></li>
   <li><a href="#transfer-a-domain">Transfer a domain</a></li>
+  <li><a href="#transfer-out-a-domain">Transfer out a domain</a></li>
   <li><a href="#renew-a-domain">Renew a domain</a></li>
 </ul><h2 id="register-a-domain">Register a domain</h2>
 
@@ -114,7 +115,11 @@ you must also include <code>extended_attribute</code>:</p>
 <p>Upon successful creation of the domain the response code will be a 201
 and the response body will contain the domain details.</p>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<!-- TODO
+~~~ js
+TODO
+~~~
+-->
 
 <h2 id="transfer-a-domain">Transfer a domain</h2>
 
@@ -168,7 +173,36 @@ you must include the following:</p>
 <p>Upon successful issuance of the transfer order the response code will be a 201
 and the response body will contain the transfer order details.</p>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<!-- TODO
+~~~ js
+TODO
+~~~
+-->
+
+<h2 id="transfer-out-a-domain">Transfer out a domain</h2>
+
+<p>Prepare a domain for transferring out.</p>
+
+<pre><code>POST /domains/:id/transfer_outs
+</code></pre>
+
+<p>This will unlock a domain and send the authorization code to the domain’s administrative contact.</p>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      https://dnsimple.com/domains/:id/transfer_outs
+</code></pre>
+
+<!-- TODO
+### Response
+
+~~~ js
+~~~
+-->
 
 <h2 id="renew-a-domain">Renew a domain</h2>
 
@@ -180,7 +214,7 @@ and the response body will contain the transfer order details.</p>
 <p>Domains will always be renewed for their minimum renewal period,
 which is 1 year for most domains but for some domains may be more.</p>
 
-<h3 id="example-2">Example</h3>
+<h3 id="example-3">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -206,9 +240,12 @@ which is 1 year for most domains but for some domains may be more.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="response-2">Response</h3>
+<!-- TODO
+### Response
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+~~~ js
+~~~
+-->
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
