@@ -48,16 +48,32 @@
       <div id="main" class="span8">
         <h1 id="planned-changes">Planned Changes</h1>
 
+<p>These changes are not implemented yet, however they are planned and will likely be introduced in the current API version.</p>
+
+<p>We hate to break backward compatibility, however there are cases where a method was not properly documented and a bug or inconsistent choice has been adopted as standard.</p>
+
+<p>Please review the following changes and write your code accordingly. In most cases, you should be able to support both current and planned API response by loosening validation checks. For example, you can check whether the response code of a delete is <code>2xx</code> and you’ll match both <code>200</code> (current) and <code>204</code> (planned).</p>
+
 <h3 id="delete-domainsdomain">DELETE /domains/:domain</h3>
 
 <ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
   <li>Response is expected to be empty instead of a JSON object.</li>
-</ul><h3 id="delete-domainsdomainrecordsid">DELETE /domains/:domain/records/:id</h3>
+</ul>
+
+<h3 id="delete-domainsdomainrecordsid">DELETE /domains/:domain/records/:id</h3>
 
 <ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
 </ul>
+
+<h3 id="delete-domainsdomainwhoisprivacy">DELETE /domains/:domain/whois_privacy</h3>
+
+<ul>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+  <li>Response is expected to be empty instead of a JSON object.</li>
+</ul>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>

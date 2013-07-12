@@ -52,12 +52,14 @@
 with DNSimple or transferred into DNSimple from another registrar.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-contacts">List contacts</a></li>
+  <li><a href="#list-contacts">List contacts</a></li>
   <li><a href="#get-a-contact">Get a contact</a></li>
   <li><a href="#create-a-contact">Create a contact</a></li>
   <li><a href="#update-a-contact">Update a contact</a></li>
   <li><a href="#delete-a-contact">Delete a contact</a></li>
-</ul><h2 id="list-contacts">List contacts</h2>
+</ul>
+
+<h2 id="list-contacts">List contacts</h2>
 
 <pre><code>GET /contacts
 </code></pre>
@@ -179,7 +181,7 @@ with DNSimple or transferred into DNSimple from another registrar.</p>
 <h3 id="input">Input</h3>
 
 <dl>
-<dt>contact.first_name</dt>
+  <dt>contact.first_name</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>contact.last_name</dt>
@@ -221,7 +223,9 @@ If the <code>organization_name</code> is specified, then you must also include <
   <dt>contact.label</dt>
   <dd>Optional <em>string</em>
 </dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"contact"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"first_name"</span><span class="o">:</span> <span class="s2">"John"</span><span class="p">,</span>
     <span class="s2">"last_name"</span><span class="o">:</span> <span class="s2">"Smith"</span><span class="p">,</span>
@@ -336,6 +340,7 @@ If the <code>organization_name</code> is specified, then you must also include <
 <h3 id="response-4">Response</h3>
 
 <p>Responds with HTTP 204 on success.</p>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>

@@ -51,9 +51,11 @@
 <p>WHOIS Privacy Protection replaces a domain’s WHOIS data with a proxy service to protect a customer’s address, phone number and email address. The service is a paid service and must be renewed on a yearly basis.</p>
 
 <ul id="markdown-toc">
-<li><a href="#enable-privacy-protection">Enable privacy protection</a></li>
-  <li><a href="#disable-privacy-protection">Disable privacy protection</a></li>
-</ul><h2 id="enable-privacy-protection">Enable privacy protection</h2>
+  <li><a href="#enable-whois-privacy">Enable WHOIS Privacy</a></li>
+  <li><a href="#disable-whois-privacy">Disable WHOIS Privacy</a></li>
+</ul>
+
+<h2 id="enable-whois-privacy">Enable WHOIS Privacy</h2>
 
 <pre><code>POST /domains/:domain/whois_privacy
 </code></pre>
@@ -74,17 +76,19 @@ If the privacy protection is currently disabled then it will be enabled.</p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"whois_privacy"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"autorenew"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-07-23T20:42:48Z"</span><span class="p">,</span>
-    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
-    <span class="s2">"enabled"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-07-23"</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-07-23T20:42:48Z"</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-07-23"</span><span class="p">,</span>
+    <span class="s2">"enabled"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="disable-privacy-protection">Disable privacy protection</h2>
+<h2 id="disable-whois-privacy">Disable WHOIS Privacy</h2>
+
+<div class="alert">
+  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomainwhois_privacy">planned changes</a> for this API method.
+</div>
 
 <pre><code>DELETE /domains/:domain/whois_privacy
 </code></pre>
@@ -102,7 +106,12 @@ If the privacy protection is currently disabled then it will be enabled.</p>
 
 <h3 id="response-1">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 200 on success.</p>
+
+<div class="alert">
+  <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
+</div>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
