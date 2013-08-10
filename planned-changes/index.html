@@ -54,6 +54,12 @@
 
 <p>Please review the following changes and write your code accordingly. In most cases, you should be able to support both current and planned API response by loosening validation checks. For example, you can check whether the response code of a delete is <code>2xx</code> and you’ll match both <code>200</code> (current) and <code>204</code> (planned).</p>
 
+<h3 id="domain-serialization">Domain serialization</h3>
+
+<ul>
+  <li>The <code>name_server_status</code> is no longer used and will be removed soon.</li>
+</ul>
+
 <h3 id="delete-domainsdomain">DELETE /domains/:domain</h3>
 
 <ul>
