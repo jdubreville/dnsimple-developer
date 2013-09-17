@@ -46,7 +46,7 @@
   <div class="container">
     <div class="row">
       <div id="main" class="span8">
-        <h1 id="ssl-certificate-api">SSL Certificate API</h1>
+        <h1 id="certificate-api">Certificate API</h1>
 
 <p>Purchase and manage SSL certificates.</p>
 
@@ -54,6 +54,7 @@
   <li><a href="#list-certificates-for-a-domain">List certificates for a domain</a></li>
   <li><a href="#get-a-certificate">Get a certificate</a></li>
   <li><a href="#purchase-a-certificate">Purchase a certificate</a></li>
+  <li><a href="#configure-a-certificate">Configure a certificate</a></li>
   <li><a href="#submit-a-certificate-for-signing">Submit a certificate for signing</a></li>
 </ul>
 
@@ -62,38 +63,179 @@
 <pre><code>GET /domains/:domain/certificates
 </code></pre>
 
+<h3 id="params">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+</dl>
+
 <h3 id="example">Example</h3>
+
+<p>List certificates for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/:domain/certificates
+      https://dnsimple.com/domains/example.com/certificates
 </code></pre>
 
 <h3 id="response">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"issued"</span><span class="p">,</span>
+      <span class="s2">"csr"</span><span class="o">:</span> <span class="s2">"-----BEGIN NEW CERTIFICATE REQUEST-----</span>
+<span class="s2">      MIIC0DCCAbgCAQAwWzELMAkGA1UEBhMCVVMxFTATBgNVBAoTDEFudGhvbnkgRWRl</span>
+<span class="s2">      bjEOMAwGA1UEBxMFTWlhbWkxCzAJBgNVBAgTAkZMMRgwFgYDVQQDEw93d3cuZXhh</span>
+<span class="s2">      bXBsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCtW/z7avuO</span>
+<span class="s2">      CrvfRBYkqJt+2w8YlivjMrUTOJT2DQdqXTnOgqnOeL4+Jdey9BBaJRQS+HhPLkJN</span>
+<span class="s2">      rBmv9uDOEzQBAfm3POP/2Cg6ZvDren+fZuziq+FRopxDiaDupnWgVxCAzxu9wzOb</span>
+<span class="s2">      dXQW5dB0BnrtPsclYhPwgSMIhxaCbeJSIDP1WveCZzRyLIthg6ajOMsKILKJ+TQg</span>
+<span class="s2">      K64dpV4LGU5uLUrYHCMMatQ5OZ+N1PKL3nPLSKEHtLnYxKDoX3em5tRz7pc4JsIC</span>
+<span class="s2">      UFOIRIuQr7Gdp9sH9fHVwcvZL5q1Ykz83rWKHAhu2vBL04n3EYFLYlA9NzPO23Zj</span>
+<span class="s2">      GkWYafsn1gu9AgMBAAGgMDAuBgkqhkiG9w0BCQ4xITAfMAwGA1UdEwEB/wQCMAAw</span>
+<span class="s2">      DwYDVR0PAQH/BAUDAweAADANBgkqhkiG9w0BAQUFAAOCAQEAgl4cBmVFpbl1Y1iD</span>
+<span class="s2">      H6xPeRaT60jp2pPi3pwE7jTw6oqTSqCuH9EAvG2FopUlV7Jz10I8w7Cts2fwgayr</span>
+<span class="s2">      h6MnSTUv1Nep6pEKrQaOYbAmwioTEZaNyzRwQVy6geKcz0PZeVFHm7Hs57WTJQiR</span>
+<span class="s2">      bpm0sc/Rhu9h19y14KRlfWUwQU8rM8biJSGJhIpJ9TqtxMcKgswYKV8L6pt4ZvKM</span>
+<span class="s2">      /IuGxTqSv4pJagzSCbww+8uyKfscOMnEUkkFOE2/kK+Bf+EdAy2rKLJDqPRc1Yeb</span>
+<span class="s2">      WUf0sRMLu6e50I140w2YYIyyKR10KHP6PQmr+Fz9DxEmjgAY7BWOLS3TSwqCm0Ek</span>
+<span class="s2">      t0evlw==</span>
+<span class="s2">      -----END NEW CERTIFICATE REQUEST-----"</span><span class="p">,</span>
+      <span class="s2">"ssl_certificate"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"private_key"</span><span class="o">:</span> <span class="s2">"-----BEGIN RSA PRIVATE KEY-----</span>
+<span class="s2">      MIIEogIBAAKCAQEArVv8+2r7jgq730QWJKibftsPGJYr4zK1EziU9g0Hal05zoKp</span>
+<span class="s2">      zni+PiXXsvQQWiUUEvh4Ty5CTawZr/bgzhM0AQH5tzzj/9goOmbw63p/n2bs4qvh</span>
+<span class="s2">      UaKcQ4mg7qZ1oFcQgM8bvcMzm3V0FuXQdAZ67T7HJWIT8IEjCIcWgm3iUiAz9Vr3</span>
+<span class="s2">      gmc0ciyLYYOmozjLCiCyifk0ICuuHaVeCxlObi1K2BwjDGrUOTmfjdTyi95zy0ih</span>
+<span class="s2">      B7S52MSg6F93pubUc+6XOCbCAlBTiESLkK+xnafbB/Xx1cHL2S+atWJM/N61ihwI</span>
+<span class="s2">      btrwS9OJ9xGBS2JQPTczztt2YxpFmGn7J9YLvQIDAQABAoIBAADxEvq6pgsre8HG</span>
+<span class="s2">      uOgSEmYqAnb7udlOGTW1hPmhMH0fbIT2qL16Ym4r/nP2Z3BV6zn/J4gmlC2f1bPi</span>
+<span class="s2">      /22fJRUsUZLxPbvSDMXkcUKWM8NF59uDW4H6BCdJxBoHxXPNhUVt2pS5Trp1dN/6</span>
+<span class="s2">      95rpvhkz0hkd40XXLb2KHlEvD5+qktOU7xg7R7aRATg6KtEpSxDqKwNy5o3+YVAe</span>
+<span class="s2">      Z+nhYCevKboshMuJFx7OJ0zvn3gYU7/85RI9Zn4ofqUjFzZl6PPHmb6xn5v1v6+5</span>
+<span class="s2">      t9gp19FF1MbMFpnKnsbR/2jm5xX3BVo5PofM2Xx04hThCi9pno/JApdJ95nOzmuK</span>
+<span class="s2">      bQT9YIECgYEAzW2KugAoN0JwhlGc9pIcZ1OyM9YYAN4KHCVlaFIIfWD1PoP1uieV</span>
+<span class="s2">      EIsGb9bworQgItXi6SwFnw+i9eRZI70Hmx+Y8SSY9IDtiI1nY5W71H9+9CJS/foc</span>
+<span class="s2">      zDbmYclR/1e91MVwAVJDScECCuic9NUfxjaZDKChRPifKCXBG0wRGjUCgYEA2Als</span>
+<span class="s2">      hJSsVQby00b+YuMCVp6IbyhvlGm6hKrKAQXNMhZWrHIs52qrlbuqeyfYg9IjGhSS</span>
+<span class="s2">      +qNBRj/KzFvx8QuU55M3ydHZzz5Ah8MzwfP8gbVsdkPvnDbPvHDUkAFpewsp/4OG</span>
+<span class="s2">      F5559iRwv/JStGgEtwnNV91JX5mmGOI7KxCynGkCgYAdlwnEgQFJ9GgA8QCLA8DT</span>
+<span class="s2">      oVqp3MzYUyNhqoFQ5YATj0PEHX3nsovmNiBXO76tsQRwAB8PNygYIUh34sx0OWY/</span>
+<span class="s2">      Ee4Vzg+6KFgOs0+RKKBFm5fN0qPhsYU0ZTQKIdWN0jWl0Eqx5geLOCHzME5rdcd9</span>
+<span class="s2">      5Z9mEj0okidawRVvuSU9gQKBgDh7DkIDVKLONEIEd5GG5B+dRvI40iMtGTSCKlnm</span>
+<span class="s2">      GGWV7YccOp0uCDoXXFTib/rWv5Kb+mlIsVIab3zKNRDeBEoe9SDwmk9SaTCVWjzE</span>
+<span class="s2">      +yk2M2sgC879jYYowYn8tIUUwCArVK1sI1q04D1uryy3XTQ1fdgQ5JP36bLrwqhZ</span>
+<span class="s2">      rzixAoGAbcOK7v+IUHamcWJb8kkAsrIxjAGE/CNLYiZTeSTbTegZFb9KcpNzojJT</span>
+<span class="s2">      ClvuFGYh3Rb35NMC9XIvJbAfWBv1XB+TX+o41YcS8H3AocQtuxmxNqYzZOvUpAkM</span>
+<span class="s2">      oWo54arDcDjcPm2TYZ0umKl/CacGYTwfUpA42BEpoxx+RcF7/XU=</span>
+<span class="s2">      -----END RSA PRIVATE KEY-----"</span><span class="p">,</span>
+      <span class="s2">"approver_email"</span><span class="o">:</span> <span class="s2">"admin@example.com"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+      <span class="s2">"configured_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+      <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-05-14"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">22</span><span class="p">,</span>
+      <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"ww1"</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"purchased"</span><span class="p">,</span>
+      <span class="s2">"csr"</span><span class="o">:</span> <span class="s2">"-----BEGIN NEW CERTIFICATE REQUEST-----</span>
+<span class="s2">      MIIC0DCCAbgCAQAwWzELMAkGA1UEBhMCVVMxFTATBgNVBAoTDEFudGhvbnkgRWRl</span>
+<span class="s2">      bjEOMAwGA1UEBxMFTWlhbWkxCzAJBgNVBAgTAkZMMRgwFgYDVQQDEw93d3cuZXhh</span>
+<span class="s2">      bXBsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCtW/z7avuO</span>
+<span class="s2">      CrvfRBYkqJt+2w8YlivjMrUTOJT2DQdqXTnOgqnOeL4+Jdey9BBaJRQS+HhPLkJN</span>
+<span class="s2">      rBmv9uDOEzQBAfm3POP/2Cg6ZvDren+fZuziq+FRopxDiaDupnWgVxCAzxu9wzOb</span>
+<span class="s2">      dXQW5dB0BnrtPsclYhPwgSMIhxaCbeJSIDP1WveCZzRyLIthg6ajOMsKILKJ+TQg</span>
+<span class="s2">      K64dpV4LGU5uLUrYHCMMatQ5OZ+N1PKL3nPLSKEHtLnYxKDoX3em5tRz7pc4JsIC</span>
+<span class="s2">      UFOIRIuQr7Gdp9sH9fHVwcvZL5q1Ykz83rWKHAhu2vBL04n3EYFLYlA9NzPO23Zj</span>
+<span class="s2">      GkWYafsn1gu9AgMBAAGgMDAuBgkqhkiG9w0BCQ4xITAfMAwGA1UdEwEB/wQCMAAw</span>
+<span class="s2">      DwYDVR0PAQH/BAUDAweAADANBgkqhkiG9w0BAQUFAAOCAQEAgl4cBmVFpbl1Y1iD</span>
+<span class="s2">      H6xPeRaT60jp2pPi3pwE7jTw6oqTSqCuH9EAvG2FopUlV7Jz10I8w7Cts2fwgayr</span>
+<span class="s2">      h6MnSTUv1Nep6pEKrQaOYbAmwioTEZaNyzRwQVy6geKcz0PZeVFHm7Hs57WTJQiR</span>
+<span class="s2">      bpm0sc/Rhu9h19y14KRlfWUwQU8rM8biJSGJhIpJ9TqtxMcKgswYKV8L6pt4ZvKM</span>
+<span class="s2">      /IuGxTqSv4pJagzSCbww+8uyKfscOMnEUkkFOE2/kK+Bf+EdAy2rKLJDqPRc1Yeb</span>
+<span class="s2">      WUf0sRMLu6e50I140w2YYIyyKR10KHP6PQmr+Fz9DxEmjgAY7BWOLS3TSwqCm0Ek</span>
+<span class="s2">      t0evlw==</span>
+<span class="s2">      -----END NEW CERTIFICATE REQUEST-----"</span><span class="p">,</span>
+      <span class="s2">"ssl_certificate"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"private_key"</span><span class="o">:</span> <span class="s2">"-----BEGIN RSA PRIVATE KEY-----</span>
+<span class="s2">      MIIEogIBAAKCAQEArVv8+2r7jgq730QWJKibftsPGJYr4zK1EziU9g0Hal05zoKp</span>
+<span class="s2">      zni+PiXXsvQQWiUUEvh4Ty5CTawZr/bgzhM0AQH5tzzj/9goOmbw63p/n2bs4qvh</span>
+<span class="s2">      UaKcQ4mg7qZ1oFcQgM8bvcMzm3V0FuXQdAZ67T7HJWIT8IEjCIcWgm3iUiAz9Vr3</span>
+<span class="s2">      gmc0ciyLYYOmozjLCiCyifk0ICuuHaVeCxlObi1K2BwjDGrUOTmfjdTyi95zy0ih</span>
+<span class="s2">      B7S52MSg6F93pubUc+6XOCbCAlBTiESLkK+xnafbB/Xx1cHL2S+atWJM/N61ihwI</span>
+<span class="s2">      btrwS9OJ9xGBS2JQPTczztt2YxpFmGn7J9YLvQIDAQABAoIBAADxEvq6pgsre8HG</span>
+<span class="s2">      uOgSEmYqAnb7udlOGTW1hPmhMH0fbIT2qL16Ym4r/nP2Z3BV6zn/J4gmlC2f1bPi</span>
+<span class="s2">      /22fJRUsUZLxPbvSDMXkcUKWM8NF59uDW4H6BCdJxBoHxXPNhUVt2pS5Trp1dN/6</span>
+<span class="s2">      95rpvhkz0hkd40XXLb2KHlEvD5+qktOU7xg7R7aRATg6KtEpSxDqKwNy5o3+YVAe</span>
+<span class="s2">      Z+nhYCevKboshMuJFx7OJ0zvn3gYU7/85RI9Zn4ofqUjFzZl6PPHmb6xn5v1v6+5</span>
+<span class="s2">      t9gp19FF1MbMFpnKnsbR/2jm5xX3BVo5PofM2Xx04hThCi9pno/JApdJ95nOzmuK</span>
+<span class="s2">      bQT9YIECgYEAzW2KugAoN0JwhlGc9pIcZ1OyM9YYAN4KHCVlaFIIfWD1PoP1uieV</span>
+<span class="s2">      EIsGb9bworQgItXi6SwFnw+i9eRZI70Hmx+Y8SSY9IDtiI1nY5W71H9+9CJS/foc</span>
+<span class="s2">      zDbmYclR/1e91MVwAVJDScECCuic9NUfxjaZDKChRPifKCXBG0wRGjUCgYEA2Als</span>
+<span class="s2">      hJSsVQby00b+YuMCVp6IbyhvlGm6hKrKAQXNMhZWrHIs52qrlbuqeyfYg9IjGhSS</span>
+<span class="s2">      +qNBRj/KzFvx8QuU55M3ydHZzz5Ah8MzwfP8gbVsdkPvnDbPvHDUkAFpewsp/4OG</span>
+<span class="s2">      F5559iRwv/JStGgEtwnNV91JX5mmGOI7KxCynGkCgYAdlwnEgQFJ9GgA8QCLA8DT</span>
+<span class="s2">      oVqp3MzYUyNhqoFQ5YATj0PEHX3nsovmNiBXO76tsQRwAB8PNygYIUh34sx0OWY/</span>
+<span class="s2">      Ee4Vzg+6KFgOs0+RKKBFm5fN0qPhsYU0ZTQKIdWN0jWl0Eqx5geLOCHzME5rdcd9</span>
+<span class="s2">      5Z9mEj0okidawRVvuSU9gQKBgDh7DkIDVKLONEIEd5GG5B+dRvI40iMtGTSCKlnm</span>
+<span class="s2">      GGWV7YccOp0uCDoXXFTib/rWv5Kb+mlIsVIab3zKNRDeBEoe9SDwmk9SaTCVWjzE</span>
+<span class="s2">      +yk2M2sgC879jYYowYn8tIUUwCArVK1sI1q04D1uryy3XTQ1fdgQ5JP36bLrwqhZ</span>
+<span class="s2">      rzixAoGAbcOK7v+IUHamcWJb8kkAsrIxjAGE/CNLYiZTeSTbTegZFb9KcpNzojJT</span>
+<span class="s2">      ClvuFGYh3Rb35NMC9XIvJbAfWBv1XB+TX+o41YcS8H3AocQtuxmxNqYzZOvUpAkM</span>
+<span class="s2">      oWo54arDcDjcPm2TYZ0umKl/CacGYTwfUpA42BEpoxx+RcF7/XU=</span>
+<span class="s2">      -----END RSA PRIVATE KEY-----"</span><span class="p">,</span>
+      <span class="s2">"approver_email"</span><span class="o">:</span> <span class="nx">nil</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+      <span class="s2">"configured_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+      <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-05-14"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
 
 <h2 id="get-a-certificate">Get a certificate</h2>
 
 <pre><code>GET /domains/:domain/certificates/:id
 </code></pre>
 
+<h3 id="params-1">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+  <dt>:id</dt>
+  <dd>The <em>integer</em> certificate id</dd>
+</dl>
+
 <h3 id="example-1">Example</h3>
+
+<p>Get the certificate with ID <code>2</code>.</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/:domain/certificates/:id
+      https://dnsimple.com/domains/example.com/certificates/2
 </code></pre>
 
 <h3 id="response-1">Response</h3>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"approver_email"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"certificate_status"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"configured_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
-    <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">470</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"issued"</span><span class="p">,</span>
     <span class="s2">"csr"</span><span class="o">:</span> <span class="s2">"-----BEGIN NEW CERTIFICATE REQUEST-----</span>
 <span class="s2">    MIIC0DCCAbgCAQAwWzELMAkGA1UEBhMCVVMxFTATBgNVBAoTDEFudGhvbnkgRWRl</span>
 <span class="s2">    bjEOMAwGA1UEBxMFTWlhbWkxCzAJBgNVBAgTAkZMMRgwFgYDVQQDEw93d3cuZXhh</span>
@@ -112,11 +254,7 @@
 <span class="s2">    WUf0sRMLu6e50I140w2YYIyyKR10KHP6PQmr+Fz9DxEmjgAY7BWOLS3TSwqCm0Ek</span>
 <span class="s2">    t0evlw==</span>
 <span class="s2">    -----END NEW CERTIFICATE REQUEST-----"</span><span class="p">,</span>
-    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1497</span><span class="p">,</span>
-    <span class="s2">"expiration_date"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
-    <span class="s2">"order_date"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"ssl_certificate"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"private_key"</span><span class="o">:</span> <span class="s2">"-----BEGIN RSA PRIVATE KEY-----</span>
 <span class="s2">    MIIEogIBAAKCAQEArVv8+2r7jgq730QWJKibftsPGJYr4zK1EziU9g0Hal05zoKp</span>
 <span class="s2">    zni+PiXXsvQQWiUUEvh4Ty5CTawZr/bgzhM0AQH5tzzj/9goOmbw63p/n2bs4qvh</span>
@@ -144,13 +282,11 @@
 <span class="s2">    ClvuFGYh3Rb35NMC9XIvJbAfWBv1XB+TX+o41YcS8H3AocQtuxmxNqYzZOvUpAkM</span>
 <span class="s2">    oWo54arDcDjcPm2TYZ0umKl/CacGYTwfUpA42BEpoxx+RcF7/XU=</span>
 <span class="s2">    -----END RSA PRIVATE KEY-----"</span><span class="p">,</span>
-    <span class="s2">"ssl_certificate"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"approver_email"</span><span class="o">:</span> <span class="s2">"admin@example.com"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
     <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
-    <span class="s2">"available_approver_emails"</span><span class="o">:</span> <span class="s2">"res-dom@iana.org,res-dom@iana.org,admin@example.com,</span>
-<span class="s2">    administrator@example.com,hostmaster@example.com,root@example.com,webmaster@example.com,</span>
-<span class="s2">    postmaster@example.com,admin@www.example.com,administrator@www.example.com,</span>
-<span class="s2">    hostmaster@www.example.com,root@www.example.com,webmaster@www.example.com,</span>
-<span class="s2">    postmaster@www.example.com"</span>
+    <span class="s2">"configured_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-05-14"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
@@ -161,67 +297,304 @@
 
 <p>This is the first step in the process for buying a certificate. Once you have successfully purchased a certificate you will need to submit it to complete the process and receive your SSL certificate.</p>
 
+<h3 id="params-2">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+</dl>
+
 <h3 id="example-2">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      -H 'Content-Type: application/json' \
       -X POST \
+      -H 'Content-Type: application/json' \
       -d '&lt;json&gt;' \
       https://dnsimple.com/domains/:domain/certificates
 </code></pre>
 
 <h3 id="input">Input</h3>
 
-<p>The following fields are required:</p>
-
-<ul>
-  <li><code>certificate[name]</code></li>
-  <li><code>certificate[contact_id]</code></li>
-</ul>
-
-<p>The following fields are optional:</p>
-
-<ul>
-  <li><code>certificate[csr]</code></li>
-</ul>
-
-<p><code>name</code> is the subdomain for the certificate. For example, if you have the domain mydomain.com and you want to register a certificate for www.mydomain.com then the name would be www. If you would like a certificate for the domain itself, such as mydomain.com, then leave name blank.</p>
-
-<p><code>contact_id</code> is the ID of the contact that is responsible for the certificate. In case of wildcard domains, the contact information must match what is in the Certificate Signing Request. If you plan on submitting your own Certificate Signing Request then you must ensure these details match.</p>
-
-<p><code>csr</code> field stands for Certificate Signing Request. If you do not want DNSimple to generate your private key then you generate your own Certificate Signing Request using a tool such as OpenSSL or GnuTLS. You must ensure that the common name in the CSR is your fully qualified domain name (for example, www.mydomain.com or *.mydomain.com).</p>
+<dl>
+  <dt>certificate.name</dt>
+  <dd>Required <em>string</em> subdomain for the certificate.
+Leave it blank to purchase a certificate for the root domain.
+Enter <code>*</code> to purchase a wildcard certificate for the domain.
+Enter the subdomain name to purchase a certificate for a subdomain, for example use <code>www</code> to purchase the certificate for <code>www.mydomain.com</code>.</dd>
+  <dt>certificate.contact_id</dt>
+  <dd>Required <em>integer</em> corresponding to the ID of the contact responsible for the certificate.
+In case of wildcard domains, the contact information must match what is in the Certificate Signing Request.
+If you plan on submitting your own Certificate Signing Request then you must ensure these details match.</dd>
+  <dt>certificate.csr</dt>
+  <dd>Optional <em>string</em> with a custom Certificate Signing Request.</dd>
+</dl>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
+    <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="response-2">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"purchased"</span><span class="p">,</span>
+    <span class="s2">"csr"</span><span class="o">:</span> <span class="s2">"-----BEGIN NEW CERTIFICATE REQUEST-----</span>
+<span class="s2">    MIIC0DCCAbgCAQAwWzELMAkGA1UEBhMCVVMxFTATBgNVBAoTDEFudGhvbnkgRWRl</span>
+<span class="s2">    bjEOMAwGA1UEBxMFTWlhbWkxCzAJBgNVBAgTAkZMMRgwFgYDVQQDEw93d3cuZXhh</span>
+<span class="s2">    bXBsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCtW/z7avuO</span>
+<span class="s2">    CrvfRBYkqJt+2w8YlivjMrUTOJT2DQdqXTnOgqnOeL4+Jdey9BBaJRQS+HhPLkJN</span>
+<span class="s2">    rBmv9uDOEzQBAfm3POP/2Cg6ZvDren+fZuziq+FRopxDiaDupnWgVxCAzxu9wzOb</span>
+<span class="s2">    dXQW5dB0BnrtPsclYhPwgSMIhxaCbeJSIDP1WveCZzRyLIthg6ajOMsKILKJ+TQg</span>
+<span class="s2">    K64dpV4LGU5uLUrYHCMMatQ5OZ+N1PKL3nPLSKEHtLnYxKDoX3em5tRz7pc4JsIC</span>
+<span class="s2">    UFOIRIuQr7Gdp9sH9fHVwcvZL5q1Ykz83rWKHAhu2vBL04n3EYFLYlA9NzPO23Zj</span>
+<span class="s2">    GkWYafsn1gu9AgMBAAGgMDAuBgkqhkiG9w0BCQ4xITAfMAwGA1UdEwEB/wQCMAAw</span>
+<span class="s2">    DwYDVR0PAQH/BAUDAweAADANBgkqhkiG9w0BAQUFAAOCAQEAgl4cBmVFpbl1Y1iD</span>
+<span class="s2">    H6xPeRaT60jp2pPi3pwE7jTw6oqTSqCuH9EAvG2FopUlV7Jz10I8w7Cts2fwgayr</span>
+<span class="s2">    h6MnSTUv1Nep6pEKrQaOYbAmwioTEZaNyzRwQVy6geKcz0PZeVFHm7Hs57WTJQiR</span>
+<span class="s2">    bpm0sc/Rhu9h19y14KRlfWUwQU8rM8biJSGJhIpJ9TqtxMcKgswYKV8L6pt4ZvKM</span>
+<span class="s2">    /IuGxTqSv4pJagzSCbww+8uyKfscOMnEUkkFOE2/kK+Bf+EdAy2rKLJDqPRc1Yeb</span>
+<span class="s2">    WUf0sRMLu6e50I140w2YYIyyKR10KHP6PQmr+Fz9DxEmjgAY7BWOLS3TSwqCm0Ek</span>
+<span class="s2">    t0evlw==</span>
+<span class="s2">    -----END NEW CERTIFICATE REQUEST-----"</span><span class="p">,</span>
+    <span class="s2">"ssl_certificate"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"private_key"</span><span class="o">:</span> <span class="s2">"-----BEGIN RSA PRIVATE KEY-----</span>
+<span class="s2">    MIIEogIBAAKCAQEArVv8+2r7jgq730QWJKibftsPGJYr4zK1EziU9g0Hal05zoKp</span>
+<span class="s2">    zni+PiXXsvQQWiUUEvh4Ty5CTawZr/bgzhM0AQH5tzzj/9goOmbw63p/n2bs4qvh</span>
+<span class="s2">    UaKcQ4mg7qZ1oFcQgM8bvcMzm3V0FuXQdAZ67T7HJWIT8IEjCIcWgm3iUiAz9Vr3</span>
+<span class="s2">    gmc0ciyLYYOmozjLCiCyifk0ICuuHaVeCxlObi1K2BwjDGrUOTmfjdTyi95zy0ih</span>
+<span class="s2">    B7S52MSg6F93pubUc+6XOCbCAlBTiESLkK+xnafbB/Xx1cHL2S+atWJM/N61ihwI</span>
+<span class="s2">    btrwS9OJ9xGBS2JQPTczztt2YxpFmGn7J9YLvQIDAQABAoIBAADxEvq6pgsre8HG</span>
+<span class="s2">    uOgSEmYqAnb7udlOGTW1hPmhMH0fbIT2qL16Ym4r/nP2Z3BV6zn/J4gmlC2f1bPi</span>
+<span class="s2">    /22fJRUsUZLxPbvSDMXkcUKWM8NF59uDW4H6BCdJxBoHxXPNhUVt2pS5Trp1dN/6</span>
+<span class="s2">    95rpvhkz0hkd40XXLb2KHlEvD5+qktOU7xg7R7aRATg6KtEpSxDqKwNy5o3+YVAe</span>
+<span class="s2">    Z+nhYCevKboshMuJFx7OJ0zvn3gYU7/85RI9Zn4ofqUjFzZl6PPHmb6xn5v1v6+5</span>
+<span class="s2">    t9gp19FF1MbMFpnKnsbR/2jm5xX3BVo5PofM2Xx04hThCi9pno/JApdJ95nOzmuK</span>
+<span class="s2">    bQT9YIECgYEAzW2KugAoN0JwhlGc9pIcZ1OyM9YYAN4KHCVlaFIIfWD1PoP1uieV</span>
+<span class="s2">    EIsGb9bworQgItXi6SwFnw+i9eRZI70Hmx+Y8SSY9IDtiI1nY5W71H9+9CJS/foc</span>
+<span class="s2">    zDbmYclR/1e91MVwAVJDScECCuic9NUfxjaZDKChRPifKCXBG0wRGjUCgYEA2Als</span>
+<span class="s2">    hJSsVQby00b+YuMCVp6IbyhvlGm6hKrKAQXNMhZWrHIs52qrlbuqeyfYg9IjGhSS</span>
+<span class="s2">    +qNBRj/KzFvx8QuU55M3ydHZzz5Ah8MzwfP8gbVsdkPvnDbPvHDUkAFpewsp/4OG</span>
+<span class="s2">    F5559iRwv/JStGgEtwnNV91JX5mmGOI7KxCynGkCgYAdlwnEgQFJ9GgA8QCLA8DT</span>
+<span class="s2">    oVqp3MzYUyNhqoFQ5YATj0PEHX3nsovmNiBXO76tsQRwAB8PNygYIUh34sx0OWY/</span>
+<span class="s2">    Ee4Vzg+6KFgOs0+RKKBFm5fN0qPhsYU0ZTQKIdWN0jWl0Eqx5geLOCHzME5rdcd9</span>
+<span class="s2">    5Z9mEj0okidawRVvuSU9gQKBgDh7DkIDVKLONEIEd5GG5B+dRvI40iMtGTSCKlnm</span>
+<span class="s2">    GGWV7YccOp0uCDoXXFTib/rWv5Kb+mlIsVIab3zKNRDeBEoe9SDwmk9SaTCVWjzE</span>
+<span class="s2">    +yk2M2sgC879jYYowYn8tIUUwCArVK1sI1q04D1uryy3XTQ1fdgQ5JP36bLrwqhZ</span>
+<span class="s2">    rzixAoGAbcOK7v+IUHamcWJb8kkAsrIxjAGE/CNLYiZTeSTbTegZFb9KcpNzojJT</span>
+<span class="s2">    ClvuFGYh3Rb35NMC9XIvJbAfWBv1XB+TX+o41YcS8H3AocQtuxmxNqYzZOvUpAkM</span>
+<span class="s2">    oWo54arDcDjcPm2TYZ0umKl/CacGYTwfUpA42BEpoxx+RcF7/XU=</span>
+<span class="s2">    -----END RSA PRIVATE KEY-----"</span><span class="p">,</span>
+    <span class="s2">"approver_email"</span><span class="o">:</span> <span class="nx">nil</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"configured_at"</span><span class="o">:</span> <span class="nx">nil</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-05-14"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
-<h2 id="submit-a-certificate-for-signing">Submit a certificate for signing</h2>
+<h2 id="configure-a-certificate">Configure a certificate</h2>
 
-<p>Submit a previously purchased certificate for signing by the certificate authority.</p>
+<p>Configured a purchased certificate.</p>
 
-<pre><code>PUT /domains/:domain/certificates/:id/submit
+<pre><code>PUT /domains/:domain/certificates/:id/configure
 </code></pre>
+
+<h3 id="params-3">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+  <dt>:id</dt>
+  <dd>The <em>integer</em> certificate id</dd>
+</dl>
 
 <h3 id="example-3">Example</h3>
 
+<p>Configure the certificate with ID <code>2</code>.</p>
+
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      -H 'Content-Type: application/json' \
       -X PUT \
-      https://dnsimple.com/domains/:domain/certificates/:id
+      -H 'Content-Type: application/json' \
+      https://dnsimple.com/domains/example.com/certificates/2/configure
 </code></pre>
 
 <h3 id="response-3">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"configured"</span><span class="p">,</span>
+    <span class="s2">"csr"</span><span class="o">:</span> <span class="s2">"-----BEGIN NEW CERTIFICATE REQUEST-----</span>
+<span class="s2">    MIIC0DCCAbgCAQAwWzELMAkGA1UEBhMCVVMxFTATBgNVBAoTDEFudGhvbnkgRWRl</span>
+<span class="s2">    bjEOMAwGA1UEBxMFTWlhbWkxCzAJBgNVBAgTAkZMMRgwFgYDVQQDEw93d3cuZXhh</span>
+<span class="s2">    bXBsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCtW/z7avuO</span>
+<span class="s2">    CrvfRBYkqJt+2w8YlivjMrUTOJT2DQdqXTnOgqnOeL4+Jdey9BBaJRQS+HhPLkJN</span>
+<span class="s2">    rBmv9uDOEzQBAfm3POP/2Cg6ZvDren+fZuziq+FRopxDiaDupnWgVxCAzxu9wzOb</span>
+<span class="s2">    dXQW5dB0BnrtPsclYhPwgSMIhxaCbeJSIDP1WveCZzRyLIthg6ajOMsKILKJ+TQg</span>
+<span class="s2">    K64dpV4LGU5uLUrYHCMMatQ5OZ+N1PKL3nPLSKEHtLnYxKDoX3em5tRz7pc4JsIC</span>
+<span class="s2">    UFOIRIuQr7Gdp9sH9fHVwcvZL5q1Ykz83rWKHAhu2vBL04n3EYFLYlA9NzPO23Zj</span>
+<span class="s2">    GkWYafsn1gu9AgMBAAGgMDAuBgkqhkiG9w0BCQ4xITAfMAwGA1UdEwEB/wQCMAAw</span>
+<span class="s2">    DwYDVR0PAQH/BAUDAweAADANBgkqhkiG9w0BAQUFAAOCAQEAgl4cBmVFpbl1Y1iD</span>
+<span class="s2">    H6xPeRaT60jp2pPi3pwE7jTw6oqTSqCuH9EAvG2FopUlV7Jz10I8w7Cts2fwgayr</span>
+<span class="s2">    h6MnSTUv1Nep6pEKrQaOYbAmwioTEZaNyzRwQVy6geKcz0PZeVFHm7Hs57WTJQiR</span>
+<span class="s2">    bpm0sc/Rhu9h19y14KRlfWUwQU8rM8biJSGJhIpJ9TqtxMcKgswYKV8L6pt4ZvKM</span>
+<span class="s2">    /IuGxTqSv4pJagzSCbww+8uyKfscOMnEUkkFOE2/kK+Bf+EdAy2rKLJDqPRc1Yeb</span>
+<span class="s2">    WUf0sRMLu6e50I140w2YYIyyKR10KHP6PQmr+Fz9DxEmjgAY7BWOLS3TSwqCm0Ek</span>
+<span class="s2">    t0evlw==</span>
+<span class="s2">    -----END NEW CERTIFICATE REQUEST-----"</span><span class="p">,</span>
+    <span class="s2">"ssl_certificate"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"private_key"</span><span class="o">:</span> <span class="s2">"-----BEGIN RSA PRIVATE KEY-----</span>
+<span class="s2">    MIIEogIBAAKCAQEArVv8+2r7jgq730QWJKibftsPGJYr4zK1EziU9g0Hal05zoKp</span>
+<span class="s2">    zni+PiXXsvQQWiUUEvh4Ty5CTawZr/bgzhM0AQH5tzzj/9goOmbw63p/n2bs4qvh</span>
+<span class="s2">    UaKcQ4mg7qZ1oFcQgM8bvcMzm3V0FuXQdAZ67T7HJWIT8IEjCIcWgm3iUiAz9Vr3</span>
+<span class="s2">    gmc0ciyLYYOmozjLCiCyifk0ICuuHaVeCxlObi1K2BwjDGrUOTmfjdTyi95zy0ih</span>
+<span class="s2">    B7S52MSg6F93pubUc+6XOCbCAlBTiESLkK+xnafbB/Xx1cHL2S+atWJM/N61ihwI</span>
+<span class="s2">    btrwS9OJ9xGBS2JQPTczztt2YxpFmGn7J9YLvQIDAQABAoIBAADxEvq6pgsre8HG</span>
+<span class="s2">    uOgSEmYqAnb7udlOGTW1hPmhMH0fbIT2qL16Ym4r/nP2Z3BV6zn/J4gmlC2f1bPi</span>
+<span class="s2">    /22fJRUsUZLxPbvSDMXkcUKWM8NF59uDW4H6BCdJxBoHxXPNhUVt2pS5Trp1dN/6</span>
+<span class="s2">    95rpvhkz0hkd40XXLb2KHlEvD5+qktOU7xg7R7aRATg6KtEpSxDqKwNy5o3+YVAe</span>
+<span class="s2">    Z+nhYCevKboshMuJFx7OJ0zvn3gYU7/85RI9Zn4ofqUjFzZl6PPHmb6xn5v1v6+5</span>
+<span class="s2">    t9gp19FF1MbMFpnKnsbR/2jm5xX3BVo5PofM2Xx04hThCi9pno/JApdJ95nOzmuK</span>
+<span class="s2">    bQT9YIECgYEAzW2KugAoN0JwhlGc9pIcZ1OyM9YYAN4KHCVlaFIIfWD1PoP1uieV</span>
+<span class="s2">    EIsGb9bworQgItXi6SwFnw+i9eRZI70Hmx+Y8SSY9IDtiI1nY5W71H9+9CJS/foc</span>
+<span class="s2">    zDbmYclR/1e91MVwAVJDScECCuic9NUfxjaZDKChRPifKCXBG0wRGjUCgYEA2Als</span>
+<span class="s2">    hJSsVQby00b+YuMCVp6IbyhvlGm6hKrKAQXNMhZWrHIs52qrlbuqeyfYg9IjGhSS</span>
+<span class="s2">    +qNBRj/KzFvx8QuU55M3ydHZzz5Ah8MzwfP8gbVsdkPvnDbPvHDUkAFpewsp/4OG</span>
+<span class="s2">    F5559iRwv/JStGgEtwnNV91JX5mmGOI7KxCynGkCgYAdlwnEgQFJ9GgA8QCLA8DT</span>
+<span class="s2">    oVqp3MzYUyNhqoFQ5YATj0PEHX3nsovmNiBXO76tsQRwAB8PNygYIUh34sx0OWY/</span>
+<span class="s2">    Ee4Vzg+6KFgOs0+RKKBFm5fN0qPhsYU0ZTQKIdWN0jWl0Eqx5geLOCHzME5rdcd9</span>
+<span class="s2">    5Z9mEj0okidawRVvuSU9gQKBgDh7DkIDVKLONEIEd5GG5B+dRvI40iMtGTSCKlnm</span>
+<span class="s2">    GGWV7YccOp0uCDoXXFTib/rWv5Kb+mlIsVIab3zKNRDeBEoe9SDwmk9SaTCVWjzE</span>
+<span class="s2">    +yk2M2sgC879jYYowYn8tIUUwCArVK1sI1q04D1uryy3XTQ1fdgQ5JP36bLrwqhZ</span>
+<span class="s2">    rzixAoGAbcOK7v+IUHamcWJb8kkAsrIxjAGE/CNLYiZTeSTbTegZFb9KcpNzojJT</span>
+<span class="s2">    ClvuFGYh3Rb35NMC9XIvJbAfWBv1XB+TX+o41YcS8H3AocQtuxmxNqYzZOvUpAkM</span>
+<span class="s2">    oWo54arDcDjcPm2TYZ0umKl/CacGYTwfUpA42BEpoxx+RcF7/XU=</span>
+<span class="s2">    -----END RSA PRIVATE KEY-----"</span><span class="p">,</span>
+    <span class="s2">"approver_email"</span><span class="o">:</span> <span class="nx">nil</span><span class="p">,</span>
+    <span class="s2">"approver_emails"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"admin@example.com"</span><span class="p">,</span> <span class="s2">"admin@www.example.com"</span><span class="p">],</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"configured_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-05-14"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="submit-a-certificate-for-signing">Submit a certificate for signing</h2>
+
+<p>Submit a configured certificate for signing by the certificate authority.</p>
+
+<pre><code>PUT /domains/:domain/certificates/:id/submit
+</code></pre>
+
+<h3 id="params-4">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+  <dt>:id</dt>
+  <dd>The <em>integer</em> certificate id</dd>
+</dl>
+
+<h3 id="example-4">Example</h3>
+
+<p>Submit the certificate with ID <code>2</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -X PUT \
+      -H 'Content-Type: application/json' \
+      -d '&lt;json&gt;' \
+      https://dnsimple.com/domains/example.com/certificates/2/submit
+</code></pre>
+
+<h3 id="input-1">Input</h3>
+
+<dl>
+  <dt>certificate.approver_email</dt>
+  <dd>Required <em>string</em>
+</dd>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"approver_email"</span><span class="o">:</span> <span class="s2">"admin@example.com"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-4">Response</h3>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"domain_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"submitted"</span><span class="p">,</span>
+    <span class="s2">"csr"</span><span class="o">:</span> <span class="s2">"-----BEGIN NEW CERTIFICATE REQUEST-----</span>
+<span class="s2">    MIIC0DCCAbgCAQAwWzELMAkGA1UEBhMCVVMxFTATBgNVBAoTDEFudGhvbnkgRWRl</span>
+<span class="s2">    bjEOMAwGA1UEBxMFTWlhbWkxCzAJBgNVBAgTAkZMMRgwFgYDVQQDEw93d3cuZXhh</span>
+<span class="s2">    bXBsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCtW/z7avuO</span>
+<span class="s2">    CrvfRBYkqJt+2w8YlivjMrUTOJT2DQdqXTnOgqnOeL4+Jdey9BBaJRQS+HhPLkJN</span>
+<span class="s2">    rBmv9uDOEzQBAfm3POP/2Cg6ZvDren+fZuziq+FRopxDiaDupnWgVxCAzxu9wzOb</span>
+<span class="s2">    dXQW5dB0BnrtPsclYhPwgSMIhxaCbeJSIDP1WveCZzRyLIthg6ajOMsKILKJ+TQg</span>
+<span class="s2">    K64dpV4LGU5uLUrYHCMMatQ5OZ+N1PKL3nPLSKEHtLnYxKDoX3em5tRz7pc4JsIC</span>
+<span class="s2">    UFOIRIuQr7Gdp9sH9fHVwcvZL5q1Ykz83rWKHAhu2vBL04n3EYFLYlA9NzPO23Zj</span>
+<span class="s2">    GkWYafsn1gu9AgMBAAGgMDAuBgkqhkiG9w0BCQ4xITAfMAwGA1UdEwEB/wQCMAAw</span>
+<span class="s2">    DwYDVR0PAQH/BAUDAweAADANBgkqhkiG9w0BAQUFAAOCAQEAgl4cBmVFpbl1Y1iD</span>
+<span class="s2">    H6xPeRaT60jp2pPi3pwE7jTw6oqTSqCuH9EAvG2FopUlV7Jz10I8w7Cts2fwgayr</span>
+<span class="s2">    h6MnSTUv1Nep6pEKrQaOYbAmwioTEZaNyzRwQVy6geKcz0PZeVFHm7Hs57WTJQiR</span>
+<span class="s2">    bpm0sc/Rhu9h19y14KRlfWUwQU8rM8biJSGJhIpJ9TqtxMcKgswYKV8L6pt4ZvKM</span>
+<span class="s2">    /IuGxTqSv4pJagzSCbww+8uyKfscOMnEUkkFOE2/kK+Bf+EdAy2rKLJDqPRc1Yeb</span>
+<span class="s2">    WUf0sRMLu6e50I140w2YYIyyKR10KHP6PQmr+Fz9DxEmjgAY7BWOLS3TSwqCm0Ek</span>
+<span class="s2">    t0evlw==</span>
+<span class="s2">    -----END NEW CERTIFICATE REQUEST-----"</span><span class="p">,</span>
+    <span class="s2">"ssl_certificate"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"private_key"</span><span class="o">:</span> <span class="s2">"-----BEGIN RSA PRIVATE KEY-----</span>
+<span class="s2">    MIIEogIBAAKCAQEArVv8+2r7jgq730QWJKibftsPGJYr4zK1EziU9g0Hal05zoKp</span>
+<span class="s2">    zni+PiXXsvQQWiUUEvh4Ty5CTawZr/bgzhM0AQH5tzzj/9goOmbw63p/n2bs4qvh</span>
+<span class="s2">    UaKcQ4mg7qZ1oFcQgM8bvcMzm3V0FuXQdAZ67T7HJWIT8IEjCIcWgm3iUiAz9Vr3</span>
+<span class="s2">    gmc0ciyLYYOmozjLCiCyifk0ICuuHaVeCxlObi1K2BwjDGrUOTmfjdTyi95zy0ih</span>
+<span class="s2">    B7S52MSg6F93pubUc+6XOCbCAlBTiESLkK+xnafbB/Xx1cHL2S+atWJM/N61ihwI</span>
+<span class="s2">    btrwS9OJ9xGBS2JQPTczztt2YxpFmGn7J9YLvQIDAQABAoIBAADxEvq6pgsre8HG</span>
+<span class="s2">    uOgSEmYqAnb7udlOGTW1hPmhMH0fbIT2qL16Ym4r/nP2Z3BV6zn/J4gmlC2f1bPi</span>
+<span class="s2">    /22fJRUsUZLxPbvSDMXkcUKWM8NF59uDW4H6BCdJxBoHxXPNhUVt2pS5Trp1dN/6</span>
+<span class="s2">    95rpvhkz0hkd40XXLb2KHlEvD5+qktOU7xg7R7aRATg6KtEpSxDqKwNy5o3+YVAe</span>
+<span class="s2">    Z+nhYCevKboshMuJFx7OJ0zvn3gYU7/85RI9Zn4ofqUjFzZl6PPHmb6xn5v1v6+5</span>
+<span class="s2">    t9gp19FF1MbMFpnKnsbR/2jm5xX3BVo5PofM2Xx04hThCi9pno/JApdJ95nOzmuK</span>
+<span class="s2">    bQT9YIECgYEAzW2KugAoN0JwhlGc9pIcZ1OyM9YYAN4KHCVlaFIIfWD1PoP1uieV</span>
+<span class="s2">    EIsGb9bworQgItXi6SwFnw+i9eRZI70Hmx+Y8SSY9IDtiI1nY5W71H9+9CJS/foc</span>
+<span class="s2">    zDbmYclR/1e91MVwAVJDScECCuic9NUfxjaZDKChRPifKCXBG0wRGjUCgYEA2Als</span>
+<span class="s2">    hJSsVQby00b+YuMCVp6IbyhvlGm6hKrKAQXNMhZWrHIs52qrlbuqeyfYg9IjGhSS</span>
+<span class="s2">    +qNBRj/KzFvx8QuU55M3ydHZzz5Ah8MzwfP8gbVsdkPvnDbPvHDUkAFpewsp/4OG</span>
+<span class="s2">    F5559iRwv/JStGgEtwnNV91JX5mmGOI7KxCynGkCgYAdlwnEgQFJ9GgA8QCLA8DT</span>
+<span class="s2">    oVqp3MzYUyNhqoFQ5YATj0PEHX3nsovmNiBXO76tsQRwAB8PNygYIUh34sx0OWY/</span>
+<span class="s2">    Ee4Vzg+6KFgOs0+RKKBFm5fN0qPhsYU0ZTQKIdWN0jWl0Eqx5geLOCHzME5rdcd9</span>
+<span class="s2">    5Z9mEj0okidawRVvuSU9gQKBgDh7DkIDVKLONEIEd5GG5B+dRvI40iMtGTSCKlnm</span>
+<span class="s2">    GGWV7YccOp0uCDoXXFTib/rWv5Kb+mlIsVIab3zKNRDeBEoe9SDwmk9SaTCVWjzE</span>
+<span class="s2">    +yk2M2sgC879jYYowYn8tIUUwCArVK1sI1q04D1uryy3XTQ1fdgQ5JP36bLrwqhZ</span>
+<span class="s2">    rzixAoGAbcOK7v+IUHamcWJb8kkAsrIxjAGE/CNLYiZTeSTbTegZFb9KcpNzojJT</span>
+<span class="s2">    ClvuFGYh3Rb35NMC9XIvJbAfWBv1XB+TX+o41YcS8H3AocQtuxmxNqYzZOvUpAkM</span>
+<span class="s2">    oWo54arDcDjcPm2TYZ0umKl/CacGYTwfUpA42BEpoxx+RcF7/XU=</span>
+<span class="s2">    -----END RSA PRIVATE KEY-----"</span><span class="p">,</span>
+    <span class="s2">"approver_email"</span><span class="o">:</span> <span class="s2">"admin@example.com"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"configured_at"</span><span class="o">:</span> <span class="s2">"2011-05-14T15:14:43Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-05-14"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
       </div>
       <div id="sidebar" class="span4">

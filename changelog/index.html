@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>DNSimple API - DNSimple API</title>
+  <title>Changelog - DNSimple API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="/assets/css/bootstrap.css" rel="stylesheet">
@@ -46,21 +46,19 @@
   <div class="container">
     <div class="row">
       <div id="main" class="span8">
-        <h1 id="the-dnsimple-api">The DNSimple API</h1>
+        <h1 id="changelog">Changelog</h1>
 
-<p>Welcome to the official <a href="https://dnsimple.com/">DNSimple</a> API documentation.</p>
-
-<p>DNSimple provides DNS hosting and domain registration that is simple and friendly. We provide a full API and an easy-to-use web interface so you can get your domain registered and set up with a minimal amount of effort.</p>
-
-<p>The following documentation describes the DNSimple REST API.</p>
-
-<h3 id="expected-changes">Expected Changes</h3>
-
-<p>There are some <a href="/planned-changes/">planned changes</a> (last update 2013-08-10) we’ll implement someday in the future. Please review them and make sure to write your code accordingly.</p>
-
-<h3 id="changelog">Changelog</h3>
-
-<p>View the <a href="/changelog/">API Changelog</a> for information on existing and planned changes to the API.</p>
+<ul>
+  <li>
+    <p>2013-09-13 - Deprecated the certificate <code>available_approver_emails</code> field. Use <code>approver_emails</code> field instead.</p>
+  </li>
+  <li>
+    <p>2013-09-13 - Deprecated the certificate <code>certificate_status</code> field. Use <code>state</code> field instead.</p>
+  </li>
+  <li>
+    <p>2013-09-13 - Updated documentation for Certificates</p>
+  </li>
+</ul>
 
       </div>
       <div id="sidebar" class="span4">
