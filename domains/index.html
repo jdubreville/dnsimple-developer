@@ -53,6 +53,7 @@
   <li><a href="#get-a-domain">Get a domain</a></li>
   <li><a href="#create-a-domain">Create a domain</a></li>
   <li><a href="#delete-a-domain">Delete a domain</a></li>
+  <li><a href="#reset-domain-token">Reset domain token</a></li>
   <li><a href="#check-domain-availability">Check domain availability</a></li>
   <li><a href="#move-domain-to-another-account">Move domain to another account</a></li>
 </ul>
@@ -121,6 +122,13 @@
 <pre><code>GET /domains/:domain
 </code></pre>
 
+<h3 id="params">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+</dl>
+
 <h3 id="example-1">Example</h3>
 
 <p>Get the domain with ID <code>1</code>.</p>
@@ -141,19 +149,19 @@
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
-    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
-    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA"</span><span class="p">,</span>
     <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
-    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
     <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
@@ -199,19 +207,19 @@
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
-    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"hosted"</span><span class="p">,</span>
-    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"4fIFYWYiJayvL2tkf_mkBkqC4L+4RtYqDA"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
     <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
-    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"hosted"</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
@@ -231,6 +239,13 @@
 
 <p>Please note that for domains which are registered with DNSimple
 this will not delete the domain from the registry.</p>
+
+<h3 id="params-1">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+</dl>
 
 <h3 id="example-3">Example</h3>
 
@@ -260,6 +275,61 @@ this will not delete the domain from the registry.</p>
   <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
 </div>
 
+<h2 id="reset-domain-token">Reset domain token</h2>
+
+<pre><code>POST /domains/:domain/token
+</code></pre>
+
+<h3 id="params-2">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+</dl>
+
+<h3 id="example-4">Example</h3>
+
+<p>Reset the token for the domain <code>example.com</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -X POST \
+      -H 'Content-Type: application/json' \
+      -d '{}' \
+      https://dnsimple.com/domains/example.com/token
+</code></pre>
+
+<h3 id="input-1">Input</h3>
+
+<p>Empty.</p>
+
+<h3 id="response-4">Response</h3>
+
+<p>Responds with HTTP 400 if bad request.</p>
+
+<p>Responds with HTTP 200 on success.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"hosted"</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
 <h2 id="check-domain-availability">Check domain availability</h2>
 
 <p>Check if a domain is available for registration.</p>
@@ -267,14 +337,21 @@ this will not delete the domain from the registry.</p>
 <pre><code>GET /domains/:name/check
 </code></pre>
 
-<h3 id="example-4">Example</h3>
+<h3 id="params-3">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name</dd>
+</dl>
+
+<h3 id="example-5">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       https://dnsimple.com/domains/:name/check
 </code></pre>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <p>If the domain is available then this will return a 404 which indicates
 that the name is available. If it is not available then the response will be a 200.</p>
@@ -297,7 +374,14 @@ that was checked along with a status string.</p>
 <p>Once a domain is pushed you will no longer be able to access it through your account.
 You will need to acces it using the new account’s credentials.</p>
 
-<h3 id="example-5">Example</h3>
+<h3 id="params-4">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+</dl>
+
+<h3 id="example-6">Example</h3>
 
 <p>Move domain <code>example.com</code>:</p>
 
@@ -319,7 +403,7 @@ You will need to acces it using the new account’s credentials.</p>
       https://dnsimple.com/domains/1/push
 </code></pre>
 
-<h3 id="input-1">Input</h3>
+<h3 id="input-2">Input</h3>
 
 <dl>
   <dt>push.new_user_email</dt>
@@ -335,7 +419,7 @@ You will need to acces it using the new account’s credentials.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <p>Responds with HTTP 400 if bad request.</p>
 
@@ -345,20 +429,19 @@ You will need to acces it using the new account’s credentials.</p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
-    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
-    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
     <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
     <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
-    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"uses_external_name_servers"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
     <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
