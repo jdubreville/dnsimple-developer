@@ -49,11 +49,9 @@
         <h1 id="domain-zone-api">Domain Zone API</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#import-domain-zone">Import Domain Zone</a></li>
+<li><a href="#import-domain-zone">Import Domain Zone</a></li>
   <li><a href="#export-domain-zone">Export Domain Zone</a></li>
-</ul>
-
-<h2 id="import-domain-zone">Import Domain Zone</h2>
+</ul><h2 id="import-domain-zone">Import Domain Zone</h2>
 
 <pre><code>POST /domains/:domain/zone_imports
 </code></pre>
@@ -83,12 +81,10 @@
 <h3 id="input">Input</h3>
 
 <dl>
-  <dt>zone_import.zone_data</dt>
+<dt>zone_import.zone_data</dt>
   <dd>Required <em>string</em>
 </dd>
-</dl>
-
-<pre><code class="language-js"><span class="p">{</span>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"zone_import"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"zone_data"</span><span class="o">:</span> <span class="s2">"$ORIGIN example.com.\n$TTL 1h\nexample.com. IN  SOA ns1.dnsimple.com admin.dnsimple.com 2011092001 86400 7200 604800 300\nexample.com. IN NS  ns1.dnsimple.com.\nexample.com. IN NS  ns2.dnsimple.com.\nexample.com. IN NS  ns3.dnsimple.com.\nexample.com. IN NS  ns4.dnsimple.com.\nds1.example.com. 3600 IN  A 184.106.215.134\nindex.example.com. 3600 IN  NS ds1.example.com\n; example.com. 3600 IN  URL http://dnsimple.com\n; www.example.com. 3600 IN  URL https://dnsimple.com"</span>
   <span class="p">}</span>
@@ -174,7 +170,6 @@ example.com. IN NS  ns2.dnsimple.com.
 example.com. IN NS  ns3.dnsimple.com.
 example.com. IN NS  ns4.dnsimple.com.
 </code></pre>
-
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
