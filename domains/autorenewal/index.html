@@ -49,16 +49,25 @@
         <h1 id="domain-auto-renewal-api">Domain Auto-renewal API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#enable-domain-auto-renewal">Enable domain auto-renewal</a></li>
+  <li><a href="#enable-domain-auto-renewal">Enable domain auto-renewal</a></li>
   <li><a href="#disable-domain-auto-renewal">Disable domain auto-renewal</a></li>
-</ul><h2 id="enable-domain-auto-renewal">Enable domain auto-renewal</h2>
+</ul>
+
+<h2 id="enable-domain-auto-renewal">Enable domain auto-renewal</h2>
 
 <pre><code>POST /domains/:domain/auto_renewal
 </code></pre>
 
-<p>Some TLDs do not support auto-renewal and will respond with an error condition in that case.</p>
+<h3 id="params">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+</dl>
 
 <h3 id="example">Example</h3>
+
+<p>Enable auto-renewal for the domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -69,14 +78,44 @@
 
 <h3 id="response">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 200 on success, returns the domain.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="disable-domain-auto-renewal">Disable domain auto-renewal</h2>
 
 <pre><code>DELETE /domains/:domain/auto_renewal
 </code></pre>
 
+<h3 id="params-1">Params</h3>
+
+<dl>
+  <dt>:domain</dt>
+  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
+</dl>
+
 <h3 id="example-1">Example</h3>
+
+<p>Disable auto-renewal for the domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -87,7 +126,31 @@
 
 <h3 id="response-1">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 200 on success, returns the domain.</p>
+
+<p>~~ js
+{
+  “domain”: {
+    “id”: 1,
+    “user_id”: 2,
+    “registrant_id”: 100,
+    “name”: “example.com”,
+    “unicode_name”: “example.com”,
+    “lockable”: true,
+    “auto_renew”: false,
+    “state”: “registered”,
+    “language”: null,
+    “token”: “Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA”,
+    “created_at”: “2013-01-24T19:23:08Z”,
+    “updated_at”: “2012-12-07T14:55:25Z”,
+    “expires_on”: “2012-03-18”,
+    “record_count”: 0,
+    “service_count”: 0,
+    “private_whois?”: false
+  }
+}
+~~~</p>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>

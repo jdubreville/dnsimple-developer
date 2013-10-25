@@ -49,11 +49,13 @@
         <h1 id="domain-registry-api">Domain Registry API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#register-a-domain">Register a domain</a></li>
+  <li><a href="#register-a-domain">Register a domain</a></li>
   <li><a href="#transfer-a-domain">Transfer a domain</a></li>
   <li><a href="#renew-a-domain">Renew a domain</a></li>
   <li><a href="#transfer-out-a-domain">Transfer out a domain</a></li>
-</ul><h2 id="register-a-domain">Register a domain</h2>
+</ul>
+
+<h2 id="register-a-domain">Register a domain</h2>
 
 <p>Register a domain name with DNSimple and the appropriate domain registry.</p>
 
@@ -77,14 +79,16 @@ so please be careful with this command.</p>
 <h3 id="input">Input</h3>
 
 <dl>
-<dt>domain.name</dt>
+  <dt>domain.name</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>domain.registrant_id</dt>
   <dd>Required <em>integer</em> The ID of an existing contact in your account.</dd>
   <dt>domain.extended_attribute</dt>
   <dd>optional <em>hash</em> For TLDs that require <a href="/extended-attributes/">extended attributes</a>.</dd>
-</dl><p><strong>Example.</strong></p>
+</dl>
+
+<p><strong>Example.</strong></p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
@@ -145,7 +149,7 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 <h3 id="input-1">Input</h3>
 
 <dl>
-<dt>domain.name</dt>
+  <dt>domain.name</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>domain.registrant_id</dt>
@@ -154,7 +158,9 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
   <dd>optional <em>hash</em> For TLDs that require <a href="/extended-attributes/">extended attributes</a>.</dd>
   <dt>transfer_order.authinfo</dt>
   <dd>optional <em>string</em> Required for top-level domains that require an authorization code.</dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"transferdomain.com"</span><span class="p">,</span>
     <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span>
@@ -198,13 +204,15 @@ which is 1 year for most domains but for some domains may be more.</p>
 <h3 id="input-2">Input</h3>
 
 <dl>
-<dt>domain.name</dt>
+  <dt>domain.name</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>domain.renew_whois_privacy</dt>
   <dd>Optional <em>boolean</em>
 </dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"renewable.com"</span>
   <span class="p">}</span>
@@ -241,6 +249,7 @@ which is 1 year for most domains but for some domains may be more.</p>
 ~~~ js
 ~~~
 -->
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>

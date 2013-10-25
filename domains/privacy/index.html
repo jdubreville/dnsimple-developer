@@ -51,9 +51,11 @@
 <p>WHOIS Privacy Protection replaces a domain’s WHOIS data with a proxy service to protect a customer’s address, phone number and email address. The service is a paid service and must be renewed on a yearly basis.</p>
 
 <ul id="markdown-toc">
-<li><a href="#enable-whois-privacy">Enable WHOIS Privacy</a></li>
+  <li><a href="#enable-whois-privacy">Enable WHOIS Privacy</a></li>
   <li><a href="#disable-whois-privacy">Disable WHOIS Privacy</a></li>
-</ul><h2 id="enable-whois-privacy">Enable WHOIS Privacy</h2>
+</ul>
+
+<h2 id="enable-whois-privacy">Enable WHOIS Privacy</h2>
 
 <pre><code>POST /domains/:domain/whois_privacy
 </code></pre>
@@ -109,6 +111,7 @@ If the privacy protection is currently disabled then it will be enabled.</p>
 <div class="alert">
   <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
 </div>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>

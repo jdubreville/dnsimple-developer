@@ -53,9 +53,11 @@
 <p>Note: you must request activation of the vanity name servers feature on your account before you can manage vanity name servers through the API. Contact support@dnsimple.com for more details.</p>
 
 <ul id="markdown-toc">
-<li><a href="#enable-vanity-name-servers-for-a-domain">Enable vanity name servers for a domain</a></li>
+  <li><a href="#enable-vanity-name-servers-for-a-domain">Enable vanity name servers for a domain</a></li>
   <li><a href="#disable-vanity-name-servers-for-a-domain">Disable vanity name servers for a domain</a></li>
-</ul><h2 id="enable-vanity-name-servers-for-a-domain">Enable vanity name servers for a domain</h2>
+</ul>
+
+<h2 id="enable-vanity-name-servers-for-a-domain">Enable vanity name servers for a domain</h2>
 
 <pre><code>POST /domains/:domain/vanity_name_servers
 </code></pre>
@@ -75,8 +77,10 @@
 <p>Required fields:</p>
 
 <ul>
-<li><code>vanity_nameserver_configuration[server_source]</code></li>
-</ul><p><code>server_source</code> must be either <code>dnsimple</code> or <code>external</code>.
+  <li><code>vanity_nameserver_configuration[server_source]</code></li>
+</ul>
+
+<p><code>server_source</code> must be either <code>dnsimple</code> or <code>external</code>.
 If you pass <code>external</code> as the server source then you must include name servers to use.
 You may use up to 4 external name servers (<code>ns1</code> through <code>ns4</code>).</p>
 
@@ -121,6 +125,7 @@ You may use up to 4 external name servers (<code>ns1</code> through <code>ns4</c
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"disabled"</span>
 <span class="p">}</span></code></pre>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
