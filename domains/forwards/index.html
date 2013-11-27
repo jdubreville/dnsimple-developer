@@ -51,12 +51,10 @@
 <p>Set up <a href="http://support.dnsimple.com/questions/22536-How-do-I-set-up-email-forwarding-with-DNSimple">email forwarding</a> from your domain to another email account.</p>
 
 <ul id="markdown-toc">
-  <li><a href="#list-forwards">List forwards</a></li>
+<li><a href="#list-forwards">List forwards</a></li>
   <li><a href="#create-a-forward">Create a forward</a></li>
   <li><a href="#delete-a-forward">Delete a forward</a></li>
-</ul>
-
-<h2 id="list-forwards">List forwards</h2>
+</ul><h2 id="list-forwards">List forwards</h2>
 
 <pre><code>GET /domains/:domain/email_forwards
 </code></pre>
@@ -122,15 +120,13 @@
 <h3 id="input">Input</h3>
 
 <dl>
-  <dt>email_forward.from</dt>
+<dt>email_forward.from</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>email_forward.to</dt>
   <dd>Required <em>string</em>
 </dd>
-</dl>
-
-<pre><code class="language-js"><span class="p">{</span>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john"</span><span class="p">,</span>
     <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@example.com"</span>
@@ -173,7 +169,6 @@
 <h3 id="response-2">Response</h3>
 
 <p>Responds with HTTP 204 on success.</p>
-
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>

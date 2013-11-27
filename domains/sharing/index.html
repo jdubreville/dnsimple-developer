@@ -49,12 +49,10 @@
         <h1 id="domain-sharing-api">Domain sharing API</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#list-memberships">List memberships</a></li>
+<li><a href="#list-memberships">List memberships</a></li>
   <li><a href="#add-a-membership">Add a membership</a></li>
   <li><a href="#delete-a-membership">Delete a membership</a></li>
-</ul>
-
-<h2 id="list-memberships">List memberships</h2>
+</ul><h2 id="list-memberships">List memberships</h2>
 
 <pre><code>GET /domains/:domain/memberships
 </code></pre>
@@ -120,13 +118,11 @@
 <h3 id="input">Input</h3>
 
 <dl>
-  <dt>membership.email</dt>
+<dt>membership.email</dt>
   <dd>Required <em>string</em> address for the person to add.
 If the person already exists in DNSimple as a customer then he will immediately be added to the domain’s membership list.
 If the person does not yet have a DNSimple account then he will receive an invitation to join via email.</dd>
-</dl>
-
-<pre><code class="language-js"><span class="p">{</span>
+</dl><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"membership"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span>
   <span class="p">}</span>
@@ -177,7 +173,6 @@ If the person does not yet have a DNSimple account then he will receive an invit
 <h3 id="response-2">Response</h3>
 
 <p>Responds with HTTP 204 on success.</p>
-
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
