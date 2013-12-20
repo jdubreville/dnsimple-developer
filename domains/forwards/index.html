@@ -48,13 +48,15 @@
       <div id="main" class="span8">
         <h1 id="email-forwarding-api">Email Forwarding API</h1>
 
-<p>Set up <a href="http://support.dnsimple.com/questions/22536-How-do-I-set-up-email-forwarding-with-DNSimple">email forwarding</a> from your domain to another email account.</p>
+<p>Set up email forwarding from your domain to another email account.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-forwards">List forwards</a></li>
+  <li><a href="#list-forwards">List forwards</a></li>
   <li><a href="#create-a-forward">Create a forward</a></li>
   <li><a href="#delete-a-forward">Delete a forward</a></li>
-</ul><h2 id="list-forwards">List forwards</h2>
+</ul>
+
+<h2 id="list-forwards">List forwards</h2>
 
 <pre><code>GET /domains/:domain/email_forwards
 </code></pre>
@@ -120,13 +122,15 @@
 <h3 id="input">Input</h3>
 
 <dl>
-<dt>email_forward.from</dt>
+  <dt>email_forward.from</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>email_forward.to</dt>
   <dd>Required <em>string</em>
 </dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john"</span><span class="p">,</span>
     <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@example.com"</span>
@@ -169,6 +173,7 @@
 <h3 id="response-2">Response</h3>
 
 <p>Responds with HTTP 204 on success.</p>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -191,7 +196,7 @@
   <li><a href="/domains/records/">Records</a></li>
   <li><a href="/domains/nameservers/">Name Servers</a></li>
   <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
-  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy</a></li>
   <li><a href="/domains/certificates/">SSL Certificates</a></li>
   <li><a href="/domains/forwards/">Email Forwards</a></li>
   <li><a href="/domains/zones/">Zones</a></li>
@@ -199,12 +204,12 @@
   <li><a href="/contacts/">Contacts</a></li>
   <li><a href="/services/">Services</a></li>
   <li><ul class="nav nav-list">
-  <li><a href="/services/applied/">Applications</a></li>
+  <li><a href="/services/applied/">Domain Services</a></li>
   </ul></li>
   <li><a href="/templates/">Templates</a></li>
   <li><ul class="nav nav-list">
   <li><a href="/templates/records/">Records</a></li>
-  <li><a href="/templates/applied/">Applications</a></li>
+  <li><a href="/templates/applied/">Domain Templates</a></li>
   </ul></li>
   <li><a href="/extended-attributes/">Extended Attributes</a></li>
   <li><a href="/users/">Users</a></li>

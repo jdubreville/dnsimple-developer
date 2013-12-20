@@ -49,11 +49,13 @@
         <h1 id="template-record-api">Template Record API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list-template-records">List template records</a></li>
+  <li><a href="#list-template-records">List template records</a></li>
   <li><a href="#get-a-template-record">Get a template record</a></li>
   <li><a href="#create-a-template-record">Create a template record</a></li>
   <li><a href="#delete-a-template-record">Delete a template record</a></li>
-</ul><h2 id="list-template-records">List template records</h2>
+</ul>
+
+<h2 id="list-template-records">List template records</h2>
 
 <pre><code>GET /templates/:template/records
 </code></pre>
@@ -147,10 +149,12 @@
 <p>The following fields are required:</p>
 
 <ul>
-<li><code>dns_template_record[name]</code></li>
+  <li><code>dns_template_record[name]</code></li>
   <li><code>dns_template_record[record_type]</code></li>
   <li><code>dns_template_record[content]</code></li>
-</ul><p>The following fields are optional:</p>
+</ul>
+
+<p>The following fields are optional:</p>
 
 <p>– <code>dns_template_record[ttl]</code>
 – <code>dns_template_record[prio]</code></p>
@@ -185,6 +189,7 @@
 <h3 id="response-3">Response</h3>
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -207,7 +212,7 @@
   <li><a href="/domains/records/">Records</a></li>
   <li><a href="/domains/nameservers/">Name Servers</a></li>
   <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
-  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy</a></li>
   <li><a href="/domains/certificates/">SSL Certificates</a></li>
   <li><a href="/domains/forwards/">Email Forwards</a></li>
   <li><a href="/domains/zones/">Zones</a></li>
@@ -215,12 +220,12 @@
   <li><a href="/contacts/">Contacts</a></li>
   <li><a href="/services/">Services</a></li>
   <li><ul class="nav nav-list">
-  <li><a href="/services/applied/">Applications</a></li>
+  <li><a href="/services/applied/">Domain Services</a></li>
   </ul></li>
   <li><a href="/templates/">Templates</a></li>
   <li><ul class="nav nav-list">
   <li><a href="/templates/records/">Records</a></li>
-  <li><a href="/templates/applied/">Applications</a></li>
+  <li><a href="/templates/applied/">Domain Templates</a></li>
   </ul></li>
   <li><a href="/extended-attributes/">Extended Attributes</a></li>
   <li><a href="/users/">Users</a></li>

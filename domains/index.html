@@ -49,14 +49,16 @@
         <h1 id="domain-api">Domain API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list-domains">List domains</a></li>
+  <li><a href="#list-domains">List domains</a></li>
   <li><a href="#get-a-domain">Get a domain</a></li>
   <li><a href="#create-a-domain">Create a domain</a></li>
   <li><a href="#delete-a-domain">Delete a domain</a></li>
   <li><a href="#reset-domain-token">Reset domain token</a></li>
   <li><a href="#check-domain-availability">Check domain availability</a></li>
   <li><a href="#move-domain-to-another-account">Move domain to another account</a></li>
-</ul><h2 id="list-domains">List domains</h2>
+</ul>
+
+<h2 id="list-domains">List domains</h2>
 
 <p>List all domains.</p>
 
@@ -125,9 +127,11 @@
 <h3 id="params">Params</h3>
 
 <dl>
-<dt>:domain</dt>
+  <dt>:domain</dt>
   <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
-</dl><h3 id="example-1">Example</h3>
+</dl>
+
+<h3 id="example-1">Example</h3>
 
 <p>Get the domain with ID <code>1</code>.</p>
 
@@ -186,10 +190,12 @@
 <h3 id="input">Input</h3>
 
 <dl>
-<dt>domain.name</dt>
+  <dt>domain.name</dt>
   <dd>Required <em>string</em>
 </dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span>
   <span class="p">}</span>
@@ -241,9 +247,11 @@ this will not delete the domain from the registry.</p>
 <h3 id="params-1">Params</h3>
 
 <dl>
-<dt>:domain</dt>
+  <dt>:domain</dt>
   <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
-</dl><h3 id="example-3">Example</h3>
+</dl>
+
+<h3 id="example-3">Example</h3>
 
 <p>Delete the domain with ID <code>1</code>:</p>
 
@@ -279,9 +287,11 @@ this will not delete the domain from the registry.</p>
 <h3 id="params-2">Params</h3>
 
 <dl>
-<dt>:domain</dt>
+  <dt>:domain</dt>
   <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
-</dl><h3 id="example-4">Example</h3>
+</dl>
+
+<h3 id="example-4">Example</h3>
 
 <p>Reset the token for the domain <code>example.com</code>.</p>
 
@@ -334,9 +344,11 @@ this will not delete the domain from the registry.</p>
 <h3 id="params-3">Params</h3>
 
 <dl>
-<dt>:domain</dt>
+  <dt>:domain</dt>
   <dd>The <em>string</em> domain name</dd>
-</dl><h3 id="example-5">Example</h3>
+</dl>
+
+<h3 id="example-5">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -345,15 +357,35 @@ this will not delete the domain from the registry.</p>
 
 <h3 id="response-5">Response</h3>
 
-<p>If the domain is available then this will return a 404 which indicates
-that the name is available. If it is not available then the response will be a 200.</p>
+<p>If the domain is available then this will return a 404 which indicates that the
+name is available. If it is not available then the response will be a 200.</p>
 
-<p>In addition the body of the response will contain the domain name
-that was checked along with a status string.</p>
+<p>In either case, the JSON response will contain some additional relevant
+information like availability, price, and the minimum number of years you’ll
+have to reserve the domain for, if you decide to get it.</p>
 
-<pre><code class="language-js"><span class="p">{</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"available-domain.com"</span><span class="p">,</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"available"</span>
+<p>An available domain looks like this:</p>
+
+<pre><code class="language-js"><span class="c1">// 404 Not Found</span>
+<span class="p">{</span>
+  <span class="s2">"name"</span><span class="o">:</span><span class="s2">"available-domain.com"</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="o">:</span><span class="s2">"available"</span><span class="p">,</span>
+  <span class="s2">"price"</span><span class="o">:</span><span class="s2">"14.0"</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="o">:</span><span class="s2">"USD"</span><span class="p">,</span>
+  <span class="s2">"currency_symbol"</span><span class="o">:</span><span class="s2">"$"</span><span class="p">,</span>
+  <span class="s2">"minimum_number_of_years"</span><span class="o">:</span><span class="mi">1</span>
+<span class="p">}</span></code></pre>
+
+<p>An unavailable domain looks like this:</p>
+
+<pre><code class="language-js"><span class="c1">// 200 OK</span>
+<span class="p">{</span>
+  <span class="s2">"name"</span><span class="o">:</span><span class="s2">"somebody-already-has-it.com"</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="o">:</span><span class="s2">"unavailable"</span><span class="p">,</span>
+  <span class="s2">"price"</span><span class="o">:</span><span class="s2">"14.0"</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="o">:</span><span class="s2">"USD"</span><span class="p">,</span>
+  <span class="s2">"currency_symbol"</span><span class="o">:</span><span class="s2">"$"</span><span class="p">,</span>
+  <span class="s2">"minimum_number_of_years"</span><span class="o">:</span><span class="mi">1</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="move-domain-to-another-account">Move domain to another account</h2>
@@ -369,9 +401,11 @@ You will need to acces it using the new account’s credentials.</p>
 <h3 id="params-4">Params</h3>
 
 <dl>
-<dt>:domain</dt>
+  <dt>:domain</dt>
   <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
-</dl><h3 id="example-6">Example</h3>
+</dl>
+
+<h3 id="example-6">Example</h3>
 
 <p>Move the domain <code>example.com</code>:</p>
 
@@ -386,11 +420,13 @@ You will need to acces it using the new account’s credentials.</p>
 <h3 id="input-2">Input</h3>
 
 <dl>
-<dt>push.new_user_email</dt>
+  <dt>push.new_user_email</dt>
   <dd>Required <em>string</em> email of the new account’s email address.</dd>
   <dt>push.contact_id</dt>
   <dd>Required <em>integer</em> corresponding to the new account’s registrant.</dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"push"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"new_user_email"</span><span class="o">:</span> <span class="s2">"john@example.com"</span><span class="p">,</span>
     <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span>
@@ -425,6 +461,7 @@ You will need to acces it using the new account’s credentials.</p>
     <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -447,7 +484,7 @@ You will need to acces it using the new account’s credentials.</p>
   <li><a href="/domains/records/">Records</a></li>
   <li><a href="/domains/nameservers/">Name Servers</a></li>
   <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
-  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy</a></li>
   <li><a href="/domains/certificates/">SSL Certificates</a></li>
   <li><a href="/domains/forwards/">Email Forwards</a></li>
   <li><a href="/domains/zones/">Zones</a></li>
@@ -455,12 +492,12 @@ You will need to acces it using the new account’s credentials.</p>
   <li><a href="/contacts/">Contacts</a></li>
   <li><a href="/services/">Services</a></li>
   <li><ul class="nav nav-list">
-  <li><a href="/services/applied/">Applications</a></li>
+  <li><a href="/services/applied/">Domain Services</a></li>
   </ul></li>
   <li><a href="/templates/">Templates</a></li>
   <li><ul class="nav nav-list">
   <li><a href="/templates/records/">Records</a></li>
-  <li><a href="/templates/applied/">Applications</a></li>
+  <li><a href="/templates/applied/">Domain Templates</a></li>
   </ul></li>
   <li><a href="/extended-attributes/">Extended Attributes</a></li>
   <li><a href="/users/">Users</a></li>

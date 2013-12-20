@@ -51,9 +51,11 @@
 <p>WHOIS Privacy Protection replaces a domain’s WHOIS data with a proxy service to protect a customer’s address, phone number and email address. The service is a paid service and must be renewed on a yearly basis.</p>
 
 <ul id="markdown-toc">
-<li><a href="#enable-whois-privacy">Enable WHOIS Privacy</a></li>
-  <li><a href="#disable-whois-privacy">Disable WHOIS Privacy</a></li>
-</ul><h2 id="enable-whois-privacy">Enable WHOIS Privacy</h2>
+  <li><a href="#enable-domain-whois-privacy">Enable domain WHOIS Privacy</a></li>
+  <li><a href="#disable-domain-whois-privacy">Disable domain WHOIS Privacy</a></li>
+</ul>
+
+<h2 id="enable-domain-whois-privacy">Enable domain WHOIS Privacy</h2>
 
 <pre><code>POST /domains/:domain/whois_privacy
 </code></pre>
@@ -82,7 +84,7 @@ If the privacy protection is currently disabled then it will be enabled.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="disable-whois-privacy">Disable WHOIS Privacy</h2>
+<h2 id="disable-domain-whois-privacy">Disable domain WHOIS Privacy</h2>
 
 <div class="alert">
   <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomainwhois_privacy">planned changes</a> for this API method.
@@ -109,6 +111,7 @@ If the privacy protection is currently disabled then it will be enabled.</p>
 <div class="alert">
   <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid">planned changes</a>.
 </div>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -131,7 +134,7 @@ If the privacy protection is currently disabled then it will be enabled.</p>
   <li><a href="/domains/records/">Records</a></li>
   <li><a href="/domains/nameservers/">Name Servers</a></li>
   <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
-  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy</a></li>
   <li><a href="/domains/certificates/">SSL Certificates</a></li>
   <li><a href="/domains/forwards/">Email Forwards</a></li>
   <li><a href="/domains/zones/">Zones</a></li>
@@ -139,12 +142,12 @@ If the privacy protection is currently disabled then it will be enabled.</p>
   <li><a href="/contacts/">Contacts</a></li>
   <li><a href="/services/">Services</a></li>
   <li><ul class="nav nav-list">
-  <li><a href="/services/applied/">Applications</a></li>
+  <li><a href="/services/applied/">Domain Services</a></li>
   </ul></li>
   <li><a href="/templates/">Templates</a></li>
   <li><ul class="nav nav-list">
   <li><a href="/templates/records/">Records</a></li>
-  <li><a href="/templates/applied/">Applications</a></li>
+  <li><a href="/templates/applied/">Domain Templates</a></li>
   </ul></li>
   <li><a href="/extended-attributes/">Extended Attributes</a></li>
   <li><a href="/users/">Users</a></li>

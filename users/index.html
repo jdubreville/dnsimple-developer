@@ -50,6 +50,10 @@
 
 <p>API for provisioning users.</p>
 
+<ul id="markdown-toc">
+  <li><a href="#create-an-user">Create an user</a></li>
+</ul>
+
 <h2 id="create-an-user">Create an user</h2>
 
 <p>Provision a new user account.</p>
@@ -72,7 +76,7 @@
 <h3 id="input">Input</h3>
 
 <dl>
-<dt>user.email</dt>
+  <dt>user.email</dt>
   <dd>Required <em>string</em>
 </dd>
   <dt>user.password</dt>
@@ -81,7 +85,9 @@
   <dt>user.password_confirmation</dt>
   <dd>Required <em>string</em>
 </dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"user"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span><span class="p">,</span>
     <span class="s2">"password"</span><span class="o">:</span> <span class="s2">"x8ejfhfgjQ#A"</span><span class="p">,</span>
@@ -117,6 +123,7 @@
     <span class="s2">"domain_limit"</span><span class="o">:</span> <span class="mi">10</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -139,7 +146,7 @@
   <li><a href="/domains/records/">Records</a></li>
   <li><a href="/domains/nameservers/">Name Servers</a></li>
   <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
-  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy</a></li>
   <li><a href="/domains/certificates/">SSL Certificates</a></li>
   <li><a href="/domains/forwards/">Email Forwards</a></li>
   <li><a href="/domains/zones/">Zones</a></li>
@@ -147,12 +154,12 @@
   <li><a href="/contacts/">Contacts</a></li>
   <li><a href="/services/">Services</a></li>
   <li><ul class="nav nav-list">
-  <li><a href="/services/applied/">Applications</a></li>
+  <li><a href="/services/applied/">Domain Services</a></li>
   </ul></li>
   <li><a href="/templates/">Templates</a></li>
   <li><ul class="nav nav-list">
   <li><a href="/templates/records/">Records</a></li>
-  <li><a href="/templates/applied/">Applications</a></li>
+  <li><a href="/templates/applied/">Domain Templates</a></li>
   </ul></li>
   <li><a href="/extended-attributes/">Extended Attributes</a></li>
   <li><a href="/users/">Users</a></li>

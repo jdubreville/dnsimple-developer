@@ -57,27 +57,36 @@
 <h3 id="domain-serialization">Domain serialization</h3>
 
 <ul>
-<li>The <code>name_server_status</code> is no longer used and will be removed soon.</li>
-</ul><h3 id="certificate-serialization">Certificate serialization</h3>
+  <li>The <code>name_server_status</code> is no longer used and will be removed soon.</li>
+</ul>
+
+<h3 id="certificate-serialization">Certificate serialization</h3>
 
 <ul>
-<li>The <code>available_approver_emails</code> is no longer used and will be removed soon. It has been replaced by the <code>approver_emails</code> array field displayed in case of configured certificate.</li>
+  <li>The <code>available_approver_emails</code> is no longer used and will be removed soon. It has been replaced by the <code>approver_emails</code> array field displayed in case of configured certificate.</li>
   <li>The <code>certificate_status</code> is no longer used and will be removed soon. Use the <code>state</code> field instead.</li>
-</ul><h3 id="delete-domainsdomain">DELETE /domains/:domain</h3>
+</ul>
+
+<h3 id="delete-domainsdomain">DELETE /domains/:domain</h3>
 
 <ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
-  <li>Response is expected to be empty instead of a JSON object.</li>
-</ul><h3 id="delete-domainsdomainrecordsid">DELETE /domains/:domain/records/:id</h3>
-
-<ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
-</ul><h3 id="delete-domainsdomainwhoisprivacy">DELETE /domains/:domain/whois_privacy</h3>
-
-<ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
   <li>Response is expected to be empty instead of a JSON object.</li>
 </ul>
+
+<h3 id="delete-domainsdomainrecordsid">DELETE /domains/:domain/records/:id</h3>
+
+<ul>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+</ul>
+
+<h3 id="delete-domainsdomainwhoisprivacy">DELETE /domains/:domain/whois_privacy</h3>
+
+<ul>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+  <li>Response is expected to be empty instead of a JSON object.</li>
+</ul>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -100,7 +109,7 @@
   <li><a href="/domains/records/">Records</a></li>
   <li><a href="/domains/nameservers/">Name Servers</a></li>
   <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
-  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy</a></li>
   <li><a href="/domains/certificates/">SSL Certificates</a></li>
   <li><a href="/domains/forwards/">Email Forwards</a></li>
   <li><a href="/domains/zones/">Zones</a></li>
@@ -108,12 +117,12 @@
   <li><a href="/contacts/">Contacts</a></li>
   <li><a href="/services/">Services</a></li>
   <li><ul class="nav nav-list">
-  <li><a href="/services/applied/">Applications</a></li>
+  <li><a href="/services/applied/">Domain Services</a></li>
   </ul></li>
   <li><a href="/templates/">Templates</a></li>
   <li><ul class="nav nav-list">
   <li><a href="/templates/records/">Records</a></li>
-  <li><a href="/templates/applied/">Applications</a></li>
+  <li><a href="/templates/applied/">Domain Templates</a></li>
   </ul></li>
   <li><a href="/extended-attributes/">Extended Attributes</a></li>
   <li><a href="/users/">Users</a></li>

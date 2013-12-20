@@ -48,13 +48,13 @@
       <div id="main" class="span8">
         <h1 id="name-server-api">Name Server API</h1>
 
-<p>Vanity name servers are used to hide the use of DNSimple’s name servers and instead use our name servers with different names.</p>
-
 <ul id="markdown-toc">
-<li><a href="#change-the-name-servers">Change the name servers</a></li>
-  <li><a href="#register-a-name-server-in-the-registry">Register a name server in the registry</a></li>
-  <li><a href="#de-register-a-name-server-in-the-registry">De-register a name server in the registry</a></li>
-</ul><h2 id="change-the-name-servers">Change the name servers</h2>
+  <li><a href="#change-domain-name-servers">Change domain name servers</a></li>
+  <li><a href="#register-a-domain-name-server-at-the-registry">Register a domain name server at the registry</a></li>
+  <li><a href="#de-register-a-domain-name-server-at-the-registry">De-register a domain name server at the registry</a></li>
+</ul>
+
+<h2 id="change-domain-name-servers">Change domain name servers</h2>
 
 <p>Change the name servers either to external name servers or back to DNSimple’s name servers.</p>
 
@@ -99,7 +99,7 @@
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
 
-<h2 id="register-a-name-server-in-the-registry">Register a name server in the registry</h2>
+<h2 id="register-a-domain-name-server-at-the-registry">Register a domain name server at the registry</h2>
 
 <pre><code>POST /domains/:domain/registry_name_servers
 </code></pre>
@@ -131,7 +131,7 @@
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
 
-<h2 id="de-register-a-name-server-in-the-registry">De-register a name server in the registry</h2>
+<h2 id="de-register-a-domain-name-server-at-the-registry">De-register a domain name server at the registry</h2>
 
 <pre><code>DELETE /domains/:domain/registry_name_servers/:name
 </code></pre>
@@ -148,6 +148,7 @@
 <h3 id="response-2">Response</h3>
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -170,7 +171,7 @@
   <li><a href="/domains/records/">Records</a></li>
   <li><a href="/domains/nameservers/">Name Servers</a></li>
   <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
-  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy</a></li>
   <li><a href="/domains/certificates/">SSL Certificates</a></li>
   <li><a href="/domains/forwards/">Email Forwards</a></li>
   <li><a href="/domains/zones/">Zones</a></li>
@@ -178,12 +179,12 @@
   <li><a href="/contacts/">Contacts</a></li>
   <li><a href="/services/">Services</a></li>
   <li><ul class="nav nav-list">
-  <li><a href="/services/applied/">Applications</a></li>
+  <li><a href="/services/applied/">Domain Services</a></li>
   </ul></li>
   <li><a href="/templates/">Templates</a></li>
   <li><ul class="nav nav-list">
   <li><a href="/templates/records/">Records</a></li>
-  <li><a href="/templates/applied/">Applications</a></li>
+  <li><a href="/templates/applied/">Domain Templates</a></li>
   </ul></li>
   <li><a href="/extended-attributes/">Extended Attributes</a></li>
   <li><a href="/users/">Users</a></li>

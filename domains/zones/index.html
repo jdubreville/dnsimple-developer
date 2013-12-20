@@ -49,9 +49,11 @@
         <h1 id="domain-zone-api">Domain Zone API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#import-domain-zone">Import Domain Zone</a></li>
-  <li><a href="#export-domain-zone">Export Domain Zone</a></li>
-</ul><h2 id="import-domain-zone">Import Domain Zone</h2>
+  <li><a href="#import-a-domain-zone">Import a domain zone</a></li>
+  <li><a href="#export-a-domain-zone">Export a domain zone</a></li>
+</ul>
+
+<h2 id="import-a-domain-zone">Import a domain zone</h2>
 
 <pre><code>POST /domains/:domain/zone_imports
 </code></pre>
@@ -81,10 +83,12 @@
 <h3 id="input">Input</h3>
 
 <dl>
-<dt>zone_import.zone_data</dt>
+  <dt>zone_import.zone_data</dt>
   <dd>Required <em>string</em>
 </dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"zone_import"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"zone_data"</span><span class="o">:</span> <span class="s2">"$ORIGIN example.com.\n$TTL 1h\nexample.com. IN  SOA ns1.dnsimple.com admin.dnsimple.com 2011092001 86400 7200 604800 300\nexample.com. IN NS  ns1.dnsimple.com.\nexample.com. IN NS  ns2.dnsimple.com.\nexample.com. IN NS  ns3.dnsimple.com.\nexample.com. IN NS  ns4.dnsimple.com.\nds1.example.com. 3600 IN  A 184.106.215.134\nindex.example.com. 3600 IN  NS ds1.example.com\n; example.com. 3600 IN  URL http://dnsimple.com\n; www.example.com. 3600 IN  URL https://dnsimple.com"</span>
   <span class="p">}</span>
@@ -141,7 +145,7 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="export-domain-zone">Export Domain Zone</h2>
+<h2 id="export-a-domain-zone">Export a domain zone</h2>
 
 <pre><code>GET /domains/:domain/zone.txt
 </code></pre>
@@ -170,6 +174,7 @@ example.com. IN NS  ns2.dnsimple.com.
 example.com. IN NS  ns3.dnsimple.com.
 example.com. IN NS  ns4.dnsimple.com.
 </code></pre>
+
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>
@@ -192,7 +197,7 @@ example.com. IN NS  ns4.dnsimple.com.
   <li><a href="/domains/records/">Records</a></li>
   <li><a href="/domains/nameservers/">Name Servers</a></li>
   <li><a href="/domains/vanity-nameservers/">Vanity Name Servers</a></li>
-  <li><a href="/domains/privacy/">WHOIS Privacy Protection</a></li>
+  <li><a href="/domains/privacy/">WHOIS Privacy</a></li>
   <li><a href="/domains/certificates/">SSL Certificates</a></li>
   <li><a href="/domains/forwards/">Email Forwards</a></li>
   <li><a href="/domains/zones/">Zones</a></li>
@@ -200,12 +205,12 @@ example.com. IN NS  ns4.dnsimple.com.
   <li><a href="/contacts/">Contacts</a></li>
   <li><a href="/services/">Services</a></li>
   <li><ul class="nav nav-list">
-  <li><a href="/services/applied/">Applications</a></li>
+  <li><a href="/services/applied/">Domain Services</a></li>
   </ul></li>
   <li><a href="/templates/">Templates</a></li>
   <li><ul class="nav nav-list">
   <li><a href="/templates/records/">Records</a></li>
-  <li><a href="/templates/applied/">Applications</a></li>
+  <li><a href="/templates/applied/">Domain Templates</a></li>
   </ul></li>
   <li><a href="/extended-attributes/">Extended Attributes</a></li>
   <li><a href="/users/">Users</a></li>
