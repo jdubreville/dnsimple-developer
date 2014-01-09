@@ -59,14 +59,31 @@
 <pre><code>POST /domains/:domain/name_servers
 </code></pre>
 
-<h3 id="example">Example</h3>
+<h3 id="parameters">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example">Example</h3>
+
+<p>Change name servers for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/:domain/name_servers
+      https://dnsimple.com/domains/example.com/name_servers
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -95,28 +112,52 @@
 
 <h3 id="response">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 200 on success, returns the array of assigned name servers.</p>
+
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="s2">"ns1.example.com"</span><span class="p">,</span>
+  <span class="s2">"ns2.example.com"</span><span class="p">,</span>
+  <span class="s2">"ns3.example.com"</span><span class="p">,</span>
+  <span class="s2">"ns4.example.com"</span>
+<span class="p">]</span></code></pre>
+
+<p>Responds with HTTP 400 if bad request.</p>
 
 <h2 id="register-a-domain-name-server-at-the-registry">Register a domain name server at the registry</h2>
 
 <pre><code>POST /domains/:domain/registry_name_servers
 </code></pre>
 
-<p>The domain must be registered with DNSimple in order for this command to work.</p>
+<h3 id="parameters-1">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><p>The domain must be registered with DNSimple in order for this command to work.</p>
 
 <h3 id="example-1">Example</h3>
+
+<p>Register a name server belonging to <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/:domain/registry_name_servers
+      https://dnsimple.com/domains/example.com/registry_name_servers
 </code></pre>
 
 <h3 id="input-1">Input</h3>
-
-<p>This API accepts up to 6 name servers.</p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"name_server"</span><span class="o">:</span> <span class="p">{</span>
@@ -127,25 +168,58 @@
 
 <h3 id="response-1">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 200 on success, returns the name server.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"ns1.example.com"</span><span class="p">,</span>
+  <span class="s2">"ip"</span><span class="o">:</span> <span class="mi">12</span>
+<span class="p">}</span></code></pre>
+
+<p>Responds with HTTP 400 if bad request.</p>
 
 <h2 id="de-register-a-domain-name-server-at-the-registry">De-register a domain name server at the registry</h2>
+
+<p>De-register the name server <code>ns1.example.com</code> belonging to <code>example.com</code>:</p>
 
 <pre><code>DELETE /domains/:domain/registry_name_servers/:name
 </code></pre>
 
-<h3 id="example-2">Example</h3>
+<h3 id="parameters-2">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr>
+<tr>
+<td><code>:name</code></td>
+      <td><code>string</code></td>
+      <td>The name server name</td>
+    </tr>
+</tbody>
+</table><h3 id="example-2">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/:domain/registry_name_servers/:name
+      https://dnsimple.com/domains/example.com/registry_name_servers/ns1.example.com
 </code></pre>
 
 <h3 id="response-2">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 204 on success.</p>
+
+<p>Responds with HTTP 400 if bad request.</p>
       </div>
       <div id="sidebar" class="span4">
         <h4>Introduction</h4>

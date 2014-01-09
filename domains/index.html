@@ -122,12 +122,22 @@
 <pre><code>GET /domains/:domain
 </code></pre>
 
-<h3 id="params">Params</h3>
+<h3 id="parameters">Parameters</h3>
 
-<dl>
-<dt>:domain</dt>
-  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
-</dl><h3 id="example-1">Example</h3>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-1">Example</h3>
 
 <p>Get the domain with ID <code>1</code>.</p>
 
@@ -238,12 +248,22 @@
 <p>Please note that for domains which are registered with DNSimple
 this will not delete the domain from the registry.</p>
 
-<h3 id="params-1">Params</h3>
+<h3 id="parameters-1">Parameters</h3>
 
-<dl>
-<dt>:domain</dt>
-  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
-</dl><h3 id="example-3">Example</h3>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-3">Example</h3>
 
 <p>Delete the domain with ID <code>1</code>:</p>
 
@@ -276,12 +296,22 @@ this will not delete the domain from the registry.</p>
 <pre><code>POST /domains/:domain/token
 </code></pre>
 
-<h3 id="params-2">Params</h3>
+<h3 id="parameters-2">Parameters</h3>
 
-<dl>
-<dt>:domain</dt>
-  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
-</dl><h3 id="example-4">Example</h3>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-4">Example</h3>
 
 <p>Reset the token for the domain <code>example.com</code>.</p>
 
@@ -331,12 +361,20 @@ this will not delete the domain from the registry.</p>
 <pre><code>GET /domains/:name/check
 </code></pre>
 
-<h3 id="params-3">Params</h3>
+<h3 id="parameters-3">Parameters</h3>
 
-<dl>
-<dt>:domain</dt>
-  <dd>The <em>string</em> domain name</dd>
-</dl><h3 id="example-5">Example</h3>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td><code>string</code></td>
+      <td>The domain name</td>
+    </tr></tbody>
+</table><h3 id="example-5">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -386,12 +424,22 @@ have to reserve the domain for, if you decide to get it.</p>
 <p>Once a domain is pushed you will no longer be able to access it through your account.
 You will need to acces it using the new account’s credentials.</p>
 
-<h3 id="params-4">Params</h3>
+<h3 id="parameters-4">Parameters</h3>
 
-<dl>
-<dt>:domain</dt>
-  <dd>The <em>string</em> domain name or <em>integer</em> domain id</dd>
-</dl><h3 id="example-6">Example</h3>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-6">Example</h3>
 
 <p>Move the domain <code>example.com</code>:</p>
 

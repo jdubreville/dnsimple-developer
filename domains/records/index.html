@@ -68,16 +68,34 @@
 
 <h3 id="parameters">Parameters</h3>
 
-<dl>
-<dt>name</dt>
-  <dd>
-<em>String</em> name to search. Example: <code>www</code>
-</dd>
-  <dt>type</dt>
-  <dd>
-<em>String</em> record type. Example: <code>CNAME</code>
-</dd>
-</dl><h3 id="response">Response</h3>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr>
+<tr>
+<td><code>name</code></td>
+      <td><code>string</code></td>
+      <td>The name to search for. Example: <code>www</code>
+</td>
+    </tr>
+<tr>
+<td><code>type</code></td>
+      <td><code>string</code></td>
+      <td>The record type to search for. Example: <code>www</code>
+</td>
+    </tr>
+</tbody>
+</table><h3 id="response">Response</h3>
 
 <pre><code class="language-js"><span class="p">[</span>
   <span class="p">{</span>
@@ -127,7 +145,22 @@
 <pre><code>GET /domains/:domain/records/:id
 </code></pre>
 
-<h3 id="example-1">Example</h3>
+<h3 id="parameters-1">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-1">Example</h3>
 
 <p>Get the record <code>123</code> for domain <code>example.com</code>.</p>
 
@@ -157,7 +190,22 @@
 <pre><code>POST /domains/:domain/records
 </code></pre>
 
-<h3 id="example-2">Example</h3>
+<h3 id="parameters-2">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-2">Example</h3>
 
 <p>Create a record for domain <code>example.com</code>:</p>
 
@@ -224,7 +272,22 @@
 <pre><code>PUT /domains/:domain/records/:id
 </code></pre>
 
-<h3 id="example-3">Example</h3>
+<h3 id="parameters-3">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-3">Example</h3>
 
 <p>Update the record with ID <code>123</code> for domain <code>example.com</code>:</p>
 
@@ -291,7 +354,22 @@
 <pre><code>DELETE /domains/:domain/records/:id
 </code></pre>
 
-<h3 id="example-4">Example</h3>
+<h3 id="parameters-4">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-4">Example</h3>
 
 <p>Delete the record with ID <code>123</code> for domain <code>example.com</code>:</p>
 

@@ -251,7 +251,22 @@ which is 1 year for most domains but for some domains may be more.</p>
 
 <p>This will unlock a domain and send the authorization code to the domain’s administrative contact.</p>
 
-<h3 id="example-3">Example</h3>
+<h3 id="parameters">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-3">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \

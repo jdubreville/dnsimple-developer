@@ -57,7 +57,22 @@
 <pre><code>GET /domains/:domain/memberships
 </code></pre>
 
-<h3 id="example">Example</h3>
+<h3 id="parameters">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example">Example</h3>
 
 <p>List memberships for domain <code>example.com</code>:</p>
 
@@ -103,7 +118,22 @@
 <pre><code>POST /domains/:domain/memberships
 </code></pre>
 
-<h3 id="example-1">Example</h3>
+<h3 id="parameters-1">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-1">Example</h3>
 
 <p>Add a membership for domain <code>example.com</code>:</p>
 
@@ -150,7 +180,22 @@ If the person does not yet have a DNSimple account then he will receive an invit
 <pre><code>DELETE /domains/:domain/memberships/:membership
 </code></pre>
 
-<h3 id="example-2">Example</h3>
+<h3 id="parameters-2">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-2">Example</h3>
 
 <p>Delete the membership with ID <code>712</code> for domain <code>example.com</code>:</p>
 
