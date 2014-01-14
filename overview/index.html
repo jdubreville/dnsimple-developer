@@ -53,13 +53,33 @@
         <h1 id="overview">Overview</h1>
 
 <ul id="markdown-toc">
-<li><a href="#end-point">End Point</a></li>
-  <li><a href="#authentication">Authentication</a></li>
+<li><a href="#url">URL</a></li>
+  <li><a href="#current-version">Current Version</a></li>
   <li><a href="#requests">Requests</a></li>
-  <li><a href="#cors">CORS</a></li>
-</ul><h2 id="end-point">End Point</h2>
+  <li><a href="#authentication">Authentication</a></li>
+  <li><a href="#cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
+</ul><h2 id="url">URL</h2>
 
-<p>The DNSimple API end-point URL is <code>https://dnsimple.com/</code>.</p>
+<p>All API access is over HTTPS, and accessed from the <code>api.dnsimple.com</code> domain.</p>
+
+<p>In order to maintain compatibility in the future, all requests must specify an API version, which is appended to the URL.</p>
+
+<pre><code>https://api.dnsimple.com/v1/
+</code></pre>
+
+<h2 id="current-version">Current Version</h2>
+
+<p>The current API version is <code>v1</code>.</p>
+
+<p>The legacy API (called <code>v0</code>) will no longer be available after June 30th. Please switch to API <code>v1</code> as soon as possible. Read the <a href="http://blog.dnsimple.com/2014/01/versioned-api/">versioned API announcement for more details</a>.</p>
+
+<h2 id="requests">Requests</h2>
+
+<p>All requests should include the <code>Accept</code> header set to <code>application/json</code>. All data is sent and received as JSON.</p>
+
+<div class="alert alert-warning">
+  <strong>Warning!</strong> Passing form-encoded post data using the `application/x-www-form-urlencoded` content type is deprecated.
+</div>
 
 <h2 id="authentication">Authentication</h2>
 
@@ -67,40 +87,32 @@
 
 <p>There are two authentication methods availabe: <code>HTTP Basic Authentication</code> or the <code>X-DNSimple-Token</code> header.</p>
 
-<p><strong>HTTP Basic Authentication</strong></p>
+<h5 id="http-basic-authentication">HTTP Basic Authentication</h5>
 
 <pre><code>curl  -u "&lt;email&gt;:&lt;password&gt;" \
       -H 'Accept: application/json' \
-      https://dnsimple.com/users/me
+      https://api.dnsimple.com/v1/users/me
 </code></pre>
 
-<p><strong>DNSimple API Token</strong> (sent in a header)</p>
+<h5 id="dnsimple-api-token-sent-in-a-header">DNSimple API Token (sent in a header)</h5>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/users/me
+      https://api.dnsimple.com/v1/users/me
 </code></pre>
 
-<p><strong>DNSimple Domain Token</strong> (sent in a header)</p>
+<h5 id="dnsimple-domain-token-sent-in-a-header">DNSimple Domain Token (sent in a header)</h5>
 
 <pre><code>curl  -H 'X-DNSimple-Domain-Token: &lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/:domain
+      https://api.dnsimple.com/v1/domains/:domain
 </code></pre>
 
 <p>The <a href="/authentication/">Authentication</a> page provides more information about how to use them.</p>
 
-<h2 id="requests">Requests</h2>
+<h2 id="cross-origin-resource-sharing">Cross Origin Resource Sharing</h2>
 
-<p>All requests should be sent with <code>application/json</code> content type, but form-encoded data can be sent as well using the <code>application/x-www-form-urlencoded</code> content type.</p>
-
-<p>The examples below are shown with JSON.</p>
-
-<p>All requests must include the <code>Accept</code> header set to <code>application/json</code>.</p>
-
-<h2 id="cors">CORS</h2>
-
-<p>If you are using the DNSimple API in JavaScript from within a web browser then your browser will need to support CORS.</p>
+<p>If you are using the DNSimple API in JavaScript from within a web browser then your browser will need to support for Cross Origin Resource Sharing (CORS).</p>
 
 <p>Our CORS response headers are currently as follows:</p>
 

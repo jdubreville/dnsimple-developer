@@ -67,7 +67,7 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/:domain/records
+      https://api.dnsimple.com/v1/domains/:domain/records
 </code></pre>
 
 <h3 id="parameters">Parameters</h3>
@@ -170,7 +170,7 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/example.com/records/123
+      https://api.dnsimple.com/v1/domains/example.com/records/123
 </code></pre>
 
 <h3 id="response-1">Response</h3>
@@ -218,7 +218,7 @@
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/example.com/records
+      https://api.dnsimple.com/v1/domains/example.com/records
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -300,7 +300,7 @@
       -H 'Content-Type: application/json' \
       -X PUT
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/example.com/records/123
+      https://api.dnsimple.com/v1/domains/example.com/records/123
 </code></pre>
 
 <h3 id="input-1">Input</h3>
@@ -381,7 +381,7 @@
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/example.com/records/123
+      https://api.dnsimple.com/v1/domains/example.com/records/123
 </code></pre>
 
 <h3 id="response-4">Response</h3>

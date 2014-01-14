@@ -71,7 +71,7 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains
+      https://api.dnsimple.com/v1/domains
 </code></pre>
 
 <h3 id="response">Response</h3>
@@ -147,14 +147,14 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/1
+      https://api.dnsimple.com/v1/domains/1
 </code></pre>
 
 <p>Get the domain <code>example.com</code>.</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/example.com
+      https://api.dnsimple.com/v1/domains/example.com
 </code></pre>
 
 <h3 id="response-1">Response</h3>
@@ -194,7 +194,7 @@
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains
+      https://api.dnsimple.com/v1/domains
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -275,7 +275,7 @@ this will not delete the domain from the registry.</p>
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/1
+      https://api.dnsimple.com/v1/domains/1
 </code></pre>
 
 <p>Delete the domain <code>example.com</code>.</p>
@@ -284,7 +284,7 @@ this will not delete the domain from the registry.</p>
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/example.com
+      https://api.dnsimple.com/v1/domains/example.com
 </code></pre>
 
 <h3 id="response-3">Response</h3>
@@ -324,7 +324,7 @@ this will not delete the domain from the registry.</p>
       -X POST \
       -H 'Content-Type: application/json' \
       -d '{}' \
-      https://dnsimple.com/domains/example.com/token
+      https://api.dnsimple.com/v1/domains/example.com/token
 </code></pre>
 
 <h3 id="input-1">Input</h3>
@@ -382,7 +382,7 @@ this will not delete the domain from the registry.</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/:name/check
+      https://api.dnsimple.com/v1/domains/:name/check
 </code></pre>
 
 <h3 id="response-5">Response</h3>
@@ -452,7 +452,7 @@ You will need to acces it using the new account’s credentials.</p>
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/example.com/push
+      https://api.dnsimple.com/v1/domains/example.com/push
 </code></pre>
 
 <h3 id="input-2">Input</h3>

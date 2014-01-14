@@ -72,7 +72,7 @@ with DNSimple or transferred into DNSimple from another registrar.</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/contacts
+      https://api.dnsimple.com/v1/contacts
 </code></pre>
 
 <h3 id="response">Response</h3>
@@ -135,7 +135,7 @@ with DNSimple or transferred into DNSimple from another registrar.</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/contacts/123
+      https://api.dnsimple.com/v1/contacts/123
 </code></pre>
 
 <h3 id="response-1">Response</h3>
@@ -177,7 +177,7 @@ with DNSimple or transferred into DNSimple from another registrar.</p>
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/contacts
+      https://api.dnsimple.com/v1/contacts
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -285,7 +285,7 @@ If the <code>organization_name</code> is specified, then you must also include <
       -H 'Content-Type: application/json' \
       -X PUT \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/contacts/123
+      https://api.dnsimple.com/v1/contacts/123
 </code></pre>
 
 <h3 id="input-1">Input</h3>
@@ -334,7 +334,7 @@ If the <code>organization_name</code> is specified, then you must also include <
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/contacts/123
+      https://api.dnsimple.com/v1/contacts/123
 </code></pre>
 
 <h3 id="response-4">Response</h3>

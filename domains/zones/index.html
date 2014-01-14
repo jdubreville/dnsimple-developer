@@ -84,7 +84,7 @@
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/example.com/zone_imports
+      https://api.dnsimple.com/v1/domains/example.com/zone_imports
 </code></pre>
 
 <p>Import zone for domain with ID <code>123</code>:</p>
@@ -94,7 +94,7 @@
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/123/zone_imports
+      https://api.dnsimple.com/v1/domains/123/zone_imports
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -185,13 +185,13 @@
 <p>Export zone for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      https://dnsimple.com/domains/example.com/zone.txt
+      https://api.dnsimple.com/v1/domains/example.com/zone.txt
 </code></pre>
 
 <p>Export zone for domain with ID <code>123</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      https://dnsimple.com/domains/123/zone.txt
+      https://api.dnsimple.com/v1/domains/123/zone.txt
 </code></pre>
 
 <h3 id="response-1">Response</h3>

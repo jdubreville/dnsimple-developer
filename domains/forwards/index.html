@@ -84,14 +84,14 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/example.com/email_forwards
+      https://api.dnsimple.com/v1/domains/example.com/email_forwards
 </code></pre>
 
 <p>List email forwards for domain with ID <code>123</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/123/email_forwards
+      https://api.dnsimple.com/v1/domains/123/email_forwards
 </code></pre>
 
 <h3 id="response">Response</h3>
@@ -148,7 +148,7 @@
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/example.com/email_forwards
+      https://api.dnsimple.com/v1/domains/example.com/email_forwards
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -212,7 +212,7 @@
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/example.com/email_forwards/123
+      https://api.dnsimple.com/v1/domains/example.com/email_forwards/123
 </code></pre>
 
 <h3 id="response-2">Response</h3>

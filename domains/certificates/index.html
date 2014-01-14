@@ -86,7 +86,7 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/example.com/certificates
+      https://api.dnsimple.com/v1/domains/example.com/certificates
 </code></pre>
 
 <h3 id="response">Response</h3>
@@ -243,7 +243,7 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/example.com/certificates/2
+      https://api.dnsimple.com/v1/domains/example.com/certificates/2
 </code></pre>
 
 <h3 id="response-1">Response</h3>
@@ -338,7 +338,7 @@
       -X POST \
       -H 'Content-Type: application/json' \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/:domain/certificates
+      https://api.dnsimple.com/v1/domains/:domain/certificates
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -458,7 +458,7 @@ If you plan on submitting your own Certificate Signing Request then you must ens
       -H 'Accept: application/json' \
       -X PUT \
       -H 'Content-Type: application/json' \
-      https://dnsimple.com/domains/example.com/certificates/2/configure
+      https://api.dnsimple.com/v1/domains/example.com/certificates/2/configure
 </code></pre>
 
 <h3 id="response-3">Response</h3>
@@ -559,7 +559,7 @@ If you plan on submitting your own Certificate Signing Request then you must ens
       -X PUT \
       -H 'Content-Type: application/json' \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/example.com/certificates/2/submit
+      https://api.dnsimple.com/v1/domains/example.com/certificates/2/submit
 </code></pre>
 
 <h3 id="input-1">Input</h3>

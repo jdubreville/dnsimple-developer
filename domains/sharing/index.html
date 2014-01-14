@@ -82,14 +82,14 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/example.com/memberships
+      https://api.dnsimple.com/v1/domains/example.com/memberships
 </code></pre>
 
 <p>List memberships for domain with ID <code>123</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://dnsimple.com/domains/123/memberships
+      https://api.dnsimple.com/v1/domains/123/memberships
 </code></pre>
 
 <h3 id="response">Response</h3>
@@ -146,7 +146,7 @@
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://dnsimple.com/domains/example.com/memberships
+      https://api.dnsimple.com/v1/domains/example.com/memberships
 </code></pre>
 
 <h3 id="input">Input</h3>
@@ -207,7 +207,7 @@ If the person does not yet have a DNSimple account then he will receive an invit
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/example.com/memberships/712
+      https://api.dnsimple.com/v1/domains/example.com/memberships/712
 </code></pre>
 
 <p>Delete the membership with email <code>member@example.com</code> for domain <code>example.com</code>:</p>
@@ -216,7 +216,7 @@ If the person does not yet have a DNSimple account then he will receive an invit
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://dnsimple.com/domains/example.com/memberships/member@example.com
+      https://api.dnsimple.com/v1/domains/example.com/memberships/member@example.com
 </code></pre>
 
 <h3 id="response-2">Response</h3>
