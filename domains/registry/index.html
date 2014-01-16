@@ -57,6 +57,7 @@
   <li><a href="#transfer-a-domain">Transfer a domain</a></li>
   <li><a href="#renew-a-domain">Renew a domain</a></li>
   <li><a href="#transfer-out-a-domain">Transfer out a domain</a></li>
+  <li><a href="#check-domain-availability">Check domain availability</a></li>
 </ul><h2 id="register-a-domain">Register a domain</h2>
 
 <p>Register a domain name with DNSimple and the appropriate domain registry.</p>
@@ -80,15 +81,34 @@ so please be careful with this command.</p>
 
 <h3 id="input">Input</h3>
 
-<dl>
-<dt>domain.name</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>domain.registrant_id</dt>
-  <dd>Required <em>integer</em> The ID of an existing contact in your account.</dd>
-  <dt>domain.extended_attribute</dt>
-  <dd>optional <em>hash</em> For TLDs that require <a href="/extended-attributes/">extended attributes</a>.</dd>
-</dl><p><strong>Example.</strong></p>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>domain.name</code></td>
+      <td><code>string</code></td>
+      <td><code>true</code></td>
+      <td> </td>
+    </tr>
+<tr>
+<td><code>domain.registrant_id</code></td>
+      <td><code>integer</code></td>
+      <td><code>true</code></td>
+      <td>The ID of an existing contact in your account.</td>
+    </tr>
+<tr>
+<td><code>domain.extended_attribute</code></td>
+      <td><code>hash</code></td>
+      <td><code>false</code></td>
+      <td>For TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
+    </tr>
+</tbody>
+</table><h5 id="example-1">Example</h5>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
@@ -97,7 +117,7 @@ so please be careful with this command.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<p><strong>Example with extended attributes.</strong></p>
+<h5 id="example-with-extended-attributes">Example with extended attributes</h5>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
@@ -116,22 +136,22 @@ so please be careful with this command.</p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">227</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
     <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
     <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"domain-token"</span><span class="p">,</span>
     <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
     <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
-    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
-    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"whois_protected"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
     <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2015-01-16"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-15T22:01:55Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-01-16T22:56:22Z"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
@@ -150,7 +170,7 @@ which may take anywhere from a few minutes up to 7 days.</p>
 For example, domains ending in <code>.com</code> and <code>.net</code> may be transferred through the API,
 however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 
-<h3 id="example-1">Example</h3>
+<h3 id="example-2">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -162,17 +182,42 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 
 <h3 id="input-1">Input</h3>
 
-<dl>
-<dt>domain.name</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>domain.registrant_id</dt>
-  <dd>Required <em>integer</em> The ID of an existing contact in your account.</dd>
-  <dt>domain.extended_attribute</dt>
-  <dd>optional <em>hash</em> For TLDs that require <a href="/extended-attributes/">extended attributes</a>.</dd>
-  <dt>transfer_order.authinfo</dt>
-  <dd>optional <em>string</em> Required for top-level domains that require an authorization code.</dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>domain.name</code></td>
+      <td><code>string</code></td>
+      <td><code>true</code></td>
+      <td> </td>
+    </tr>
+<tr>
+<td><code>domain.registrant_id</code></td>
+      <td><code>integer</code></td>
+      <td><code>true</code></td>
+      <td>The ID of an existing contact in your account.</td>
+    </tr>
+<tr>
+<td><code>domain.extended_attribute</code></td>
+      <td><code>hash</code></td>
+      <td><code>false</code></td>
+      <td>For TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
+    </tr>
+<tr>
+<td><code>transfer_order.authinfo</code></td>
+      <td><code>string</code></td>
+      <td><code>false</code></td>
+      <td>Required for top-level domains that require an authorization code.</td>
+    </tr>
+</tbody>
+</table><h5 id="example-3">Example</h5>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"transferdomain.com"</span><span class="p">,</span>
     <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span>
@@ -196,7 +241,7 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 <p>Domains will always be renewed for their minimum renewal period,
 which is 1 year for most domains but for some domains may be more.</p>
 
-<h3 id="example-2">Example</h3>
+<h3 id="example-4">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -208,16 +253,32 @@ which is 1 year for most domains but for some domains may be more.</p>
 
 <h3 id="input-2">Input</h3>
 
-<dl>
-<dt>domain.name</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>domain.renew_whois_privacy</dt>
-  <dd>Optional <em>boolean</em>
-</dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>domain.name</code></td>
+      <td><code>string</code></td>
+      <td><code>true</code></td>
+      <td> </td>
+    </tr>
+<tr>
+<td><code>domain.renew_whois_privacy</code></td>
+      <td><code>boolean</code></td>
+      <td><code>false</code></td>
+      <td> </td>
+    </tr>
+</tbody>
+</table><h5 id="example-5">Example</h5>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"renewable.com"</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
@@ -227,22 +288,22 @@ which is 1 year for most domains but for some domains may be more.</p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">227</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">28</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
     <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"domain-token"</span><span class="p">,</span>
     <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
     <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"Nv44bvvtYxmpdeu75UVJBrCcCF0Y+2TBMA"</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-01-24T19:23:08Z"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-12-07T14:55:25Z"</span><span class="p">,</span>
-    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-03-18"</span><span class="p">,</span>
-    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"whois_protected"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
     <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"private_whois?"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2015-01-16"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-15T22:01:55Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-01-16T22:56:22Z"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
@@ -270,18 +331,89 @@ which is 1 year for most domains but for some domains may be more.</p>
 </td>
       <td>The domain name or id</td>
     </tr></tbody>
-</table><h3 id="example-3">Example</h3>
+</table><h3 id="example-6">Example</h3>
+
+<p>Transfer out the domain with ID <code>1</code>.</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
-      https://api.dnsimple.com/v1/domains/:domain/transfer_outs
+      https://api.dnsimple.com/v1/domains/1/transfer_outs
+</code></pre>
+
+<p>Transfer out the domain <code>example.com</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X POST \
+      https://api.dnsimple.com/v1/domains/example.com/transfer_outs
 </code></pre>
 
 <h3 id="response-3">Response</h3>
 
 <p>Responds with HTTP 201 on success, returns the transfer out order.</p>
+
+<h2 id="check-domain-availability">Check domain availability</h2>
+
+<p>Check if a domain is available for registration.</p>
+
+<pre><code>GET /domains/:name/check
+</code></pre>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td><code>string</code></td>
+      <td>The domain name</td>
+    </tr></tbody>
+</table><h3 id="example-7">Example</h3>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v1/domains/:name/check
+</code></pre>
+
+<h3 id="response-4">Response</h3>
+
+<p>If the domain is available then this will return a 404 which indicates that the
+name is available. If it is not available then the response will be a 200.</p>
+
+<p>In either case, the JSON response will contain some additional relevant
+information like availability, price, and the minimum number of years you’ll
+have to reserve the domain for, if you decide to get it.</p>
+
+<p>An available domain looks like this:</p>
+
+<pre><code class="language-js"><span class="c1">// 404 Not Found</span>
+<span class="p">{</span>
+  <span class="s2">"name"</span><span class="o">:</span><span class="s2">"available-domain.com"</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="o">:</span><span class="s2">"available"</span><span class="p">,</span>
+  <span class="s2">"price"</span><span class="o">:</span><span class="s2">"14.0"</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="o">:</span><span class="s2">"USD"</span><span class="p">,</span>
+  <span class="s2">"currency_symbol"</span><span class="o">:</span><span class="s2">"$"</span><span class="p">,</span>
+  <span class="s2">"minimum_number_of_years"</span><span class="o">:</span><span class="mi">1</span>
+<span class="p">}</span></code></pre>
+
+<p>An unavailable domain looks like this:</p>
+
+<pre><code class="language-js"><span class="c1">// 200 OK</span>
+<span class="p">{</span>
+  <span class="s2">"name"</span><span class="o">:</span><span class="s2">"somebody-already-has-it.com"</span><span class="p">,</span>
+  <span class="s2">"status"</span><span class="o">:</span><span class="s2">"unavailable"</span><span class="p">,</span>
+  <span class="s2">"price"</span><span class="o">:</span><span class="s2">"14.0"</span><span class="p">,</span>
+  <span class="s2">"currency"</span><span class="o">:</span><span class="s2">"USD"</span><span class="p">,</span>
+  <span class="s2">"currency_symbol"</span><span class="o">:</span><span class="s2">"$"</span><span class="p">,</span>
+  <span class="s2">"minimum_number_of_years"</span><span class="o">:</span><span class="mi">1</span>
+<span class="p">}</span></code></pre>
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
