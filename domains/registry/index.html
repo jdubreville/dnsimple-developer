@@ -85,27 +85,26 @@ so please be careful with this command.</p>
 <thead><tr>
 <th>Name</th>
       <th>Type</th>
-      <th>Required</th>
       <th>Description</th>
     </tr></thead>
 <tbody>
 <tr>
 <td><code>domain.name</code></td>
       <td><code>string</code></td>
-      <td><code>true</code></td>
-      <td> </td>
+      <td>
+<strong>Required</strong>.</td>
     </tr>
 <tr>
 <td><code>domain.registrant_id</code></td>
       <td><code>integer</code></td>
-      <td><code>true</code></td>
-      <td>The ID of an existing contact in your account.</td>
+      <td>
+<strong>Required</strong>. The ID of an existing contact in your account.</td>
     </tr>
 <tr>
 <td><code>domain.extended_attribute</code></td>
       <td><code>hash</code></td>
-      <td><code>false</code></td>
-      <td>For TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
+      <td>
+<strong>Required</strong> for TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
     </tr>
 </tbody>
 </table><h5 id="example-1">Example</h5>
@@ -186,33 +185,32 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 <thead><tr>
 <th>Name</th>
       <th>Type</th>
-      <th>Required</th>
       <th>Description</th>
     </tr></thead>
 <tbody>
 <tr>
 <td><code>domain.name</code></td>
       <td><code>string</code></td>
-      <td><code>true</code></td>
-      <td> </td>
+      <td>
+<strong>Required</strong>.</td>
     </tr>
 <tr>
 <td><code>domain.registrant_id</code></td>
       <td><code>integer</code></td>
-      <td><code>true</code></td>
-      <td>The ID of an existing contact in your account.</td>
+      <td>
+<strong>Required</strong>. The ID of an existing contact in your account.</td>
     </tr>
 <tr>
 <td><code>domain.extended_attribute</code></td>
       <td><code>hash</code></td>
-      <td><code>false</code></td>
-      <td>For TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
+      <td>
+<strong>Required</strong> for TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
     </tr>
 <tr>
 <td><code>transfer_order.authinfo</code></td>
       <td><code>string</code></td>
-      <td><code>false</code></td>
-      <td>Required for top-level domains that require an authorization code.</td>
+      <td>
+<strong>Required</strong> for top-level domains that require an authorization code.</td>
     </tr>
 </tbody>
 </table><h5 id="example-3">Example</h5>
@@ -257,21 +255,19 @@ which is 1 year for most domains but for some domains may be more.</p>
 <thead><tr>
 <th>Name</th>
       <th>Type</th>
-      <th>Required</th>
       <th>Description</th>
     </tr></thead>
 <tbody>
 <tr>
 <td><code>domain.name</code></td>
       <td><code>string</code></td>
-      <td><code>true</code></td>
-      <td> </td>
+      <td>
+<strong>Required</strong>.</td>
     </tr>
 <tr>
 <td><code>domain.renew_whois_privacy</code></td>
       <td><code>boolean</code></td>
-      <td><code>false</code></td>
-      <td> </td>
+      <td>Set to <code>true</code> to also renew the associated Whois Privacy. Default: <code>false</code>.</td>
     </tr>
 </tbody>
 </table><h5 id="example-5">Example</h5>

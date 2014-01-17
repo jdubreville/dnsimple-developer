@@ -54,11 +54,11 @@
 
 <ul id="markdown-toc">
 <li><a href="#list-domains">List domains</a></li>
-  <li><a href="#get-a-domain">Get a domain</a></li>
   <li><a href="#create-a-domain">Create a domain</a></li>
+  <li><a href="#get-a-domain">Get a domain</a></li>
   <li><a href="#delete-a-domain">Delete a domain</a></li>
-  <li><a href="#reset-domain-token">Reset domain token</a></li>
-  <li><a href="#move-domain-to-another-account">Move domain to another account</a></li>
+  <li><a href="#reset-a-domain-token">Reset a domain token</a></li>
+  <li><a href="#push-a-domain">Push a domain</a></li>
 </ul><h2 id="list-domains">List domains</h2>
 
 <p>List all domains.</p>
@@ -120,73 +120,12 @@
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<h2 id="get-a-domain">Get a domain</h2>
-
-<pre><code>GET /domains/:domain
-</code></pre>
-
-<h3 id="parameters">Parameters</h3>
-
-<table class="table">
-<thead><tr>
-<th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
-      <td>
-<code>string</code>, <code>integer</code>
-</td>
-      <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-1">Example</h3>
-
-<p>Get the domain with ID <code>1</code>.</p>
-
-<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/domains/1
-</code></pre>
-
-<p>Get the domain <code>example.com</code>.</p>
-
-<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/domains/example.com
-</code></pre>
-
-<h3 id="response-1">Response</h3>
-
-<p>Responds with HTTP 200, returns the domain.</p>
-
-<pre><code class="language-js"><span class="p">{</span>
-  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">227</span><span class="p">,</span>
-    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
-    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">28</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
-    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"domain-token"</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
-    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"whois_protected"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
-    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2015-01-16"</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-15T22:01:55Z"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-01-16T22:56:22Z"</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
-
 <h2 id="create-a-domain">Create a domain</h2>
 
 <pre><code>POST /domains
 </code></pre>
 
-<h3 id="example-2">Example</h3>
+<h3 id="example-1">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -202,16 +141,15 @@
 <thead><tr>
 <th>Name</th>
       <th>Type</th>
-      <th>Required</th>
       <th>Description</th>
     </tr></thead>
 <tbody><tr>
 <td><code>domain.name</code></td>
       <td><code>string</code></td>
-      <td><code>true</code></td>
-      <td> </td>
+      <td>
+<strong>Required</strong>.</td>
     </tr></tbody>
-</table><h5 id="example-3">Example</h5>
+</table><h5 id="example-2">Example</h5>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
@@ -219,7 +157,7 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-1">Response</h3>
 
 <p>Responds with HTTP 201 on success, returns the domain.</p>
 
@@ -247,6 +185,67 @@
 <p>Responds with HTTP 400 if bad request.</p>
 
 <p>Responds with HTTP 400 if the validation fails.</p>
+
+<h2 id="get-a-domain">Get a domain</h2>
+
+<pre><code>GET /domains/:domain
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-3">Example</h3>
+
+<p>Get the domain with ID <code>1</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v1/domains/1
+</code></pre>
+
+<p>Get the domain <code>example.com</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v1/domains/example.com
+</code></pre>
+
+<h3 id="response-2">Response</h3>
+
+<p>Responds with HTTP 200, returns the domain.</p>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">227</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">28</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"unicode_name"</span><span class="o">:</span> <span class="s2">"example.com"</span><span class="p">,</span>
+    <span class="s2">"token"</span><span class="o">:</span> <span class="s2">"domain-token"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"registered"</span><span class="p">,</span>
+    <span class="s2">"language"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"lockable"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"auto_renew"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"whois_protected"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"record_count"</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s2">"service_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2015-01-16"</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-15T22:01:55Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-01-16T22:56:22Z"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="delete-a-domain">Delete a domain</h2>
 
@@ -305,7 +304,7 @@ this will not delete the domain from the registry.</p>
   <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.
 </div>
 
-<h2 id="reset-domain-token">Reset domain token</h2>
+<h2 id="reset-a-domain-token">Reset a domain token</h2>
 
 <pre><code>POST /domains/:domain/token
 </code></pre>
@@ -368,9 +367,9 @@ this will not delete the domain from the registry.</p>
 
 <p>Responds with HTTP 400 if bad request.</p>
 
-<h2 id="move-domain-to-another-account">Move domain to another account</h2>
+<h2 id="push-a-domain">Push a domain</h2>
 
-<p>Push a domain from the current DNSimple account to another.</p>
+<p>Move a domain from the current DNSimple account to another.</p>
 
 <pre><code>POST /domains/:domain/push
 </code></pre>
@@ -411,21 +410,23 @@ You will need to acces it using the new account’s credentials.</p>
 <thead><tr>
 <th>Name</th>
       <th>Type</th>
-      <th>Required</th>
+      <th> </th>
       <th>Description</th>
     </tr></thead>
 <tbody>
 <tr>
 <td><code>push.new_user_email</code></td>
       <td><code>string</code></td>
-      <td><code>true</code></td>
-      <td>Email of the new account’s email address.</td>
+      <td>
+<strong>Required</strong>. Email of the new account’s email address.</td>
+      <td> </td>
     </tr>
 <tr>
 <td><code>push.contact_id</code></td>
       <td><code>integer</code></td>
-      <td><code>true</code></td>
-      <td>The new account’s registrant ID.</td>
+      <td>
+<strong>Required</strong>. The new account’s registrant ID.</td>
+      <td> </td>
     </tr>
 </tbody>
 </table><h5 id="example-7">Example</h5>
