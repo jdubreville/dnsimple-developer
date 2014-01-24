@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400">
   <!--[if lt IE 9]>
@@ -53,10 +53,10 @@
         <h1 id="domain-sharing-api">Domain Sharing API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list-memberships">List memberships</a></li>
-  <li><a href="#add-a-membership">Add a membership</a></li>
-  <li><a href="#delete-a-membership">Delete a membership</a></li>
-</ul><h2 id="list-memberships">List memberships</h2>
+<li><a href="#list">List memberships</a></li>
+  <li><a href="#create">Add a membership</a></li>
+  <li><a href="#delete">Delete a membership</a></li>
+</ul><h2 id="list">List memberships</h2>
 
 <pre><code>GET /domains/:domain/memberships
 </code></pre>
@@ -117,10 +117,12 @@
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<h2 id="add-a-membership">Add a membership</h2>
+<h2 id="create">Add a membership</h2>
 
 <pre><code>POST /domains/:domain/memberships
 </code></pre>
+
+<p>If the person already exists in DNSimple as a customer then he will immediately be added to the domain’s membership list. If the person does not yet have a DNSimple account then he will receive an invitation to join via email.</p>
 
 <h3 id="parameters-1">Parameters</h3>
 
@@ -151,20 +153,25 @@
 
 <h3 id="input">Input</h3>
 
-<dl>
-<dt>membership.email</dt>
-  <dd>Required <em>string</em> address for the person to add.
-If the person already exists in DNSimple as a customer then he will immediately be added to the domain’s membership list.
-If the person does not yet have a DNSimple account then he will receive an invitation to join via email.</dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>membership.email</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong> email address for the person to add.</td>
+    </tr></tbody>
+</table><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"membership"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="response-1">Response</h3>
-
-<p>Responds with HTTP 400 if the validation fails.</p>
 
 <p>Responds with HTTP 201 on success.</p>
 
@@ -179,7 +186,9 @@ If the person does not yet have a DNSimple account then he will receive an invit
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="delete-a-membership">Delete a membership</h2>
+<p>Responds with HTTP 400 if the validation fails.</p>
+
+<h2 id="delete">Delete a membership</h2>
 
 <pre><code>DELETE /domains/:domain/memberships/:membership
 </code></pre>
@@ -192,13 +201,22 @@ If the person does not yet have a DNSimple account then he will receive an invit
       <th>Type</th>
       <th>Description</th>
     </tr></thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
+    </tr>
+<tr>
+<td><code>:membership</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The member email or id</td>
+    </tr>
+</tbody>
 </table><h3 id="example-2">Example</h3>
 
 <p>Delete the membership with ID <code>712</code> for domain <code>example.com</code>:</p>

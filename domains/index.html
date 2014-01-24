@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400">
   <!--[if lt IE 9]>
@@ -53,13 +53,13 @@
         <h1 id="domain-api">Domain API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list-domains">List domains</a></li>
-  <li><a href="#create-a-domain">Create a domain</a></li>
-  <li><a href="#get-a-domain">Get a domain</a></li>
-  <li><a href="#delete-a-domain">Delete a domain</a></li>
-  <li><a href="#reset-a-domain-token">Reset a domain token</a></li>
-  <li><a href="#push-a-domain">Push a domain</a></li>
-</ul><h2 id="list-domains">List domains</h2>
+<li><a href="#list">List domains</a></li>
+  <li><a href="#create">Create a domain</a></li>
+  <li><a href="#get">Get a domain</a></li>
+  <li><a href="#delete">Delete a domain</a></li>
+  <li><a href="#reset-token">Reset a domain token</a></li>
+  <li><a href="#push">Push a domain</a></li>
+</ul><h2 id="list">List domains</h2>
 
 <p>List all domains.</p>
 
@@ -120,7 +120,7 @@
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<h2 id="create-a-domain">Create a domain</h2>
+<h2 id="create">Create a domain</h2>
 
 <pre><code>POST /domains
 </code></pre>
@@ -186,7 +186,7 @@
 
 <p>Responds with HTTP 400 if the validation fails.</p>
 
-<h2 id="get-a-domain">Get a domain</h2>
+<h2 id="get">Get a domain</h2>
 
 <pre><code>GET /domains/:domain
 </code></pre>
@@ -247,7 +247,7 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="delete-a-domain">Delete a domain</h2>
+<h2 id="delete">Delete a domain</h2>
 
 <div class="alert alert-warning">
   <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain" class="alert-link">planned changes</a> for this API method.
@@ -304,7 +304,7 @@ this will not delete the domain from the registry.</p>
   <strong>Warning!</strong> The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.
 </div>
 
-<h2 id="reset-a-domain-token">Reset a domain token</h2>
+<h2 id="reset-token">Reset a domain token</h2>
 
 <pre><code>POST /domains/:domain/token
 </code></pre>
@@ -367,7 +367,7 @@ this will not delete the domain from the registry.</p>
 
 <p>Responds with HTTP 400 if bad request.</p>
 
-<h2 id="push-a-domain">Push a domain</h2>
+<h2 id="push">Push a domain</h2>
 
 <p>Move a domain from the current DNSimple account to another.</p>
 

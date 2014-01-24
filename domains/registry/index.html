@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400">
   <!--[if lt IE 9]>
@@ -53,12 +53,12 @@
         <h1 id="domain-registry-api">Domain Registry API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#register-a-domain">Register a domain</a></li>
-  <li><a href="#transfer-a-domain">Transfer a domain</a></li>
-  <li><a href="#renew-a-domain">Renew a domain</a></li>
-  <li><a href="#transfer-out-a-domain">Transfer out a domain</a></li>
-  <li><a href="#check-domain-availability">Check domain availability</a></li>
-</ul><h2 id="register-a-domain">Register a domain</h2>
+<li><a href="#register">Register a domain</a></li>
+  <li><a href="#transfer">Transfer a domain</a></li>
+  <li><a href="#renew">Renew a domain</a></li>
+  <li><a href="#transfer-out">Transfer out a domain</a></li>
+  <li><a href="#availability">Check domain availability</a></li>
+</ul><h2 id="register">Register a domain</h2>
 
 <p>Register a domain name with DNSimple and the appropriate domain registry.</p>
 
@@ -154,7 +154,7 @@ so please be careful with this command.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="transfer-a-domain">Transfer a domain</h2>
+<h2 id="transfer">Transfer a domain</h2>
 
 <p>Transfer a domain name from another domain registrar into DNSimple.</p>
 
@@ -229,7 +229,7 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 
 <p>Responds with HTTP 201 on success, returns the transfer order.</p>
 
-<h2 id="renew-a-domain">Renew a domain</h2>
+<h2 id="renew">Renew a domain</h2>
 
 <p>Renew a domain name in your account.</p>
 
@@ -303,7 +303,7 @@ which is 1 year for most domains but for some domains may be more.</p>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="transfer-out-a-domain">Transfer out a domain</h2>
+<h2 id="transfer-out">Transfer out a domain</h2>
 
 <p>Prepare a domain for transferring out.</p>
 
@@ -351,7 +351,7 @@ which is 1 year for most domains but for some domains may be more.</p>
 
 <p>Responds with HTTP 201 on success, returns the transfer out order.</p>
 
-<h2 id="check-domain-availability">Check domain availability</h2>
+<h2 id="availability">Check domain availability</h2>
 
 <p>Check if a domain is available for registration.</p>
 
