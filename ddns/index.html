@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Tools - DNSimple Developer</title>
+  <title> - DNSimple Developer</title>
   <meta name="description" content="">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,40 +50,26 @@
   <div class="container">
     <div class="row">
       <main id="main" class="col-md-9" role="main">
-        <h1 id="tools">Tools</h1>
+        <h1 id="dynamic-dns-shell-script">Dynamic DNS Shell Script</h1>
 
-<p>Tools built around the DNSimple API.</p>
+<p>Use this shell script to dynamically update a record on a regular schedule.</p>
 
-<p>If you develop a tool for the API <a href="mailto:support@dnsimple.com">please let us know</a> so we can add it here.</p>
+<pre><code class="language-bash"><span class="c">#!/bin/bash</span>
+ 
+<span class="nv">LOGIN</span><span class="o">=</span><span class="s2">"your@email"</span>
+<span class="nv">TOKEN</span><span class="o">=</span><span class="s2">"your-api-token"</span>
+<span class="nv">DOMAIN_ID</span><span class="o">=</span><span class="s2">"yourdomain.com"</span>
+<span class="nv">RECORD_ID</span><span class="o">=</span><span class="s2">"12345"</span> <span class="c"># Replace with the Record ID</span>
+<span class="nv">IP</span><span class="o">=</span><span class="s2">"`curl http://jsonip.com | sed 's/{"</span>ip<span class="s2">":"</span><span class="se">\(</span>.*<span class="se">\)</span><span class="s2">"/\1/g' | sed 's/}//'`"</span>
+ 
+curl -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -H <span class="s2">"X-DNSimple-Token: $LOGIN:$TOKEN"</span> <span class="se">\</span>
+     -X <span class="s2">"PUT"</span> <span class="se">\</span>
+     -i <span class="s2">"https://api.dnsimple.com/v1/domains/$DOMAIN_ID/records/$RECORD_ID"</span> <span class="se">\</span>
+     -d <span class="s2">"{\"record\":{\"content\":\"$IP\"}}"</span></code></pre>
 
-<ul>
-<li><a href="http://itunes.apple.com/app/dnsimple-app/id507299306?mt=8">DNSimple iPhone app</a></li>
-  <li><a href="https://github.com/aetrion/dnsimple-importer">Import tool in Ruby</a></li>
-  <li>
-<a href="/ddns">Dynamic IP Updater in Bash</a> (official)</li>
-  <li>
-<a href="http://jasonseifer.com/2011/04/04/auto-update-ip-dnsimple">Dynamic IP Updater in Bash</a> (original by <a href="http://jasonseifer.com">Jason Seifer</a>
-</li>
-  <li>
-<a href="https://github.com/hamstarr/dyn-dnsimple">Dynamic IP Updater in Ruby</a> by <a href="https://github.com/hamstarr">hamstarr</a>
-</li>
-  <li>
-<a href="https://github.com/bjoernalbers/dynsimple">Dynamic IP Updater in Ruby</a> by <a href="https://github.com/bjoernalbers">bjoernalbers</a>
-</li>
-  <li>
-<a href="https://github.com/jcarley/node-dns">Dynamic IP Updater in Node.js</a> by <a href="https://github.com/jcarley">jcarley</a>
-</li>
-  <li>
-<a href="https://github.com/dwdii/DNScymbal">Dynamic IP Updater for Windows</a> by <a href="https://github.com/dwdii">dwdii</a>
-</li>
-  <li><a href="http://community.opscode.com/cookbooks/dnsimple">Chef Cookbook for DNSimple</a></li>
-  <li>
-<a href="https://github.com/jm/ditchdaddy">DitchDaddy</a> - for batch transferring domains out of GoDaddy by <a href="https://github.com/jm">jm</a>
-</li>
-  <li>
-<a href="https://gist.github.com/bhauman/8225787">Screw You Zerigo</a> - for moving zones from Zerigo to DNSimple by <a href="https://gist.github.com/bhauman">bhauman</a>
-</li>
-</ul><p>Also, make sure to <a href="http://developer.dnsimple.com/libraries">check out the libraries</a> you can use to build your own tools around our API.</p>
+<p>Download the shell script: <a href="ddns.sh">ddns.sh</a></p>
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
