@@ -55,8 +55,8 @@
 <p>API for provisioning users.</p>
 
 <ul id="markdown-toc">
-<li><a href="#create-an-user">Create an user</a></li>
-</ul><h2 id="create-an-user">Create an user</h2>
+<li><a href="#create">Create an user</a></li>
+</ul><h2 id="create">Create an user</h2>
 
 <p>Provision a new user account.</p>
 
@@ -77,17 +77,33 @@
 
 <h3 id="input">Input</h3>
 
-<dl>
-<dt>user.email</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>user.password</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>user.password_confirmation</dt>
-  <dd>Required <em>string</em>
-</dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>user.email</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>user.password</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>user.password_confirmation</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+</tbody>
+</table><pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"user"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span><span class="p">,</span>
     <span class="s2">"password"</span><span class="o">:</span> <span class="s2">"x8ejfhfgjQ#A"</span><span class="p">,</span>
@@ -97,32 +113,26 @@
 
 <h3 id="response">Response</h3>
 
-<p>Responds with HTTP 400 if the validation fails.</p>
-
 <p>Responds with HTTP 201 on success.</p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"user"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"authy_identifier"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"authy_verified_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"country_code"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-30T15:46:39Z"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"example@example.com"</span><span class="p">,</span>
+    <span class="s2">"referral_token"</span><span class="o">:</span> <span class="s2">"ad932ffb60c295"</span><span class="p">,</span>
+    <span class="s2">"single_access_token"</span><span class="o">:</span> <span class="s2">"api-token"</span><span class="p">,</span>
     <span class="s2">"default_contact_id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span><span class="p">,</span>
+    <span class="s2">"domain_count"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"domain_limit"</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="s2">"login_count"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="s2">"failed_login_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"first_name"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"last_name"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"login_count"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"phone"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"referral_token"</span><span class="o">:</span> <span class="s2">"0f82b5484cd663"</span><span class="p">,</span>
-    <span class="s2">"single_access_token"</span><span class="o">:</span> <span class="s2">"o4xuNjyjtIn9mw1d2WGM"</span><span class="p">,</span>
     <span class="s2">"unsubscribed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-09-30T15:46:39Z"</span><span class="p">,</span>
-    <span class="s2">"domain_count"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"domain_limit"</span><span class="o">:</span> <span class="mi">10</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-15T21:59:04Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-01-15T23:21:50Z"</span><span class="p">,</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
+<p>Responds with HTTP 400 if the validation fails.</p>
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
