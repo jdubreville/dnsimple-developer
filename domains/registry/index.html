@@ -101,7 +101,7 @@ so please be careful with this command.</p>
 <strong>Required</strong>. The ID of an existing contact in your account.</td>
     </tr>
 <tr>
-<td><code>domain.extended_attribute</code></td>
+<td><code>extended_attribute</code></td>
       <td><code>hash</code></td>
       <td>
 <strong>Required</strong> for TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
@@ -201,7 +201,7 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 <strong>Required</strong>. The ID of an existing contact in your account.</td>
     </tr>
 <tr>
-<td><code>domain.extended_attribute</code></td>
+<td><code>extended_attribute</code></td>
       <td><code>hash</code></td>
       <td>
 <strong>Required</strong> for TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
@@ -222,6 +222,22 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
   <span class="p">},</span>
   <span class="s2">"transfer_order"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"authinfo"</span><span class="o">:</span> <span class="s2">"xjfjfjvhc293"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h5 id="example-with-extended-attributes-1">Example with extended attributes</h5>
+
+<pre><code class="language-js"><span class="p">{</span>
+  <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"transferdomain.com"</span><span class="p">,</span>
+    <span class="s2">"registrant_id"</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="s2">"transfer_order"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"authinfo"</span><span class="o">:</span> <span class="s2">"xjfjfjvhc293"</span>
+  <span class="p">}</span>
+  <span class="s2">"extended_attribute"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"us_nexus"</span><span class="o">:</span> <span class="s2">"C11"</span><span class="p">,</span>
+    <span class="s2">"us_purpose"</span><span class="o">:</span> <span class="s2">"P3"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
