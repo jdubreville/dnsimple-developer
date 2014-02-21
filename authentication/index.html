@@ -64,7 +64,7 @@
 
 <pre><code>curl  -u "&lt;email&gt;:&lt;password&gt;" \
       -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/users/me
+      https://api.dnsimple.com/v1/user
 </code></pre>
 
 <h2 id="dnsimple-api-token">DNSimple API token</h2>
@@ -75,14 +75,14 @@
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/users/me
+      https://api.dnsimple.com/v1/user
 </code></pre>
 
 <p>For example, if your email is <code>example@example.com</code> and your token is <code>1234567890</code>, the request will be</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: example@example.com:1234567890' \
       -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/users/me
+      https://api.dnsimple.com/v1/user
 </code></pre>
 
 <h2 id="dnsimple-domain-token">DNSimple Domain token</h2>
