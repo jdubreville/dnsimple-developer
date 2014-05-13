@@ -57,11 +57,11 @@
 <p>Templates provide a way to group common records together and apply them en masse to a domain.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-templates">List templates</a></li>
-  <li><a href="#get-a-template">Get a template</a></li>
-  <li><a href="#create-a-template">Create a template</a></li>
-  <li><a href="#delete-a-template">Delete a template</a></li>
-</ul><h2 id="list-templates">List templates</h2>
+<li><a href="#list">List templates</a></li>
+  <li><a href="#get">Get a template</a></li>
+  <li><a href="#create">Create a template</a></li>
+  <li><a href="#delete">Delete a template</a></li>
+</ul><h2 id="list">List templates</h2>
 
 <pre><code>GET /templates
 </code></pre>
@@ -74,6 +74,8 @@
 </code></pre>
 
 <h3 id="response">Response</h3>
+
+<p>Responds with HTTP 200.</p>
 
 <pre><code class="language-js"><span class="p">[</span>
   <span class="p">{</span>
@@ -89,16 +91,40 @@
   <span class="p">}</span>
 <span class="p">]</span></code></pre>
 
-<h2 id="get-a-template">Get a template</h2>
+<h2 id="get">Get a template</h2>
 
-<pre><code>GET /templates/:id
+<pre><code>GET /templates/:template
 </code></pre>
 
-<h3 id="example-1">Example</h3>
+<h3 id="parameters">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:template</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The template short-name or id</td>
+    </tr></tbody>
+</table><h3 id="example-1">Example</h3>
+
+<p>Get the template with ID <code>1</code>.</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/templates/:id
+      https://api.dnsimple.com/v1/templates/1
+</code></pre>
+
+<p>Get the template with short-name <code>heroku</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      https://api.dnsimple.com/v1/templates/heroku
 </code></pre>
 
 <h3 id="response-1">Response</h3>
@@ -115,7 +141,7 @@
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="create-a-template">Create a template</h2>
+<h2 id="create">Create a template</h2>
 
 <pre><code>POST /templates
 </code></pre>
@@ -132,19 +158,37 @@
 
 <h3 id="input">Input</h3>
 
-<p>The following fields are required:</p>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>dns_template.name</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>dns_template.short_name</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>dns_template.description</code></td>
+      <td><code>string</code></td>
+      <td> </td>
+    </tr>
+</tbody>
+</table><h5 id="example-3">Example</h5>
 
-<ul>
-<li><code>dns_template[name]</code></li>
-  <li><code>dns_template[short_name]</code></li>
-</ul><p>The following fields are optional:</p>
-
-<ul>
-<li><code>dns_template[description]</code></li>
-</ul><pre><code class="language-js"><span class="p">{</span>
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"dns_template"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"My Template"</span><span class="p">,</span>
-    <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"my_template"</span> 
+    <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"my_template"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
@@ -152,18 +196,44 @@
 
 <pre><code class="language-js"><span class="nx">TODO</span></code></pre>
 
-<h2 id="delete-a-template">Delete a template</h2>
+<h2 id="delete">Delete a template</h2>
 
 <pre><code>DELETE /templates/:id
 </code></pre>
 
-<h3 id="example-3">Example</h3>
+<h3 id="parameters-1">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:template</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The template short-name or id</td>
+    </tr></tbody>
+</table><h3 id="example-4">Example</h3>
+
+<p>Get the template with ID <code>1</code>.</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://api.dnsimple.com/v1/templates/:id
+      https://api.dnsimple.com/v1/templates/1
+</code></pre>
+
+<p>Get the template with short-name <code>heroku</code>.</p>
+
+<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      -H 'Accept: application/json' \
+      -H 'Content-Type: application/json' \
+      -X DELETE \
+      https://api.dnsimple.com/v1/templates/heroku
 </code></pre>
 
 <h3 id="response-3">Response</h3>

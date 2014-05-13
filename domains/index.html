@@ -55,12 +55,24 @@
         <h1 id="domain-api">Domain API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list">List domains</a></li>
+<li><a href="#overview">Overview</a></li>
+  <li><a href="#list">List domains</a></li>
   <li><a href="#create">Create a domain</a></li>
   <li><a href="#get">Get a domain</a></li>
   <li><a href="#delete">Delete a domain</a></li>
   <li><a href="#reset-token">Reset a domain token</a></li>
   <li><a href="#push">Push a domain</a></li>
+</ul><h2 id="overview">Overview</h2>
+
+<p>Domains will always be in one of the following states:</p>
+
+<ul>
+<li>hosted</li>
+  <li>registering</li>
+  <li>registered</li>
+  <li>transferring_in</li>
+  <li>transferring_out</li>
+  <li>expired</li>
 </ul><h2 id="list">List domains</h2>
 
 <p>List all domains.</p>
@@ -251,8 +263,10 @@
 
 <h2 id="delete">Delete a domain</h2>
 
-<div class="alert alert-warning">
-  <strong>Warning!</strong> There are <a href="/planned-changes/#delete-domainsdomain" class="alert-link">planned changes</a> for this API method.
+<div class="marker marker-warning">
+  <p>#### Planned Changes</p>
+
+  <p>There are <a href="/planned-changes/#delete-domainsdomain" class="alert-link">planned changes</a> for this API method.</p>
 </div>
 
 <p>Delete the given domain from your account.</p>
