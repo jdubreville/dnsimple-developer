@@ -64,11 +64,28 @@
 <pre><code>GET /domains/:domain/applied_services
 </code></pre>
 
-<h3 id="example">Example</h3>
+<h3 id="parameters">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example">Example</h3>
+
+<p>List applied services for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/domains/:domain/applied_services
+      https://api.dnsimple.com/v1/domains/example.com/applied_services
 </code></pre>
 
 <h3 id="response">Response</h3>
@@ -101,11 +118,28 @@
 <pre><code>GET /domains/:domain/available_services
 </code></pre>
 
-<h3 id="example-1">Example</h3>
+<h3 id="parameters-1">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-1">Example</h3>
+
+<p>List available services for domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/domains/:domain/available_services
+      https://api.dnsimple.com/v1/domains/example.com/available_services
 </code></pre>
 
 <h3 id="response-1">Response</h3>
@@ -168,43 +202,122 @@
 <pre><code>POST /domains/:domain/applied_services
 </code></pre>
 
-<h3 id="example-2">Example</h3>
+<h3 id="parameters-2">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody><tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr></tbody>
+</table><h3 id="example-2">Example</h3>
+
+<p>Apply a services to domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X POST \
       -d '&lt;json&gt;' \
-      https://api.dnsimple.com/v1/domains/:domain/applied_services
+      https://api.dnsimple.com/v1/domains/example.com/applied_services
 </code></pre>
 
 <h3 id="input">Input</h3>
 
-<p>The following fields are required:</p>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>service.id</code></td>
+      <td><code>integer</code></td>
+      <td>
+<strong>Required</strong>. The id of the service to apply.</td>
+    </tr>
+<tr>
+<td><code>settings</code></td>
+      <td><code>hash</code></td>
+      <td>Optional hash of settings for some specific services, corresponding to the <a href="https://github.com/aetrion/dnsimple-services#fields">service fields</a>. For instance, <a href="https://github.com/aetrion/dnsimple-services/blob/master/services/heroku/config.json#L8-L14">Heroku requires a <code>settings[app]</code> setting</a>.</td>
+    </tr>
+</tbody>
+</table><h3 id="response-2">Response</h3>
 
-<ul>
-<li><code>service[id]</code></li>
-</ul><h3 id="response-2">Response</h3>
+<p>Responds with HTTP 200 on success, returns the list of services applied to the domain.</p>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<pre><code class="language-js"><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Forward {{domain}} to your Wordpress.com hosted blog."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"WordPress"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"wordpress"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"service"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span><span class="p">,</span>
+      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Use posterious.com as your blog."</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Posterous"</span><span class="p">,</span>
+      <span class="s2">"short_name"</span><span class="o">:</span> <span class="s2">"posterous"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2010-12-15T08:08:02Z"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span></code></pre>
 
 <h2 id="unapply-a-service">Unapply a service</h2>
 
 <pre><code>DELETE /domains/:domain/applied_services/:id
 </code></pre>
 
-<h3 id="example-3">Example</h3>
+<h3 id="parameters-3">Parameters</h3>
+
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>:domain</code></td>
+      <td>
+<code>string</code>, <code>integer</code>
+</td>
+      <td>The domain name or id</td>
+    </tr>
+<tr>
+<td><code>:id</code></td>
+      <td><code>integer</code></td>
+      <td>The service id</td>
+    </tr>
+</tbody>
+</table><h3 id="example-3">Example</h3>
+
+<p>Unapply the services <code>123</code> from domain <code>example.com</code>:</p>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       -H 'Content-Type: application/json' \
       -X DELETE \
-      https://api.dnsimple.com/v1/domains/:domain/applied_services/:id
+      https://api.dnsimple.com/v1/domains/example.com/applied_services/123
 </code></pre>
 
 <h3 id="response-3">Response</h3>
 
-<pre><code class="language-js"><span class="nx">TODO</span></code></pre>
+<p>Responds with HTTP 200 on success.</p>
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
