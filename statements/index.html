@@ -56,54 +56,9 @@
 
 <p>API for listing account history as statements.</p>
 
-<ul id="markdown-toc">
-<li><a href="#list-statements">List statements</a></li>
-</ul><h2 id="list-statements">List statements</h2>
-
-<pre><code>GET /statements
-</code></pre>
-
-<h3 id="example">Example</h3>
-
-<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      -H 'Accept: application/json' \
-      https://api.dnsimple.com/v1/statements
-</code></pre>
-
-<h3 id="response">Response</h3>
-
-<pre><code class="language-js"><span class="p">[</span>
-  <span class="p">{</span>
-    <span class="s2">"statement"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"basic_html_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
-      <span class="s2">"closed_at"</span><span class="o">:</span> <span class="s2">"2012-09-09T15:45:10Z"</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-11T10:46:20Z"</span><span class="p">,</span>
-      <span class="s2">"html_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">38265</span><span class="p">,</span>
-      <span class="s2">"opened_at"</span><span class="o">:</span> <span class="s2">"2012-08-09T15:43:32Z"</span><span class="p">,</span>
-      <span class="s2">"settled_at"</span><span class="o">:</span> <span class="s2">"2012-09-09T15:45:10Z"</span><span class="p">,</span>
-      <span class="s2">"statement_identifier"</span><span class="o">:</span> <span class="s2">"12382497"</span><span class="p">,</span>
-      <span class="s2">"subscription_id"</span><span class="o">:</span> <span class="mi">3817</span><span class="p">,</span>
-      <span class="s2">"text_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-09-11T10:46:20Z"</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="s2">"statement"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"basic_html_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
-      <span class="s2">"closed_at"</span><span class="o">:</span> <span class="s2">"2012-08-09T15:43:31Z"</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-08-11T10:18:51Z"</span><span class="p">,</span>
-      <span class="s2">"html_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">34113</span><span class="p">,</span>
-      <span class="s2">"opened_at"</span><span class="o">:</span> <span class="s2">"2012-07-09T15:42:23Z"</span><span class="p">,</span>
-      <span class="s2">"settled_at"</span><span class="o">:</span> <span class="s2">"2012-08-09T15:43:31Z"</span><span class="p">,</span>
-      <span class="s2">"statement_identifier"</span><span class="o">:</span> <span class="s2">"11484661"</span><span class="p">,</span>
-      <span class="s2">"subscription_id"</span><span class="o">:</span> <span class="mi">3817</span><span class="p">,</span>
-      <span class="s2">"text_view"</span><span class="o">:</span> <span class="s2">"..."</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-08-26T10:14:56Z"</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">]</span></code></pre>
+<div class="marker marker-note">
+  <p>Statements have been deprecated in favor of invoices. These API methods are no longer available.</p>
+</div>
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
