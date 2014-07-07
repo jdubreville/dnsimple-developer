@@ -81,16 +81,13 @@
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"subscription"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"allocated_quantity"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-05-09T15:35:57Z"</span><span class="p">,</span>
-    <span class="s2">"domain_limit"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"failure_reason"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3817</span><span class="p">,</span>
-    <span class="s2">"plan_name"</span><span class="o">:</span> <span class="s2">"Silver"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="s2">"plan_name"</span><span class="o">:</span> <span class="s2">"Gold"</span><span class="p">,</span>
     <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"subscribed"</span><span class="p">,</span>
-    <span class="s2">"statements_refreshed_at"</span><span class="o">:</span> <span class="s2">"2012-09-26T10:55:21Z"</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-09-26T10:55:21Z"</span><span class="p">,</span>
-    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">4321</span>
+    <span class="s2">"domain_limit"</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-06-24T13:42:51.355Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-07-06T20:37:52.279Z"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
@@ -113,35 +110,71 @@
 
 <h3 id="input">Input</h3>
 
-<dl>
-<dt>subscription.plan</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>subscription.credit_card.number</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>subscription.credit_card.first_name</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>subscription.credit_card.last_name</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>subscription.credit_card.billing_address</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>subscription.credit_card.billing_zip</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>subscription.credit_card.month</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>subscription.credit_card.year</dt>
-  <dd>Required <em>string</em>
-</dd>
-  <dt>subscription.credit_card.cvv</dt>
-  <dd>Required <em>string</em>
-</dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+<table class="table">
+<thead><tr>
+<th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr></thead>
+<tbody>
+<tr>
+<td><code>subscription.plan</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>subscription.credit_card.number</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>subscription.credit_card.first_name</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>subscription.credit_card.last_name</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>subscription.credit_card.billing_address</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>subscription.credit_card.billing_zip</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>subscription.credit_card.month</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>subscription.credit_card.year</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+<tr>
+<td><code>subscription.credit_card.cvv</code></td>
+      <td><code>string</code></td>
+      <td>
+<strong>Required</strong>.</td>
+    </tr>
+</tbody>
+</table><h5 id="example-2">Example</h5>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"subscription"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"plan"</span><span class="o">:</span> <span class="s2">"Silver"</span><span class="p">,</span>
     <span class="s2">"credit_card"</span><span class="o">:</span> <span class="p">{</span>
@@ -159,24 +192,21 @@
 
 <h3 id="response-1">Response</h3>
 
-<p>Responds with HTTP 400 if the validation fails.</p>
-
 <p>Responds with HTTP 201 on success.</p>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"subscription"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"allocated_quantity"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2012-09-30T17:40:42Z"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="s2">"user_id"</span><span class="o">:</span> <span class="mi">19</span><span class="p">,</span>
+    <span class="s2">"plan_name"</span><span class="o">:</span> <span class="s2">"Gold"</span><span class="p">,</span>
+    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"subscribed"</span><span class="p">,</span>
     <span class="s2">"domain_limit"</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
-    <span class="s2">"failure_reason"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"plan_name"</span><span class="o">:</span> <span class="s2">"Unknown"</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"subscribing"</span><span class="p">,</span>
-    <span class="s2">"statements_refreshed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-09-30T17:40:42Z"</span><span class="p">,</span>
-    <span class="s2">"user_id"</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-06-24T13:42:51.355Z"</span><span class="p">,</span>
+    <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-07-06T20:37:52.279Z"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
+<p>Responds with HTTP 400 if the validation fails.</p>
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
