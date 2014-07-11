@@ -55,9 +55,11 @@
         <h1 id="domain-auto-renewal-api">Domain Auto-renewal API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#enable">Enable domain auto-renewal</a></li>
+  <li><a href="#enable">Enable domain auto-renewal</a></li>
   <li><a href="#disable">Disable domain auto-renewal</a></li>
-</ul><h2 id="enable">Enable domain auto-renewal</h2>
+</ul>
+
+<h2 id="enable">Enable domain auto-renewal</h2>
 
 <pre><code>POST /domains/:domain/auto_renewal
 </code></pre>
@@ -65,19 +67,25 @@
 <h3 id="parameters">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
 
 <p>Enable auto-renewal for the domain <code>example.com</code>:</p>
 
@@ -121,19 +129,25 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-1">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
 
 <p>Disable auto-renewal for the domain <code>example.com</code>:</p>
 
@@ -168,12 +182,14 @@
     <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-01-16T22:56:22Z"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

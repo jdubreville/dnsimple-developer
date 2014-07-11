@@ -59,9 +59,11 @@
 <p>Note: you must request activation of the vanity name servers feature on your account before you can manage vanity name servers through the API. Contact support@dnsimple.com for more details.</p>
 
 <ul id="markdown-toc">
-<li><a href="#enable-domain-vanity-name-servers">Enable domain vanity name servers</a></li>
+  <li><a href="#enable-domain-vanity-name-servers">Enable domain vanity name servers</a></li>
   <li><a href="#disable-domain-vanity-name-servers">Disable domain vanity name servers</a></li>
-</ul><h2 id="enable-domain-vanity-name-servers">Enable domain vanity name servers</h2>
+</ul>
+
+<h2 id="enable-domain-vanity-name-servers">Enable domain vanity name servers</h2>
 
 <pre><code>POST /domains/:domain/vanity_name_servers
 </code></pre>
@@ -69,19 +71,25 @@
 <h3 id="parameters">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -96,8 +104,10 @@
 <p>Required fields:</p>
 
 <ul>
-<li><code>vanity_nameserver_configuration[server_source]</code></li>
-</ul><p><code>server_source</code> must be either <code>dnsimple</code> or <code>external</code>.
+  <li><code>vanity_nameserver_configuration[server_source]</code></li>
+</ul>
+
+<p><code>server_source</code> must be either <code>dnsimple</code> or <code>external</code>.
 If you pass <code>external</code> as the server source then you must include name servers to use.
 You may use up to 4 external name servers (<code>ns1</code> through <code>ns4</code>).</p>
 
@@ -131,19 +141,25 @@ You may use up to 4 external name servers (<code>ns1</code> through <code>ns4</c
 <h3 id="parameters-1">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-1">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -157,12 +173,14 @@ You may use up to 4 external name servers (<code>ns1</code> through <code>ns4</c
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"disabled"</span>
 <span class="p">}</span></code></pre>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

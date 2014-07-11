@@ -57,10 +57,12 @@
 <p>Set up email forwarding from your domain to another email account.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list">List forwards</a></li>
+  <li><a href="#list">List forwards</a></li>
   <li><a href="#create">Create a forward</a></li>
   <li><a href="#delete">Delete a forward</a></li>
-</ul><h2 id="list">List forwards</h2>
+</ul>
+
+<h2 id="list">List forwards</h2>
 
 <pre><code>GET /domains/:domain/email_forwards
 </code></pre>
@@ -68,19 +70,25 @@
 <h3 id="parameters">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
 
 <p>List email forwards for domain <code>example.com</code>:</p>
 
@@ -129,19 +137,25 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-1">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
 
 <p>Create an email forward for domain <code>example.com</code>:</p>
 
@@ -156,26 +170,30 @@
 <h3 id="input">Input</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>email_forward.from</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>email_forward.from</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>. The forward email address, without the domain.</td>
     </tr>
-<tr>
-<td><code>email_forward.to</code></td>
+    <tr>
+      <td><code>email_forward.to</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>. The complete forward email recipient.</td>
     </tr>
-</tbody>
-</table><pre><code class="language-js"><span class="p">{</span>
+  </tbody>
+</table>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"email_forward"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"from"</span><span class="o">:</span> <span class="s2">"john"</span><span class="p">,</span>
     <span class="s2">"to"</span><span class="o">:</span> <span class="s2">"someone@example.com"</span>
@@ -207,19 +225,25 @@
 <h3 id="parameters-2">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-2">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
 
 <p>Delete the email forward with ID <code>123</code> for domain <code>example.com</code>:</p>
 
@@ -233,12 +257,14 @@
 <h3 id="response-2">Response</h3>
 
 <p>Responds with HTTP 204 on success.</p>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

@@ -55,11 +55,13 @@
         <h1 id="applied-service-api">Applied Service API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list-applied-services">List applied services</a></li>
+  <li><a href="#list-applied-services">List applied services</a></li>
   <li><a href="#list-available-services">List available services</a></li>
   <li><a href="#apply-a-service">Apply a service</a></li>
   <li><a href="#unapply-a-service">Unapply a service</a></li>
-</ul><h2 id="list-applied-services">List applied services</h2>
+</ul>
+
+<h2 id="list-applied-services">List applied services</h2>
 
 <pre><code>GET /domains/:domain/applied_services
 </code></pre>
@@ -67,19 +69,25 @@
 <h3 id="parameters">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
 
 <p>List applied services for domain <code>example.com</code>:</p>
 
@@ -121,19 +129,25 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-1">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
 
 <p>List available services for domain <code>example.com</code>:</p>
 
@@ -205,19 +219,25 @@
 <h3 id="parameters-2">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-2">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
 
 <p>Apply a services to domain <code>example.com</code>:</p>
 
@@ -232,25 +252,29 @@
 <h3 id="input">Input</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>service.id</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>service.id</code></td>
       <td><code>integer</code></td>
       <td>
 <strong>Required</strong>. The id of the service to apply.</td>
     </tr>
-<tr>
-<td><code>settings</code></td>
+    <tr>
+      <td><code>settings</code></td>
       <td><code>hash</code></td>
       <td>Optional hash of settings for some specific services, corresponding to the <a href="https://github.com/aetrion/dnsimple-services#fields">service fields</a>. For instance, <a href="https://github.com/aetrion/dnsimple-services/blob/master/services/heroku/config.json#L8-L14">Heroku requires a <code>settings[app]</code> setting</a>.</td>
     </tr>
-</tbody>
-</table><h3 id="response-2">Response</h3>
+  </tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
 
 <p>Responds with HTTP 200 on success, returns the list of services applied to the domain.</p>
 
@@ -285,26 +309,30 @@
 <h3 id="parameters-3">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
     </tr>
-<tr>
-<td><code>:id</code></td>
+    <tr>
+      <td><code>:id</code></td>
       <td><code>integer</code></td>
       <td>The service id</td>
     </tr>
-</tbody>
-</table><h3 id="example-3">Example</h3>
+  </tbody>
+</table>
+
+<h3 id="example-3">Example</h3>
 
 <p>Unapply the services <code>123</code> from domain <code>example.com</code>:</p>
 
@@ -318,12 +346,14 @@
 <h3 id="response-3">Response</h3>
 
 <p>Responds with HTTP 200 on success.</p>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

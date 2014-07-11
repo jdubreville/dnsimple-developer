@@ -55,9 +55,11 @@
         <h1 id="domain-zone-api">Domain Zone API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#import-a-domain-zone">Import a domain zone</a></li>
+  <li><a href="#import-a-domain-zone">Import a domain zone</a></li>
   <li><a href="#export-a-domain-zone">Export a domain zone</a></li>
-</ul><h2 id="import-a-domain-zone">Import a domain zone</h2>
+</ul>
+
+<h2 id="import-a-domain-zone">Import a domain zone</h2>
 
 <pre><code>POST /domains/:domain/zone_imports
 </code></pre>
@@ -65,19 +67,25 @@
 <h3 id="parameters">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
 
 <p>Import zone for domain <code>example.com</code>:</p>
 
@@ -102,10 +110,12 @@
 <h3 id="input">Input</h3>
 
 <dl>
-<dt>zone_import.zone_data</dt>
+  <dt>zone_import.zone_data</dt>
   <dd>Required <em>string</em>
 </dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"zone_import"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"zone_data"</span><span class="o">:</span> <span class="s2">"$ORIGIN example.com.\n$TTL 1h\nexample.com. IN  SOA ns1.dnsimple.com admin.dnsimple.com 2011092001 86400 7200 604800 300\nexample.com. IN NS  ns1.dnsimple.com.\nexample.com. IN NS  ns2.dnsimple.com.\nexample.com. IN NS  ns3.dnsimple.com.\nexample.com. IN NS  ns4.dnsimple.com.\nds1.example.com. 3600 IN  A 184.106.215.134\nindex.example.com. 3600 IN  NS ds1.example.com\n; example.com. 3600 IN  URL http://dnsimple.com\n; www.example.com. 3600 IN  URL https://dnsimple.com"</span>
   <span class="p">}</span>
@@ -170,19 +180,25 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-1">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
 
 <p>Export zone for domain <code>example.com</code>:</p>
 
@@ -206,12 +222,14 @@ example.com. IN NS  ns2.dnsimple.com.
 example.com. IN NS  ns3.dnsimple.com.
 example.com. IN NS  ns4.dnsimple.com.
 </code></pre>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

@@ -55,12 +55,14 @@
         <h1 id="domain-registry-api">Domain Registry API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#register">Register a domain</a></li>
+  <li><a href="#register">Register a domain</a></li>
   <li><a href="#transfer">Transfer a domain</a></li>
   <li><a href="#renew">Renew a domain</a></li>
   <li><a href="#transfer-out">Transfer out a domain</a></li>
   <li><a href="#availability">Check domain availability</a></li>
-</ul><h2 id="register">Register a domain</h2>
+</ul>
+
+<h2 id="register">Register a domain</h2>
 
 <p>Register a domain name with DNSimple and the appropriate domain registry.</p>
 
@@ -84,32 +86,36 @@ so please be careful with this command.</p>
 <h3 id="input">Input</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>domain.name</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>domain.name</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-<tr>
-<td><code>domain.registrant_id</code></td>
+    <tr>
+      <td><code>domain.registrant_id</code></td>
       <td><code>integer</code></td>
       <td>
 <strong>Required</strong>. The ID of an existing contact in your account.</td>
     </tr>
-<tr>
-<td><code>extended_attribute</code></td>
+    <tr>
+      <td><code>extended_attribute</code></td>
       <td><code>hash</code></td>
       <td>
 <strong>Required</strong> for TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
     </tr>
-</tbody>
-</table><h5 id="example-1">Example</h5>
+  </tbody>
+</table>
+
+<h5 id="example-1">Example</h5>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
@@ -184,38 +190,42 @@ however domains ending in <code>.us</code> and <code>.ca</code> may not.</p>
 <h3 id="input-1">Input</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>domain.name</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>domain.name</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-<tr>
-<td><code>domain.registrant_id</code></td>
+    <tr>
+      <td><code>domain.registrant_id</code></td>
       <td><code>integer</code></td>
       <td>
 <strong>Required</strong>. The ID of an existing contact in your account.</td>
     </tr>
-<tr>
-<td><code>extended_attribute</code></td>
+    <tr>
+      <td><code>extended_attribute</code></td>
       <td><code>hash</code></td>
       <td>
 <strong>Required</strong> for TLDs that require <a href="/extended-attributes/">extended attributes</a>.</td>
     </tr>
-<tr>
-<td><code>transfer_order.authinfo</code></td>
+    <tr>
+      <td><code>transfer_order.authinfo</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong> for top-level domains that require an authorization code.</td>
     </tr>
-</tbody>
-</table><h5 id="example-3">Example</h5>
+  </tbody>
+</table>
+
+<h5 id="example-3">Example</h5>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
@@ -270,25 +280,29 @@ which is 1 year for most domains but for some domains may be more.</p>
 <h3 id="input-2">Input</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>domain.name</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>domain.name</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-<tr>
-<td><code>domain.renew_whois_privacy</code></td>
+    <tr>
+      <td><code>domain.renew_whois_privacy</code></td>
       <td><code>boolean</code></td>
       <td>Set to <code>true</code> to also renew the associated Whois Privacy. Default: <code>false</code>.</td>
     </tr>
-</tbody>
-</table><h5 id="example-5">Example</h5>
+  </tbody>
+</table>
+
+<h5 id="example-5">Example</h5>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"domain"</span><span class="o">:</span> <span class="p">{</span>
@@ -333,19 +347,25 @@ which is 1 year for most domains but for some domains may be more.</p>
 <h3 id="parameters">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-6">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-6">Example</h3>
 
 <p>Transfer out the domain with ID <code>1</code>.</p>
 
@@ -379,17 +399,23 @@ which is 1 year for most domains but for some domains may be more.</p>
 <h3 id="parameters-1">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td><code>string</code></td>
       <td>The domain name</td>
-    </tr></tbody>
-</table><h3 id="example-7">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-7">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -428,12 +454,14 @@ have to reserve the domain for, if you decide to get it.</p>
   <span class="s2">"currency_symbol"</span><span class="o">:</span><span class="s2">"$"</span><span class="p">,</span>
   <span class="s2">"minimum_number_of_years"</span><span class="o">:</span><span class="mi">1</span>
 <span class="p">}</span></code></pre>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

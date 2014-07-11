@@ -57,8 +57,10 @@
 <p>API for provisioning users.</p>
 
 <ul id="markdown-toc">
-<li><a href="#create">Create an user</a></li>
-</ul><h2 id="create">Create an user</h2>
+  <li><a href="#create">Create an user</a></li>
+</ul>
+
+<h2 id="create">Create an user</h2>
 
 <p>Provision a new user account.</p>
 
@@ -80,32 +82,36 @@
 <h3 id="input">Input</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>user.email</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>user.email</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-<tr>
-<td><code>user.password</code></td>
+    <tr>
+      <td><code>user.password</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-<tr>
-<td><code>user.password_confirmation</code></td>
+    <tr>
+      <td><code>user.password_confirmation</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-</tbody>
-</table><pre><code class="language-js"><span class="p">{</span>
+  </tbody>
+</table>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"user"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"john.smith@example.com"</span><span class="p">,</span>
     <span class="s2">"password"</span><span class="o">:</span> <span class="s2">"x8ejfhfgjQ#A"</span><span class="p">,</span>
@@ -135,12 +141,14 @@
 <span class="p">}</span></code></pre>
 
 <p>Responds with HTTP 400 if the validation fails.</p>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

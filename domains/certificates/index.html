@@ -57,12 +57,14 @@
 <p>Purchase and manage SSL certificates.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-domain-certificates">List domain certificates</a></li>
+  <li><a href="#list-domain-certificates">List domain certificates</a></li>
   <li><a href="#get-a-domain-certificate">Get a domain certificate</a></li>
   <li><a href="#purchase-a-domain-certificate">Purchase a domain certificate</a></li>
   <li><a href="#configure-a-domain-certificate">Configure a domain certificate</a></li>
   <li><a href="#submit-a-domain-certificate">Submit a domain certificate</a></li>
-</ul><h2 id="list-domain-certificates">List domain certificates</h2>
+</ul>
+
+<h2 id="list-domain-certificates">List domain certificates</h2>
 
 <pre><code>GET /domains/:domain/certificates
 </code></pre>
@@ -70,19 +72,25 @@
 <h3 id="parameters">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
 
 <p>List certificates for domain <code>example.com</code>:</p>
 
@@ -224,22 +232,30 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><dl>
-<dt>:id</dt>
+    </tr>
+  </tbody>
+</table>
+
+<dl>
+  <dt>:id</dt>
   <dd>The <em>integer</em> certificate id</dd>
-</dl><h3 id="example-1">Example</h3>
+</dl>
+
+<h3 id="example-1">Example</h3>
 
 <p>Get the certificate with ID <code>2</code>.</p>
 
@@ -321,19 +337,25 @@
 <h3 id="parameters-2">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-2">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-2">Example</h3>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
@@ -346,7 +368,7 @@
 <h3 id="input">Input</h3>
 
 <dl>
-<dt>certificate.name</dt>
+  <dt>certificate.name</dt>
   <dd>Required <em>string</em> subdomain for the certificate.
 Leave it blank to purchase a certificate for the root domain.
 Enter <code>*</code> to purchase a wildcard certificate for the domain.
@@ -357,7 +379,9 @@ In case of wildcard domains, the contact information must match what is in the C
 If you plan on submitting your own Certificate Signing Request then you must ensure these details match.</dd>
   <dt>certificate.csr</dt>
   <dd>Optional <em>string</em> with a custom Certificate Signing Request.</dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"www"</span><span class="p">,</span>
     <span class="s2">"contact_id"</span><span class="o">:</span> <span class="mi">100</span>
@@ -437,22 +461,30 @@ If you plan on submitting your own Certificate Signing Request then you must ens
 <h3 id="parameters-3">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><dl>
-<dt>:id</dt>
+    </tr>
+  </tbody>
+</table>
+
+<dl>
+  <dt>:id</dt>
   <dd>The <em>integer</em> certificate id</dd>
-</dl><h3 id="example-3">Example</h3>
+</dl>
+
+<h3 id="example-3">Example</h3>
 
 <p>Configure the certificate with ID <code>2</code>.</p>
 
@@ -537,22 +569,30 @@ If you plan on submitting your own Certificate Signing Request then you must ens
 <h3 id="parameters-4">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><dl>
-<dt>:id</dt>
+    </tr>
+  </tbody>
+</table>
+
+<dl>
+  <dt>:id</dt>
   <dd>The <em>integer</em> certificate id</dd>
-</dl><h3 id="example-4">Example</h3>
+</dl>
+
+<h3 id="example-4">Example</h3>
 
 <p>Submit the certificate with ID <code>2</code>.</p>
 
@@ -567,10 +607,12 @@ If you plan on submitting your own Certificate Signing Request then you must ens
 <h3 id="input-1">Input</h3>
 
 <dl>
-<dt>certificate.approver_email</dt>
+  <dt>certificate.approver_email</dt>
   <dd>Required <em>string</em>
 </dd>
-</dl><pre><code class="language-js"><span class="p">{</span>
+</dl>
+
+<pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"certificate"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"approver_email"</span><span class="o">:</span> <span class="s2">"admin@example.com"</span>
   <span class="p">}</span>
@@ -638,12 +680,14 @@ If you plan on submitting your own Certificate Signing Request then you must ens
     <span class="s2">"expires_on"</span><span class="o">:</span> <span class="s2">"2012-05-14"</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

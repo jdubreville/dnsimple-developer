@@ -65,51 +65,61 @@
 <h3 id="domain-serialization">Domain serialization</h3>
 
 <ul>
-<li>
-<code>name_server_status</code> is deprecated and will be removed.</li>
   <li>
 <code>private_whois?</code> is deprecated and will be removed, use <code>whois_protected</code> instead.</li>
   <li>
 <code>parsed_expiration_date</code> is deprecated and will be removed, use <code>expires_on</code> instead.</li>
   <li>
 <code>expires_at</code> is deprecated and will be removed.</li>
-</ul><h3 id="certificate-serialization">Certificate serialization</h3>
+</ul>
+
+<h3 id="certificate-serialization">Certificate serialization</h3>
 
 <ul>
-<li>
-<code>name_server_status</code> is deprecated and will be removed. Use <code>approver_emails</code> instead (the field is displayed only when the certificate is in the <code>configured</code> state).</li>
+  <li>
+<code>available_approver_emails</code> is deprecated and will be removed. Use <code>approver_emails</code> instead (the field is displayed only when the certificate is in the <code>configured</code> state).</li>
   <li>
 <code>certificate_status</code> is deprecated and will be removed.</li>
-</ul><h3 id="user-serialization">User serialization</h3>
+</ul>
+
+<h3 id="user-serialization">User serialization</h3>
 
 <ul>
-<li>
+  <li>
 <code>first_name</code> is deprecated and will be removed.</li>
   <li>
 <code>last_name</code> is deprecated and will be removed.</li>
-</ul><h2 id="method-changes">Method changes</h2>
+</ul>
+
+<h2 id="method-changes">Method changes</h2>
 
 <h3 id="delete-domainsdomain">DELETE /domains/:domain</h3>
 
 <ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
-  <li>Response is expected to be empty instead of a JSON object.</li>
-</ul><h3 id="delete-domainsdomainrecordsid">DELETE /domains/:domain/records/:id</h3>
-
-<ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
-</ul><h3 id="delete-domainsdomainwhoisprivacy">DELETE /domains/:domain/whois_privacy</h3>
-
-<ul>
-<li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
   <li>Response is expected to be empty instead of a JSON object.</li>
 </ul>
+
+<h3 id="delete-domainsdomainrecordsid">DELETE /domains/:domain/records/:id</h3>
+
+<ul>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+</ul>
+
+<h3 id="delete-domainsdomainwhoisprivacy">DELETE /domains/:domain/whois_privacy</h3>
+
+<ul>
+  <li>Response code is expected to HTTP 204 instead of HTTP 200.</li>
+  <li>Response is expected to be empty instead of a JSON object.</li>
+</ul>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>

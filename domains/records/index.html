@@ -55,12 +55,14 @@
         <h1 id="domain-record-api">Domain Record API</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list">List records for a domain</a></li>
+  <li><a href="#list">List records for a domain</a></li>
   <li><a href="#create">Create a record</a></li>
   <li><a href="#get">Get a record</a></li>
   <li><a href="#update">Update a record</a></li>
   <li><a href="#delete">Delete a record</a></li>
-</ul><h2 id="list">List records for a domain</h2>
+</ul>
+
+<h2 id="list">List records for a domain</h2>
 
 <pre><code>GET /domains/:domain/records
 </code></pre>
@@ -68,33 +70,37 @@
 <h3 id="parameters">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
     </tr>
-<tr>
-<td><code>name</code></td>
+    <tr>
+      <td><code>name</code></td>
       <td><code>string</code></td>
       <td>The name to search for. Example: <code>www</code>
 </td>
     </tr>
-<tr>
-<td><code>type</code></td>
+    <tr>
+      <td><code>type</code></td>
       <td><code>string</code></td>
       <td>The record type to search for. Example: <code>www</code>
 </td>
     </tr>
-</tbody>
-</table><h3 id="example">Example</h3>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
 
 <p>List records for domain <code>example.com</code>:</p>
 
@@ -158,19 +164,25 @@
 <h3 id="parameters-1">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody><tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
-    </tr></tbody>
-</table><h3 id="example-1">Example</h3>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
 
 <p>Create a record for domain <code>example.com</code>:</p>
 
@@ -185,42 +197,46 @@
 <h3 id="input">Input</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>record.name</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>record.name</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>. Use an empty string to create a record for the root domain.</td>
     </tr>
-<tr>
-<td><code>record.record_type</code></td>
+    <tr>
+      <td><code>record.record_type</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-<tr>
-<td><code>record.content</code></td>
+    <tr>
+      <td><code>record.content</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-<tr>
-<td><code>record.ttl</code></td>
+    <tr>
+      <td><code>record.ttl</code></td>
       <td><code>integer</code></td>
       <td> </td>
     </tr>
-<tr>
-<td><code>record.prio</code></td>
+    <tr>
+      <td><code>record.prio</code></td>
       <td><code>integer</code></td>
       <td> </td>
     </tr>
-</tbody>
-</table><h5 id="example-2">Example</h5>
+  </tbody>
+</table>
+
+<h5 id="example-2">Example</h5>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
@@ -262,26 +278,30 @@
 <h3 id="parameters-2">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
     </tr>
-<tr>
-<td><code>:id</code></td>
+    <tr>
+      <td><code>:id</code></td>
       <td><code>integer</code></td>
       <td>The record id</td>
     </tr>
-</tbody>
-</table><h3 id="example-3">Example</h3>
+  </tbody>
+</table>
+
+<h3 id="example-3">Example</h3>
 
 <p>Get the record <code>123</code> for domain <code>example.com</code>.</p>
 
@@ -314,26 +334,30 @@
 <h3 id="parameters-3">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
     </tr>
-<tr>
-<td><code>:id</code></td>
+    <tr>
+      <td><code>:id</code></td>
       <td><code>integer</code></td>
       <td>The record id</td>
     </tr>
-</tbody>
-</table><h3 id="example-4">Example</h3>
+  </tbody>
+</table>
+
+<h3 id="example-4">Example</h3>
 
 <p>Update the record with ID <code>123</code> for domain <code>example.com</code>:</p>
 
@@ -350,36 +374,40 @@
 <p>The following fields are updateable. You can pass zero of any of them.</p>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>record.name</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>record.name</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>. Use an empty string to create a record for the root domain.</td>
     </tr>
-<tr>
-<td><code>record.content</code></td>
+    <tr>
+      <td><code>record.content</code></td>
       <td><code>string</code></td>
       <td>
 <strong>Required</strong>.</td>
     </tr>
-<tr>
-<td><code>record.ttl</code></td>
+    <tr>
+      <td><code>record.ttl</code></td>
       <td><code>integer</code></td>
       <td> </td>
     </tr>
-<tr>
-<td><code>record.prio</code></td>
+    <tr>
+      <td><code>record.prio</code></td>
       <td><code>integer</code></td>
       <td> </td>
     </tr>
-</tbody>
-</table><h5 id="example-5">Example</h5>
+  </tbody>
+</table>
+
+<h5 id="example-5">Example</h5>
 
 <pre><code class="language-js"><span class="p">{</span>
   <span class="s2">"record"</span><span class="o">:</span> <span class="p">{</span>
@@ -424,26 +452,30 @@
 <h3 id="parameters-4">Parameters</h3>
 
 <table class="table">
-<thead><tr>
-<th>Name</th>
+  <thead>
+    <tr>
+      <th>Name</th>
       <th>Type</th>
       <th>Description</th>
-    </tr></thead>
-<tbody>
-<tr>
-<td><code>:domain</code></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>:domain</code></td>
       <td>
 <code>string</code>, <code>integer</code>
 </td>
       <td>The domain name or id</td>
     </tr>
-<tr>
-<td><code>:id</code></td>
+    <tr>
+      <td><code>:id</code></td>
       <td><code>integer</code></td>
       <td>The record id</td>
     </tr>
-</tbody>
-</table><h3 id="example-6">Example</h3>
+  </tbody>
+</table>
+
+<h3 id="example-6">Example</h3>
 
 <p>Delete the record with ID <code>123</code> for domain <code>example.com</code>:</p>
 
@@ -463,12 +495,14 @@
 
   <p>The method will return a blank response in the future, you should not depend on the response body. See <a href="/planned-changes/#delete-domainsdomainrecordsid" class="alert-link">planned changes</a>.</p>
 </div>
+
       </main>
       <aside id="sidebar" class="col-md-3" role="sidebar">
         <h4 class="sidebar-title">Introduction</h4>
 <ul class="nav-list">
   <li><a href="/overview/">Overview</a></li>
   <li><ul class="nav-list">
+  <li><a href="/sandbox/">Sandbox</a></li>
   <li><a href="/authentication/">Authentication</a></li>
   </ul></li>
   <li><a href="/libraries/">Libraries</a></li>
