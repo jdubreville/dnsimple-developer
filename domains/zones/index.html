@@ -174,8 +174,10 @@
 
 <h2 id="export-a-domain-zone">Export a domain zone</h2>
 
-<pre><code>GET /domains/:domain/zone.txt
+<pre><code>GET /domains/:domain/zone
 </code></pre>
+
+<p>Note that this API endpoint responds only using the MIME type plain/text at the moment.</p>
 
 <h3 id="parameters-1">Parameters</h3>
 
@@ -202,14 +204,16 @@
 
 <p>Export zone for domain <code>example.com</code>:</p>
 
-<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      https://api.dnsimple.com/v1/domains/example.com/zone.txt
+<pre><code>curl  -H 'Accept: text/plain' \
+      -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      https://api.dnsimple.com/v1/domains/example.com/zone
 </code></pre>
 
 <p>Export zone for domain with ID <code>123</code>:</p>
 
-<pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
-      https://api.dnsimple.com/v1/domains/123/zone.txt
+<pre><code>curl  -H 'Accept: text/plain' \
+      -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
+      https://api.dnsimple.com/v1/domains/123/zone
 </code></pre>
 
 <h3 id="response-1">Response</h3>
