@@ -82,7 +82,7 @@
 <p>All requests should include the <code>Accept</code> header set to <code>application/json</code>. All data is sent and received as JSON.</p>
 
 <div class="marker marker-warning">
-  <p>#### Planned Changes</p>
+  <h4 id="planned-changes">Planned Changes</h4>
 
   <p>Passing form-encoded post data using the <code>application/x-www-form-urlencoded</code> content type is deprecated.</p>
 </div>
@@ -91,23 +91,27 @@
 
 <p>There are three ways to authenticate through DNSimple API. Two of them are global to all the API methods, one provides access to limited resources.</p>
 
-<p>There are two authentication methods availabe: <code>HTTP Basic Authentication</code> or the <code>X-DNSimple-Token</code> header.</p>
+<p>There are two authentication methods available: the <strong>HTTP Basic Authentication</strong> and the <strong>API token</strong>.</p>
+
+<div class="marker marker-info">
+  <p>The API token is the recommended authentication mechanism.</p>
+</div>
 
 <h5 id="http-basic-authentication">HTTP Basic Authentication</h5>
 
-<pre><code>curl  -u "&lt;email&gt;:&lt;password&gt;" \
+<pre><code>curl  -u '&lt;email&gt;:&lt;password&gt;' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v1/user
 </code></pre>
 
-<h5 id="dnsimple-api-token-sent-in-a-header">DNSimple API Token (sent in a header)</h5>
+<h5 id="dnsimple-api-token-passed-as-header">DNSimple API Token (passed as header)</h5>
 
 <pre><code>curl  -H 'X-DNSimple-Token: &lt;email&gt;:&lt;token&gt;' \
       -H 'Accept: application/json' \
       https://api.dnsimple.com/v1/user
 </code></pre>
 
-<h5 id="dnsimple-domain-token-sent-in-a-header">DNSimple Domain Token (sent in a header)</h5>
+<h5 id="dnsimple-domain-token-passed-as-header">DNSimple Domain Token (passed as header)</h5>
 
 <pre><code>curl  -H 'X-DNSimple-Domain-Token: &lt;token&gt;' \
       -H 'Accept: application/json' \
