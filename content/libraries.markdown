@@ -38,6 +38,7 @@ If you develop a client for the API [please let us know](mailto:support@dnsimple
 ### PHP
 
 - [DNSimple PHP library](https://github.com/fvdm/dnsimple-php)
+- [DNSimple PHP Client](https://github.com/jdubreville/dnsimple_api_client_php)
 
 ### PowerShell
 
